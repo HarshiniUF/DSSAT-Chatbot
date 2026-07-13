@@ -28,7 +28,11 @@ from experiment_config import (
 )
 
 _FILEX_DIR = Path(__file__).resolve().parent.parent / "FileX_MultiAgent"
-_FILEX_PYTHON = _FILEX_DIR / "venv" / "bin" / "python"
+# One shared project venv now installs both pipelines' dependencies (see
+# requirements.txt) -- FileX_MultiAgent no longer has its own venv. It's
+# still launched as a subprocess with cwd=_FILEX_DIR so its same-named
+# agents/utils/prompts packages don't collide with this project's own.
+_FILEX_PYTHON = Path(__file__).resolve().parent.parent / "venv" / "bin" / "python"
 _FILEX_RUNNER = _FILEX_DIR / "run_cli.py"
 
 _CROP_NAME_TO_CODE = {name.upper(): code for code, name in CROP_CODES.items()}

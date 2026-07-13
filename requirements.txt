@@ -1,0 +1,45 @@
+# Unified dependencies for the whole project (chatbot pipeline at the repo
+# root + the FileX_MultiAgent generation pipeline). One shared venv installs
+# this; FileX_MultiAgent is still invoked as a subprocess with its own
+# working directory (see agents/multiagent_nodes.py) because it defines its
+# own agents/utils/prompts packages that would otherwise collide by name
+# with this project's own agents package -- that isolation comes from being
+# a separate process with its own cwd, not from a separate venv, so one
+# shared environment is safe.
+
+# Core LLM & Agent Framework
+langgraph==1.0.8
+langchain-core==1.2.11
+langchain-openai==1.1.7
+langchain-ollama==1.0.0
+openai==2.6.0
+
+# Web UI (FileX_MultiAgent/streamlit_ui)
+streamlit==1.53.0
+chardet==7.4.3
+rosetta-soil==0.3.2
+
+# Data & Scientific
+pandas<3,>=1.4.0
+numpy==1.26.4
+scipy
+nltk
+
+# Geolocation
+geopy==2.4.1
+
+# HTTP Requests
+requests==2.32.5
+
+# Environment Variables
+python-dotenv==1.2.1
+
+# Geospatial / Raster (used by FileX_MultiAgent/INTEGRATION)
+rasterio==1.4.3
+
+# Weather API (used by FileX_MultiAgent/INTEGRATION)
+openmeteo-requests==1.7.4
+
+# Web scraping for cultivar DB
+duckduckgo-search>=8.0.0
+beautifulsoup4>=4.12.0
