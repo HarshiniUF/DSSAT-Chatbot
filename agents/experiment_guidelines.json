@@ -5,36 +5,36 @@
     "CNAME": "H614"
   },
   "planting_details": {
-    "PDATE": "2010-03-15",
-    "PPOP": 5.0,
+    "PDATE": "2010-03-30",
+    "PPOP": 5.33,
     "PLME": "S",
     "PLDS": "R",
     "PLRS": 75,
     "PLDP": 5.0,
     "PLRD": -99,
-    "assumptions_or_notes": "Assumed rainfed smallholder system in Kitale highlands using Kenya Seed H614; main season is long rains (Mar\u2013Jun). Chosen PPOP (5.0 plants/m\u00b2) with 75 cm rows implies \u224827 cm in-row spacing, within common 25\u201330 cm practice. Planting depth 5 cm reflects hand-hoeing in moist soils. Row direction unknown; set to \u221299. Actual 2010 rainfall onset may vary by field; if using site-specific rainfall, adjust PDATE accordingly."
+    "assumptions_or_notes": "Rainfed smallholder system; planting timed to onset of long rains (mid-Mar\u2013early Apr). H614 hybrid suited to Kitale highlands. Density approximates Kenya extension recommendations for high potential areas (\u224853,000 plants/ha), implemented as 75 cm rows with ~25 cm within-row spacing (implied by PPOP=5.33). Planting depth set to 5 cm for moist soils. No specific row orientation data; set PLRD=-99. Year-specific rainfall not consulted; date chosen as representative median of typical window."
   },
   "fertilizer_details": {
     "events": [
       {
-        "FDATE": "2010-03-15",
+        "FDATE": "2010-03-30",
         "FMCD": "FE006",
-        "FACD": "AP007",
+        "FACD": "AP004",
         "FDEP": 5.0,
-        "FAMN": 9.0,
-        "FAMP": 10.0,
+        "FAMN": 18.0,
+        "FAMP": 20.1,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Basal DAP (diammonium phosphate, 18-46-0) placed in the planting hole just below/offset from the seed (hand placement). Product-rate logic: ~50 kg/ha DAP supplies 9.0 kg N/ha and \u224810.0 kg P/ha (P2O5 fraction 0.46 \u00d7 0.4364). This reflects common Kitale farmer practice of DAP at planting for P. Depth set to ~5 cm to reflect fertilizer in the bottom of the hole."
+        "Assumptions_or_Notes": "Basal DAP at planting, banded beneath the surface near the seed to reduce seed burn and improve P availability; typical smallholder practice in Kitale. Product: Diammonium phosphate (DAP), grade 18-46-0. Product rate assumed ~100 kg/ha, giving N = 100 \u00d7 0.18 = 18.0 kg N/ha and P = 100 \u00d7 0.46 \u00d7 0.4364 \u2248 20.1 kg P/ha (K = 0). Placement depth ~5 cm, slightly to the side of the seed. This event reflects common local use of DAP as the basal fertilizer."
       },
       {
-        "FDATE": "2010-04-19",
+        "FDATE": "2010-05-04",
         "FMCD": "FE011",
-        "FACD": "AP002",
-        "FDEP": 5.0,
-        "FAMN": 46.0,
+        "FACD": "AP001",
+        "FDEP": 0.0,
+        "FAMN": 37.0,
         "FAMP": 0.0,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Topdress CAN (calcium ammonium nitrate, 26-0-0) at ~35 DAP (knee-high). Broadcast by hand and lightly incorporated during weeding. Product-rate equivalence: \u2248177 kg/ha CAN to supply 46.0 kg N/ha (0.26 N fraction). This timing and method are typical in Trans-Nzoia highlands; K is not routinely applied. Total N across events equals exactly 55.0 kg N/ha per experimental requirement."
+        "Assumptions_or_Notes": "Topdress CAN at knee-high stage, broadcast by hand without incorporation; standard smallholder practice for N in the Kenyan highlands. Product: Calcium ammonium nitrate (CAN), grade ~26-0-0. Product rate set to ~142.3 kg/ha to deliver exactly 37.0 kg N/ha (142.3 \u00d7 0.26 \u2248 37.0). No P or K supplied. Timing at 35 DAP matches typical early topdress window during the long rains."
       }
     ],
     "total_n": 55.0
@@ -70,8 +70,8 @@
   },
   "automatic_management": {
     "PLANTING": {
-      "PFRST": "2010-03-15",
-      "PLAST": "2010-03-15"
+      "PFRST": "2010-03-30",
+      "PLAST": "2010-03-30"
     }
   }
 }

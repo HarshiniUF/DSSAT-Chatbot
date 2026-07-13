@@ -360,9 +360,12 @@ CLASSIFY THIS QUESTION and extract:
    - RETURN AS NUMBER (kg/ha), not a string
    - This will be TREATMENT 1 baseline
 
-5. proposed_increment: If user asks about "adding" or "increasing" by some amount, extract it
-   - Return as number (kg/ha)
-   - Example: "what if I add 50 kg N" → increment = 50
+5. proposed_increment: If user asks about "adding"/"increasing" OR "reducing"/"decreasing"/
+   "cutting" by some amount, extract it as a SIGNED number (kg/ha):
+   - Increase/add → POSITIVE number. Example: "what if I add 50 kg N" → increment = 50
+   - Reduce/decrease/cut/lower → NEGATIVE number. Example: "what if I reduce N by 10 kg"
+     → increment = -10 (NOT 10 -- the sign matters, this is what distinguishes it from
+     an increase, and treatment 2's rate is computed as baseline + increment)
    - If not mentioned, default to null
 
 EXAMPLES:
@@ -373,6 +376,11 @@ User: "what if i increase nitrogen by 50 kg per hectare, how much additional yie
 → region: "Trans Nzoia"
 → baseline_nitrogen_rate: 90  (assumed standard practice since not stated)
 → proposed_increment: 50
+
+User: "how much yield if i reduce 10 kg N?"
+→ focus_variable: "fertilizer_rate"
+→ baseline_nitrogen_rate: 90  (assumed standard practice since not stated)
+→ proposed_increment: -10  (NEGATIVE -- this is a reduction, not an increase)
 
 User: "compare yields at 60, 90, 120 kg N/ha"
 → focus_variable: "fertilizer_rate"
@@ -551,7 +559,16 @@ DESIGN RULES:
      one specific change, so only one comparison treatment is needed to answer it.
    - Only if proposed_increment is NOT specified (null), create 2-3 treatments
      spread around the baseline instead.
-   - All rates must be >= 50 kg/ha (minimum viable)
+   - When proposed_increment IS specified, compute Treatment 2's rate as EXACTLY
+     baseline_rate + proposed_increment -- do not round, floor, or substitute a
+     different number even if that makes it low. The user asked about that
+     specific change; silently swapping in a different rate answers a
+     different question than the one asked. The only hard floor is physical
+     (a rate can't go below 0 kg/ha) -- if applying proposed_increment would go
+     below 0, clamp to 0 and say so explicitly in that treatment's description.
+   - When proposed_increment is NOT specified (spread of 2-3 exploratory
+     rates), keep every rate >= 50 kg/ha (minimum agronomically realistic for
+     an auto-generated spread).
 
 2. FOR FERTILIZER_TIMING QUESTIONS (split applications, timing changes):
    - Parse timing directives from the question (e.g., "before planting", "at topdress", "V6 stage")
@@ -583,7 +600,8 @@ DESIGN RULES:
    - Only vary the target parameter
 
 5. All treatments MUST have:
-   - basal_rate >= 50 kg/ha (minimum)
+   - basal_rate >= 0 kg/ha (a rate can't be negative; see the proposed_increment
+     rule above for when the >= 50 kg/ha realistic-minimum applies)
    - Realistic dates and logistics
    - Clear description of what's different
 
