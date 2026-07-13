@@ -1,57 +1,77 @@
 {
   "cultivars": {
     "CR": "MZ",
-    "INGENO": "IB0001",
-    "CNAME": "Default"
+    "INGENO": "KY0011",
+    "CNAME": "H614"
   },
   "planting_details": {
-    "PDATE": "25074",
-    "PPOP": 5.3,
+    "PDATE": "2010-03-15",
+    "PPOP": 5.0,
     "PLME": "S",
     "PLDS": "R",
-    "PLRS": 75.0,
-    "PLRD": -99.0,
-    "PLDP": 5.0
+    "PLRS": 75,
+    "PLDP": 5.0,
+    "PLRD": -99,
+    "assumptions_or_notes": "Assumed rainfed smallholder system in Kitale highlands using Kenya Seed H614; main season is long rains (Mar\u2013Jun). Chosen PPOP (5.0 plants/m\u00b2) with 75 cm rows implies \u224827 cm in-row spacing, within common 25\u201330 cm practice. Planting depth 5 cm reflects hand-hoeing in moist soils. Row direction unknown; set to \u221299. Actual 2010 rainfall onset may vary by field; if using site-specific rainfall, adjust PDATE accordingly."
   },
   "fertilizer_details": {
     "events": [
       {
-        "FDATE": "25074",
-        "FMCD": "FE001",
-        "FACD": "AP001",
+        "FDATE": "2010-03-15",
+        "FMCD": "FE006",
+        "FACD": "AP007",
         "FDEP": 5.0,
-        "FAMN": 50.0
+        "FAMN": 9.0,
+        "FAMP": 10.0,
+        "FAMK": 0.0,
+        "Assumptions_or_Notes": "Basal DAP (diammonium phosphate, 18-46-0) placed in the planting hole just below/offset from the seed (hand placement). Product-rate logic: ~50 kg/ha DAP supplies 9.0 kg N/ha and \u224810.0 kg P/ha (P2O5 fraction 0.46 \u00d7 0.4364). This reflects common Kitale farmer practice of DAP at planting for P. Depth set to ~5 cm to reflect fertilizer in the bottom of the hole."
+      },
+      {
+        "FDATE": "2010-04-19",
+        "FMCD": "FE011",
+        "FACD": "AP002",
+        "FDEP": 5.0,
+        "FAMN": 46.0,
+        "FAMP": 0.0,
+        "FAMK": 0.0,
+        "Assumptions_or_Notes": "Topdress CAN (calcium ammonium nitrate, 26-0-0) at ~35 DAP (knee-high). Broadcast by hand and lightly incorporated during weeding. Product-rate equivalence: \u2248177 kg/ha CAN to supply 46.0 kg N/ha (0.26 N fraction). This timing and method are typical in Trans-Nzoia highlands; K is not routinely applied. Total N across events equals exactly 55.0 kg N/ha per experimental requirement."
       }
     ],
-    "total_n": 50.0
+    "total_n": 55.0
   },
   "irrigation_details": {
+    "strategy": "rainfed",
+    "header_row": {
+      "EFIR": -99,
+      "IDEP": -99,
+      "ITHR": -99,
+      "IEPT": -99,
+      "IOFF": null,
+      "IAME": null,
+      "IAMT": -99,
+      "IRNAME": -99
+    },
     "events": []
   },
   "field_details": {
-    "ID_FIELD": "KENY0001",
-    "WSTA": "KENA0001",
-    "ID_SOIL": "180",
-    "XCRD": 36.82,
-    "YCRD": 0.02
+    "id_field": "KETR0903",
+    "wsta": "KETR0903",
+    "id_soil": "KE04612019",
+    "flsa": -99,
+    "flob": -99,
+    "fldt": "-99",
+    "sldp": -99,
+    "flname": -99,
+    "weather_duration_years": 3
   },
   "initial_conditions": {},
   "simulation_controls": {
-    "NYERS": 1,
-    "START": "S",
-    "SDATE": "25074",
-    "WATER": "Y",
-    "NITRO": "Y",
-    "WTHER": "M",
-    "INCON": "M",
-    "PLANT": "R",
-    "IRRIG": "N",
-    "FERTI": "D"
+    "IRRIG": "N"
   },
   "automatic_management": {
     "PLANTING": {
-      "PFRST": "25074",
-      "PLAST": "25074"
+      "PFRST": "2010-03-15",
+      "PLAST": "2010-03-15"
     }
   }
 }

@@ -51,12 +51,19 @@ def _resolve_location() -> Dict[str, Any]:
 def _build_filex_config(
     intent: Dict[str, Any],
     target_n_rate_kg_ha: Optional[float] = None,
+    guidelines: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Translate the chatbot's classified intent (+ a specific treatment's
     nitrogen rate) into the config schema FileX_MultiAgent's pipeline expects.
     Crop and season year are pinned from workflow_inputs.json (DEFAULT_CROP_NAME /
     DEFAULT_SEASON_YEAR) -- same as location -- regardless of what intent
-    extracted from the question; intent["crop"] is still used for narrative only."""
+    extracted from the question; intent["crop"] is still used for narrative only.
+
+    If `guidelines` is given (the snapshot captured from this run's treatment 1
+    / s01), the field/cultivar/planting/irrigation sections are locked to those
+    exact values -- FileX_MultiAgent's FieldAgent/PlantingAgent/IrrigationAgent
+    each skip their LLM step when these are present, so only fertilizer varies
+    across treatments."""
     crop_code = _crop_code_from_name(DEFAULT_CROP_NAME)
     year = DEFAULT_SEASON_YEAR
 
@@ -72,6 +79,11 @@ def _build_filex_config(
     }
     if target_n_rate_kg_ha is not None:
         config["fertilizer"] = {"target_n_rate_kg_ha": target_n_rate_kg_ha}
+    if guidelines:
+        config["cultivars"] = guidelines.get("cultivars")
+        config["field_details"] = guidelines.get("field_details")
+        config["planting_details"] = guidelines.get("planting_details")
+        config["irrigation_details"] = guidelines.get("irrigation_details")
     return config
 
 
@@ -124,6 +136,18 @@ def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_na
         with open(tmp_output_path, "r") as f:
             content = f.read()
 
+        # run_cli.py prints exactly one JSON line as its last line of stdout,
+        # including a "guidelines" snapshot of the field/cultivar/planting/
+        # irrigation values this run actually used.
+        guidelines = None
+        for line in (proc.stdout or "").splitlines():
+            line = line.strip()
+            if line.startswith("{"):
+                try:
+                    guidelines = json.loads(line).get("guidelines")
+                except json.JSONDecodeError:
+                    continue
+
     first_line = content.strip().splitlines()[0] if content.strip() else ""
     if first_line.startswith("*EXP.DETAILS:"):
         exp_code = first_line.split(":", 1)[1].strip()
@@ -137,7 +161,7 @@ def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_na
     with open(output_name, "w") as dst:
         dst.write(content)
 
-    return {"ok": True, "path": output_name, "summary": f"Generated {output_name}"}
+    return {"ok": True, "path": output_name, "summary": f"Generated {output_name}", "guidelines": guidelines}
 
 
 def _run_filex_baseline_discovery(config: Dict[str, Any]) -> Dict[str, Any]:
@@ -199,10 +223,28 @@ def discover_fertilizer_baseline(intent: Dict[str, Any]) -> Dict[str, Any]:
     return _run_filex_baseline_discovery(config)
 
 
+_EXPERIMENT_GUIDELINES_PATH = Path(__file__).resolve().parent / "experiment_guidelines.json"
+
+
+def _save_experiment_guidelines(guidelines: Dict[str, Any]) -> None:
+    """Persist the field/cultivar/planting/irrigation snapshot captured from
+    this run's treatment 1 (s01), so it's inspectable/debuggable between runs.
+    Overwritten by every new question's s01 -- it's a scratch snapshot for the
+    current run's treatment loop, not a cross-conversation history."""
+    with open(_EXPERIMENT_GUIDELINES_PATH, "w") as f:
+        json.dump(guidelines, f, indent=2)
+
+
 def multiagent_xfile_node(state: Dict) -> Dict:
     """
     LangGraph node that generates a FileX (.SNX) per designed treatment by
     delegating to the FileX_MultiAgent pipeline.
+
+    Treatment 1 (s01, always listed first by a1_designer) generates fresh and
+    its field/cultivar/planting/irrigation values are captured and locked in
+    for every subsequent treatment in this same call, so s02+ only vary the
+    fertilizer rate/timing being tested instead of independently re-deciding
+    the whole field setup.
     """
     intent = state.get("intent_brief", {}) or state.get("intent", {})
     experiment = state.get("proposed_experiment", {})
@@ -218,16 +260,20 @@ def multiagent_xfile_node(state: Dict) -> Dict:
 
     generated_files = []
     summaries = []
+    guidelines: Optional[Dict[str, Any]] = None
     for t in treatments:
         treatment_id = t.get("id", "s01")
         rate = t.get("modifications", {}).get("basal_rate")
-        config = _build_filex_config(intent, target_n_rate_kg_ha=rate)
+        config = _build_filex_config(intent, target_n_rate_kg_ha=rate, guidelines=guidelines)
         fallback_name = f"generated_{crop_code}_{treatment_id}_{run_date}.SNX"
         result = _run_filex_multiagent(config, treatment_id, fallback_name)
         if result["ok"]:
             generated_files.append(result["path"])
             rate_note = f" (target {rate} kg N/ha)" if rate is not None else ""
             summaries.append(f"{result['path']}{rate_note}")
+            if guidelines is None and result.get("guidelines"):
+                guidelines = result["guidelines"]
+                _save_experiment_guidelines(guidelines)
         else:
             summaries.append(f"{treatment_id} FAILED: {result['summary']}")
 

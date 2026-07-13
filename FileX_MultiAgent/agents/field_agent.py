@@ -40,6 +40,65 @@ class FieldAgent:
         print(f"[FieldAgent] Starting... xcrd={xcrd}, ycrd={ycrd}")
 
         # ====================================================================
+        # STEP 0: Locked field_details/cultivars from a prior treatment
+        # (e.g. s01) in this same run -- if both are fully supplied, skip the
+        # live soil/weather fetch and the AEZ cultivar-zone LLM lookup
+        # entirely, and reuse the exact same values so every treatment shares
+        # the same field/cultivar, not just the same target N rate.
+        # ====================================================================
+        field_details_override = config.get("field_details") or {}
+        cultivars_override = config.get("cultivars") or {}
+        required_field_keys = ("ID_FIELD", "WSTA", "ID_SOIL")
+        required_cultivar_keys = ("CR", "INGENO", "CNAME")
+        locked = (
+            all(field_details_override.get(k) not in (None, "") for k in required_field_keys)
+            and all(cultivars_override.get(k) not in (None, "") for k in required_cultivar_keys)
+        )
+
+        if locked:
+            field = Field(
+                id_field=field_details_override.get("ID_FIELD"),
+                wsta=field_details_override.get("WSTA"),
+                id_soil=field_details_override.get("ID_SOIL"),
+                flsa=field_details_override.get("FLSA", -99),
+                flob=field_details_override.get("FLOB", -99),
+                fldt=field_details_override.get("FLDT", "-99"),
+                sldp=field_details_override.get("SLDP", -99),
+                flname=field_details_override.get("FLNAME", -99),
+                xcrd=ycrd,
+                ycrd=xcrd,
+            )
+
+            state["field_metadata"] = field_details_override
+            state["weather_duration_years"] = field_details_override.get("weather_duration_years", "N/A")
+            state["field"] = field
+            state["messages"].append(
+                "FieldAgent: Using locked field_details from a prior treatment (no fetch) "
+                f"(ID_FIELD={field['id_field']}, WSTA={field['wsta']}, ID_SOIL={field['id_soil']})"
+            )
+            ui_log(state, agent_name, "🔒 Using locked field_details (no ExternalFieldAgent call)")
+
+            cr = cultivars_override.get("CR") or state.get("crop_code") or "MZ"
+            ingeno = cultivars_override.get("INGENO")
+            cname = cultivars_override.get("CNAME")
+            cultivar = Cultivar(cr=cr, ingeno=ingeno, cname=cname)
+            state["cultivar"] = cultivar
+            state["cultivar_name"] = cname
+            state["cultivar_ingeno"] = ingeno
+            state["crop_code"] = cr
+            state["messages"].append(f"FieldAgent: Using locked cultivar from a prior treatment (CNAME={cname}, INGENO={ingeno})")
+            ui_log(state, agent_name, f"🔒 Using locked cultivar {cname} ({ingeno})")
+
+            ui_event(
+                state,
+                agent=agent_name,
+                kind="output",
+                message="Field + cultivar locked from prior treatment",
+                data={"id_field": field["id_field"], "wsta": field["wsta"], "id_soil": field["id_soil"], "cname": cname, "ingeno": ingeno},
+            )
+            return state
+
+        # ====================================================================
         # STEP 1: Soil + Weather
         # ====================================================================
         field_meta = None

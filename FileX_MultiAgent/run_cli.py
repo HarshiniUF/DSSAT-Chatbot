@@ -105,7 +105,45 @@ def main() -> int:
         return 1
 
     errors = result.get("errors", [])
-    print(json.dumps({"ok": not errors, "output_path": args.output, "errors": errors}))
+
+    # Snapshot of the field/cultivar/planting/irrigation values this run
+    # actually used, so a caller generating multiple treatments (e.g. the
+    # parent chatbot's per-treatment loop) can lock every later treatment to
+    # these same values and only vary its own focus variable (fertilizer).
+    guidelines = None
+    if not errors:
+        fert_events = result.get("fertilizer_config") or []
+        irrig_cfg = result.get("irrigation_config") or {}
+        field_meta = result.get("field_metadata") or {}
+        field_details = {
+            k: field_meta.get(k)
+            for k in ("id_field", "wsta", "id_soil", "flsa", "flob", "fldt", "sldp", "flname")
+        }
+        field_details["weather_duration_years"] = (field_meta.get("metadata") or {}).get("weather_duration_years")
+        pdate = result.get("pdate")
+        guidelines = {
+            "cultivars": {
+                "CR": result.get("crop_code"),
+                "INGENO": result.get("cultivar_ingeno"),
+                "CNAME": result.get("cultivar_name"),
+            },
+            "planting_details": result.get("planting_config") or {},
+            "fertilizer_details": {
+                "events": fert_events,
+                "total_n": sum(float(e.get("FAMN") or 0) for e in fert_events),
+            },
+            "irrigation_details": {
+                "strategy": irrig_cfg.get("strategy", "rainfed"),
+                "header_row": irrig_cfg.get("header_row", {}),
+                "events": irrig_cfg.get("irrigation_events", []),
+            },
+            "field_details": field_details,
+            "initial_conditions": {},
+            "simulation_controls": {"IRRIG": result.get("irrig")},
+            "automatic_management": {"PLANTING": {"PFRST": pdate, "PLAST": pdate}},
+        }
+
+    print(json.dumps({"ok": not errors, "output_path": args.output, "errors": errors, "guidelines": guidelines}))
     return 0 if not errors else 1
 
 

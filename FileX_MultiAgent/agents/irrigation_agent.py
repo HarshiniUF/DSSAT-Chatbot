@@ -118,6 +118,63 @@ class IrrigationAgent:
         config = state.get("config", {})
         _ = config.get("irrigation_and_water_management", {}) or {}  # keep for future use
 
+        # ============================================================================
+        # STEP 1b: Locked irrigation_details from a prior treatment (e.g. s01)
+        # in this same run -- presence of the key (not truthiness) signals a
+        # locked call, since an empty/rainfed lock is still a valid lock.
+        # ============================================================================
+        irrigation_details_override = config.get("irrigation_details")
+        if irrigation_details_override is not None:
+            strategy = irrigation_details_override.get("strategy", "rainfed")
+            header_row = irrigation_details_override.get("header_row", {}) or {}
+            events_data = irrigation_details_override.get("events", []) or []
+            pdate = state.get("pdate")
+
+            if strategy == "rainfed" or not events_data:
+                state["irrig"] = "N"
+                state["irrigation"] = None
+                state["irrigation_config"] = {"strategy": "rainfed", "header_row": {}, "irrigation_events": []}
+                state.setdefault("messages", []).append(
+                    "IrrigationAgent: Using locked irrigation_details from a prior treatment (rainfed, no LLM)"
+                )
+                ui_log(state, agent_name, "🔒 Using locked irrigation_details (rainfed)")
+                ui_event(state, agent=agent_name, kind="output", message="Irrigation locked from prior treatment (rainfed)")
+                return state
+
+            events: List[IrrigationEvent] = []
+            for ev in events_data:
+                idate_str = str(ev.get("IDATE", "")).strip()
+                idate = convert_date_to_dssat_date(idate_str if idate_str else pdate)
+                events.append(
+                    IrrigationEvent(
+                        idate=idate,
+                        irval=float(ev.get("IRVAL")),
+                        irop=ev.get("IROP"),
+                    )
+                )
+
+            irrigation_obj = Irrigation(
+                table=events,
+                efir=float(header_row.get("EFIR", -99)),
+                idep=float(header_row.get("IDEP", -99)),
+                ithr=float(header_row.get("ITHR", -99)),
+                iept=float(header_row.get("IEPT", -99)),
+                ioff=header_row.get("IOFF", "GS000"),
+                iame=header_row.get("IAME", "IR001"),
+                iamt=float(header_row.get("IAMT", -99)),
+                irname=header_row.get("IRNAME", "-99"),
+            )
+
+            state["irrigation"] = irrigation_obj
+            state["irrig"] = "R"
+            state["irrigation_config"] = {"strategy": strategy, "header_row": header_row, "irrigation_events": events_data}
+            state.setdefault("messages", []).append(
+                "IrrigationAgent: Using locked irrigation_details from a prior treatment (no LLM)"
+            )
+            ui_log(state, agent_name, "🔒 Using locked irrigation_details")
+            ui_event(state, agent=agent_name, kind="output", message="Irrigation locked from prior treatment")
+            return state
+
         MAX_JUDGE_ATTEMPTS = int(state.get("max_judge_attempts", 1))
         JUDGE_ENABLED = bool(state.get("enable_judge", False))
 

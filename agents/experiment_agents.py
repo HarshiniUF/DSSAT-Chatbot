@@ -521,6 +521,7 @@ def a1_designer(state: Dict) -> Dict:
     crop = intent.get("crop", "Maize")
     region = intent.get("region", "Trans Nzoia")
     proposed_increment = intent.get("proposed_increment")
+    iteration_count = state.get("iteration_count", 0) + 1
     
     print(f"\n🎯 **A1 Designer:**")
     print(f"   Creating experiment with baseline N = {baseline_rate} kg/ha (source={intent.get('baseline_source', 'llm_guess')})...")
@@ -707,16 +708,18 @@ EXAMPLE FOR TIMING QUESTIONS (focus_variable = fertilizer_timing):
     
     state_update = {
         **state,
+        "iteration_count": iteration_count,
         "proposed_experiment": {
             "structure": "rate_response",
             "crop": crop,
             "region": region,
             "treatments": treatments,
             "baseline_nitrogen_rate": baseline_rate,
-            "expected_outcome": f"Quantify yield response of {crop} to nitrogen fertilizer"
+            "expected_outcome": f"Quantify yield response of {crop} to nitrogen fertilizer",
+            "justification": experiment_json.get("justification", "")
         }
     }
-    
+
     return state_update
 
 
@@ -746,7 +749,10 @@ PROPOSED EXPERIMENT:
 - Structure: {structure}
 - Crop: {crop}
 - Region: {region}
-- Treatments: {treatments_summary}
+- Expected outcome: {expected_outcome}
+- Justification: {justification}
+- Treatments:
+{treatments_summary}
 
 Evaluate on these criteria (0-10 each):
 1. Alignment: Does it actually answer the farmer's question?
@@ -764,30 +770,35 @@ Respond ONLY with valid JSON (no markdown):
     "rigor_score": <1-10>,
     "completeness_score": <1-10>,
     "clarity_score": <1-10>,
-    "overall_score": <average of above>,
-    "approved": <boolean, true if overall_score >= 7>,
     "feedback": "Brief feedback for improvement if needed",
     "strengths": ["...", "..."],
     "improvements": ["...", "..."]
 }}
 """)
-    
-    treatments_summary = "; ".join([
-        f"{t['id']}: {t['modifications'].get('basal_rate', '?')} kg/ha N"
+
+    # Full modifications + description per treatment -- a bare basal_rate
+    # (the old summary) is identical across treatments for timing/cultivar/
+    # irrigation-focused designs, since those vary other fields instead, so
+    # the critic saw no visible difference between treatments and reliably
+    # scored completeness/rigor/alignment low.
+    treatments_summary = "\n".join([
+        f"  {t.get('id', '?')}: {t.get('description', '')} | modifications={json.dumps(t.get('modifications', {}))}"
         for t in experiment.get("treatments", [])
-    ])
-    
+    ]) or "  (no treatments proposed)"
+
     try:
         result = llm.invoke(critique_prompt.format_messages(
             question=question,
             structure=experiment.get("structure", "rate_response"),
             crop=experiment.get("crop", "Maize"),
             region=experiment.get("region", "Trans Nzoia"),
+            expected_outcome=experiment.get("expected_outcome", ""),
+            justification=experiment.get("justification", ""),
             treatments_summary=treatments_summary
         ))
-        
+
         assessment = json.loads(result.content.strip())
-        
+
     except Exception as e:
         # Fallback scoring
         assessment = {
@@ -796,15 +807,21 @@ Respond ONLY with valid JSON (no markdown):
             "rigor_score": 7,
             "completeness_score": 8,
             "clarity_score": 9,
-            "overall_score": 8,
-            "approved": True,
             "feedback": "Design looks good",
             "strengths": ["Clear baseline", "Practical rates"],
             "improvements": []
         }
-    
-    score = assessment.get("overall_score", 0)
-    approved = assessment.get("approved", score >= 7)
+
+    # Recompute overall_score/approved in code rather than trust the LLM's
+    # self-reported average/boolean -- LLMs are inconsistent at arithmetic
+    # and at self-judging their own threshold, so this keeps the two derived
+    # fields actually consistent with the five sub-scores every time.
+    sub_score_keys = ["alignment_score", "feasibility_score", "rigor_score", "completeness_score", "clarity_score"]
+    sub_scores = [assessment.get(k, 0) for k in sub_score_keys]
+    score = round(sum(sub_scores) / len(sub_scores), 2)
+    approved = score >= 7
+    assessment["overall_score"] = score
+    assessment["approved"] = approved
     
     print(f"   Score: {score}/10")
     print(f"   Status: {'✅ APPROVED' if approved else '⚠️  NEEDS REDESIGN'}")
