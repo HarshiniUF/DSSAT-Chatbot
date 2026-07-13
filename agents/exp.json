@@ -1,0 +1,108 @@
+{
+  "default_crop": "Maize",
+  "default_region": "Trans Nzoia",
+  "default_variety": {
+    "name": "H614",
+    "id": "KY011"
+  },
+  "default_planting_date": "2026-03-15",
+  "control": {
+    "description": "Control - No fertilizer input",
+    "fertilizer": "None",
+    "fertilizer_rate": "0 kg/ha",
+    "application_timing": "None"
+  },
+  "structures": {
+    "comparison": {
+      "min_treatments": 3,
+      "include_standard": true,
+      "expected_outcome_template": "Identify the most effective {focus_variable} option for {crop} in {region}."
+    },
+    "rate_response": {
+      "min_treatments": 4,
+      "include_standard": true,
+      "expected_outcome_template": "Quantify yield response of {crop} to {focus_variable} across realistic field rates."
+    },
+    "timing": {
+      "min_treatments": 4,
+      "include_standard": true,
+      "expected_outcome_template": "Determine the optimal {focus_variable} schedule for {crop} under {region} conditions."
+    },
+    "calendar": {
+      "min_treatments": 4,
+      "include_standard": true,
+      "expected_outcome_template": "Identify the planting window that maximizes {crop} performance in {region}."
+    },
+    "variety": {
+      "min_treatments": 5,
+      "include_standard": false,
+      "expected_outcome_template": "Compare recommended {crop} varieties for yield stability and risk mitigation in {region}."
+    },
+    "factorial": {
+      "min_treatments": 5,
+      "include_standard": true,
+      "expected_outcome_template": "Evaluate interactions between fertilizer type and rate to optimize {crop} performance."
+    },
+    "irrigation": {
+      "min_treatments": 4,
+      "include_standard": true,
+      "expected_outcome_template": "Compare irrigation options for {crop} to improve water productivity in {region}."
+    }
+  },
+  "focus_defaults": {
+    "fertilizer_type": {
+      "structure": "comparison",
+      "standard_practice": {
+        "fertilizer": "DAP",
+        "rate_kg_ha": 90,
+        "timing": "At planting"
+      },
+      "ensure_basal_application": true,
+      "minimum_basal_rate": 50
+    },
+    "fertilizer_rate": {
+      "structure": "rate_response",
+      "default_rates": [0, 50, 100, 150, 200],
+      "ensure_basal_application": true,
+      "minimum_basal_rate": 50
+    },
+    "fertilizer_timing": {
+      "structure": "timing",
+      "default_timings": [
+        {"label": "At planting", "timing_code": "at_planting", "offset_days": 0},
+        {"label": "2 weeks after planting", "timing_code": "2_weeks_after_planting", "offset_days": 14},
+        {"label": "4 weeks after planting", "timing_code": "4_weeks_after_planting", "offset_days": 28},
+        {"label": "Split (50% at planting, 50% at 4 weeks)", "timing_code": "split_application", "offset_days": [0, 28]}
+      ],
+      "ensure_basal_application": true,
+      "minimum_basal_rate": 50
+    },
+    "planting_date": {
+      "structure": "calendar"
+    },
+    "crop_variety": {
+      "structure": "variety"
+    },
+    "factorial_design": {
+      "structure": "factorial"
+    },
+    "irrigation_method": {
+      "structure": "irrigation"
+    },
+    "irrigation_timing": {
+      "structure": "timing"
+    },
+    "irrigation_comparison": {
+      "structure": "irrigation"
+    }
+  },
+  "timing_labels": {
+    "at_planting": "At planting",
+    "basal": "Basal",
+    "split_application": "Split application",
+    "2_weeks_after_planting": "2 weeks after planting",
+    "3_weeks_after_planting": "3 weeks after planting",
+    "4_weeks_after_planting": "4 weeks after planting",
+    "topdress": "Topdressing"
+  }
+}

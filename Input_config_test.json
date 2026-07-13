@@ -1,0 +1,42 @@
+{
+  "Location": {
+    "Country": "Kenya",
+    "Latitude": 1.011,
+    "Longitude": 34.866
+  },
+  "Year":{
+     "start_year": 2025
+  },
+  "cultivar": {
+    "CR": "MZ"
+  },
+  "planting_details": { 
+    
+  },
+  "irrigation_and_water_management": {
+    "applications": [
+      {
+        "IDATE": 25092, 
+        "IROP": "IR003", 
+        "IRVAL": 20
+      }
+    ]
+  },
+  "fertilizers_inorganic": [
+  
+  ],
+  "residues_and_organic": {
+    "applications": [
+      {
+        "RDATE": "25060", 
+        "RCOD": "RE003", 
+        "RAMT": 100, 
+        "RESN": 0.5, 
+        "RESP": 0.2, 
+        "RESK": 0.1,
+        "RDEP": 5, 
+        "RMET": "AP001"
+      }
+    ]
+  }
+}

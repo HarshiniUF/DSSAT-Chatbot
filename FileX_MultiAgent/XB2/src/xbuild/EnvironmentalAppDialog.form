@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel9" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cbDaylengthFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="cbRadiationFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtMaxTemp" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbMaxTempFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtMinTemp" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbMinTempFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtPrecipitation" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbPrecipitationFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtCo2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbCo2Factor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtHumidity" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbHumidityFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="txtWind" alignment="0" max="32767" attributes="0"/>
+                  <Component id="cbWindFactor" alignment="0" max="32767" attributes="1"/>
+                  <Component id="dpDate" alignment="1" max="32767" attributes="1"/>
+                  <Component id="spDaylength" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="bnCancel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="txtRadiation" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jXLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel11" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel12" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel13" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel14" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel15" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel16" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel17" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dpDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jXLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spDaylength" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbDaylengthFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRadiation" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbRadiationFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtMaxTemp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbMaxTempFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtMinTemp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbMinTempFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtPrecipitation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbPrecipitationFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbCo2Factor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtHumidity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbHumidityFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtWind" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="cbWindFactor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="jButton1" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="bnCancel" alignment="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="dpDate">
+      <Properties>
+        <Property name="formats" type="[Ljava.text.DateFormat;" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Variables.getDateFormat()" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dpDateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbDaylengthFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbRadiationFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtMaxTemp">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbMaxTempFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtMinTemp">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbMinTempFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtPrecipitation">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbPrecipitationFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtCo2">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbCo2Factor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtHumidity">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbHumidityFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtWind">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbWindFactor">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Daylength"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Radiation"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Max Temp"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Min Temp"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Precipitation"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;CO&lt;sub&gt;2&lt;/sub&gt;&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Relative Humidity"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Wind"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ok"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bnCancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bnCancelMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bnCancelActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="hours"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;MJ/m&lt;sup&gt;2&lt;/sup&gt;/d&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;C&amp;deg;&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;C&amp;deg;&lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="mm"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="vpm"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="%"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel17">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="km/hours"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Variables.getDateFormatString()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="spDaylength">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtRadiation">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="inputVerifier" type="javax.swing.InputVerifier" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new InputNumberVerifier()" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

@@ -1,0 +1,57 @@
+{
+  "cultivars": {
+    "CR": "MZ",
+    "INGENO": "IB0001",
+    "CNAME": "Default"
+  },
+  "planting_details": {
+    "PDATE": "25074",
+    "PPOP": 5.3,
+    "PLME": "S",
+    "PLDS": "R",
+    "PLRS": 75.0,
+    "PLRD": -99.0,
+    "PLDP": 5.0
+  },
+  "fertilizer_details": {
+    "events": [
+      {
+        "FDATE": "25074",
+        "FMCD": "FE001",
+        "FACD": "AP001",
+        "FDEP": 5.0,
+        "FAMN": 50.0
+      }
+    ],
+    "total_n": 50.0
+  },
+  "irrigation_details": {
+    "events": []
+  },
+  "field_details": {
+    "ID_FIELD": "KENY0001",
+    "WSTA": "KENA0001",
+    "ID_SOIL": "180",
+    "XCRD": 36.82,
+    "YCRD": 0.02
+  },
+  "initial_conditions": {},
+  "simulation_controls": {
+    "NYERS": 1,
+    "START": "S",
+    "SDATE": "25074",
+    "WATER": "Y",
+    "NITRO": "Y",
+    "WTHER": "M",
+    "INCON": "M",
+    "PLANT": "R",
+    "IRRIG": "N",
+    "FERTI": "D"
+  },
+  "automatic_management": {
+    "PLANTING": {
+      "PFRST": "25074",
+      "PLAST": "25074"
+    }
+  }
+}

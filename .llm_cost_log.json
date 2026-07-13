@@ -1,0 +1,182 @@
+{
+  "created": "2026-03-02T22:56:07.533406",
+  "requests": [
+    {
+      "timestamp": "2026-03-02T22:56:10.191172",
+      "question": "Reduce nitrogen by 50 percent",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 10,
+      "output_tokens": 100,
+      "cost": 0.0006150000000000001,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:00:41.031857",
+      "question": "Reduce N by 50% before planting and increase by 50% at topdress, simulate",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 26,
+      "output_tokens": 100,
+      "cost": 0.000639,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:00:55.387463",
+      "question": "Reduce N by 50% before planting and increase by 50% at topdress, simulate",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 26,
+      "output_tokens": 100,
+      "cost": 0.000639,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:04:39.753039",
+      "question": "Reduce N by 50% before planting and increase by 50% at topdress, simulate",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 26,
+      "output_tokens": 100,
+      "cost": 0.000639,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:12:44.447403",
+      "question": "increase N by 50% at topdress, simulate",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 14,
+      "output_tokens": 100,
+      "cost": 0.000621,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:13:03.809849",
+      "question": "increase N by 50% at topdress, simulate",
+      "cached": false,
+      "llm": false,
+      "input_tokens": 14,
+      "output_tokens": 100,
+      "cost": 0.000621,
+      "confidence": 0.7
+    },
+    {
+      "timestamp": "2026-03-03T11:20:57.529908",
+      "question": "reduce by 50% before planting, add 20kg at planting and increase by 100% at first topdress, please s",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 36,
+      "output_tokens": 100,
+      "cost": 0.0006540000000000001,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:23:43.073243",
+      "question": "Increase nitrogen by 30%",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 8,
+      "output_tokens": 100,
+      "cost": 0.000612,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:42.050178",
+      "question": "Increase nitrogen by 30%",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 8,
+      "output_tokens": 100,
+      "cost": 0.000612,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:56.997553",
+      "question": "Increase nitrogen by 30%",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 8,
+      "output_tokens": 100,
+      "cost": 0.000612,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:57.068526",
+      "question": "Reduce nitrogen by 50% before planting",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 12,
+      "output_tokens": 100,
+      "cost": 0.0006180000000000001,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:57.149488",
+      "question": "Add 25kg at planting",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 8,
+      "output_tokens": 100,
+      "cost": 0.000612,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:57.235831",
+      "question": "Increase nitrogen by 50% at first topdress",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 14,
+      "output_tokens": 100,
+      "cost": 0.000621,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:25:57.351601",
+      "question": "Reduce by 50% before planting, add 20kg at planting and increase by 100% at first topdress",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 32,
+      "output_tokens": 100,
+      "cost": 0.000648,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:30:33.151436",
+      "question": "Increase nitrogen by 50%",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 8,
+      "output_tokens": 100,
+      "cost": 0.000612,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:30:33.297709",
+      "question": "Reduce nitrogen by 50% before planting",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 12,
+      "output_tokens": 100,
+      "cost": 0.0006180000000000001,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-03-03T11:30:33.446441",
+      "question": "reduce by 50% before planting, add 20kg at planting and increase by 100% at first topdress",
+      "cached": false,
+      "llm": true,
+      "input_tokens": 32,
+      "output_tokens": 100,
+      "cost": 0.000648,
+      "confidence": 0.0
+    }
+  ],
+  "summary": {
+    "total_requests": 17,
+    "successful_llm": 11,
+    "fallback_regex": 6,
+    "total_cost": 0.010640999999999998,
+    "estimated_tokens": 1994
+  }
+}

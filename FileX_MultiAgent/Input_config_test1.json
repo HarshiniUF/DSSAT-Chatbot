@@ -1,0 +1,20 @@
+{
+  "Location": {
+    "Country": "United States",
+    "Latitude": 1.0450,
+    "Longitude": 34.9790,
+    "place":"Trans Nzoia, Kenya"
+  },
+  "Year":{
+     "start_year": 2025
+  },
+  "crop_growing_season": "2025",
+  "weather": {
+    "start_date": "2024-01-01",
+    "end_date": "2025-12-31"
+  },
+  "cultivar": {
+    "CR": "MZ"
+  }
+}
+

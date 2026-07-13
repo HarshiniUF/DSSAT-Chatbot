@@ -1,0 +1,20 @@
+# Ignore all .WTH files (case-sensitive)
+*.WTH
+
+# Ignore all .SOL files (case-sensitive)
+*.SOL
+
+
+*.pyc
+__pycache__/
+
+.env
+*/.env
+venv/
+.venv/
+
+# FileX_MultiAgent generation output
+generated_*.SNX
+*_s[0-9][0-9].SNX
+
+INTEGRATION/

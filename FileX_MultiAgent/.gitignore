@@ -1,0 +1,22 @@
+# Environment & OS
+.env
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated / runtime data
+cache.json
+
+# Secrets
+.streamlit/secrets.toml
+
+# Excluded folders
+INTEGRATION/eGHR/
+INTEGRATION/.venv/
+INTEGRATION/soil/GHR.db
+crop_management/
+
+# Excluded files
+kenya_cultivar_pipeline_runbook_rag.docx
