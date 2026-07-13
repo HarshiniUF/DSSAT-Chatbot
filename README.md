@@ -1,14 +1,17 @@
-# DSSAT Maize Chatbot
+# DSSAT Chatbot
 
-A chatbot that answers farmer questions about maize management. Quantitative "what if"
+A chatbot that answers farmer questions about crop management. Quantitative "what if"
 questions (e.g. *"how much yield if I add 50 kg N?"*) are routed through an LLM agent
 pipeline that designs an experiment, critiques it, and generates one DSSAT FileX
 (`.SNX`) per treatment. Qualitative questions are answered directly from a knowledge
 base. This project **generates** `.SNX` files — it does not run the DSSAT-CSM model or
 XBuild validation.
 
-See [flow.md](flow.md) for a short step-by-step summary, and
-[workflow.md](workflow.md) for the full technical walkthrough with file/line references.
+The crop is configured in `workflow_inputs.json` (currently `"Maize"`); `experiment_config.py`'s
+`CROP_CODES` also maps Peanut, Wheat, Rice, Sorghum, and Cotton, so the pipeline itself
+isn't maize-specific — only the current default configuration is.
+
+See [Workflow.md](Workflow.md) for a short step-by-step summary.
 
 ## Architecture
 
