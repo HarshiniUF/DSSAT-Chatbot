@@ -36,6 +36,8 @@ class ConversationState(TypedDict):
     mzx_instructions: List[Dict]
     generated_files: List[str]
     iteration_count: int
+    forecast_context: Dict
+    forecast_context_text: str
 
 
 def should_iterate(state: ConversationState) -> str:
@@ -91,7 +93,11 @@ def create_conversation_workflow(au_router, q_classifier, a1_designer,
     
     # Add nodes (namespaced for clarity)
     workflow.add_node("au.router", au_router)
-    workflow.add_node("direct_answer", lambda state: state)  # Direct answer already handled by AU
+    from agents.conversation_agent import direct_answer_node
+    from wsp_unified_forecast import forecast_context_node
+
+    workflow.add_node("weather.forecast", forecast_context_node)
+    workflow.add_node("direct_answer", direct_answer_node)
     workflow.add_node("analysis.q_classifier", q_classifier)
     workflow.add_node("experiments.a1_designer", a1_designer)
     workflow.add_node("experiments.a2_critic", a2_critic)
@@ -107,9 +113,12 @@ def create_conversation_workflow(au_router, q_classifier, a1_designer,
         should_simulate,
         {
             "analyze_question": "analysis.q_classifier",
-            "direct_answer": END  # Direct answers end immediately
+            "direct_answer": "weather.forecast"
         }
     )
+
+    workflow.add_edge("weather.forecast", "direct_answer")
+    workflow.add_edge("direct_answer", END)
     
     # NEW: Conditional routing after Q Classifier
     # For comparison workflows, skip A1/A2 and go directly to SNX generation

@@ -56,18 +56,22 @@ python integrated_dssat_assistant.py "<your question>"  # single question, one-s
 ## How a question becomes `.SNX` files
 
 1. **Router** — LLM decides *direct answer* vs *needs simulation*.
-2. **Classifier** — extracts `focus_variable` (fertilizer rate/timing, etc.), `crop`,
+2. **Forecast enrichment for direct advice** — weather-sensitive direct questions fetch
+   a 16-day Open-Meteo operational forecast and an ECMWF seasonal ensemble mean through
+   Open-Meteo. Provider failures degrade gracefully; non-weather questions make no
+   weather request. Live forecasts do not alter historical FileX simulation weather.
+3. **Classifier** — extracts `focus_variable` (fertilizer rate/timing, etc.), `crop`,
    `region`; for fertilizer questions, discovers a real baseline N rate via a
    lightweight run of `FileX_MultiAgent` rather than guessing one.
-3. **Designer / Critic loop** — `a1_designer` proposes treatments (e.g. `s01` baseline,
+4. **Designer / Critic loop** — `a1_designer` proposes treatments (e.g. `s01` baseline,
    `s02` baseline + increment); `a2_critic` scores the design and either approves it or
    sends it back for redesign (capped iterations).
-4. **Generation** — one `FileX_MultiAgent` subprocess call per treatment. Treatment 1
+5. **Generation** — one `FileX_MultiAgent` subprocess call per treatment. Treatment 1
    (`s01`) decides field, cultivar, planting date, and irrigation strategy fresh; those
    exact values are captured into `agents/experiment_guidelines.json` and reused
    verbatim for every later treatment (`s02`, `s03`, …), so only the fertilizer
    rate/timing being tested actually varies between files.
-5. **Summarizer** — explains the result in farmer-friendly language; real generated file
+6. **Summarizer** — explains the result in farmer-friendly language; real generated file
    paths are appended so the user always sees accurate filenames.
 
 Comparison-style questions ("100kg at knee-high or 50kg split at 4 and 8 weeks?") skip
@@ -80,6 +84,7 @@ the designer/critic loop entirely and go straight to generation.
 | Chat entry point | `integrated_dssat_assistant.py` |
 | Graph wiring | `agents/workflow_config.py` |
 | Router / summarizer | `agents/conversation_agent.py` |
+| Daily + seasonal forecast context | `wsp_unified_forecast.py` |
 | Question classifier, design/critic loop | `agents/experiment_agents.py` |
 | Bridge to FileX generation (subprocess + guidelines locking) | `agents/multiagent_nodes.py` |
 | Locked field/cultivar/planting/irrigation snapshot from `s01` | `agents/experiment_guidelines.json` |

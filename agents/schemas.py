@@ -45,7 +45,8 @@ class ConversationState(TypedDict, total=False):
     mzx_instructions: List[Dict[str, Any]]
     generated_files: List[str]
     iteration_count: int
+    forecast_context: Dict[str, Any]
+    forecast_context_text: str
 
     # Finalization
     final_answer: str
-

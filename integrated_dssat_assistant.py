@@ -120,7 +120,9 @@ class IntegratedDSSATAssistant:
             "approved": False,
             "mzx_instructions": [],
             "generated_files": [],
-            "iteration_count": 0
+            "iteration_count": 0,
+            "forecast_context": {},
+            "forecast_context_text": ""
         }
 
         config = {"configurable": {"thread_id": self.session_id}}

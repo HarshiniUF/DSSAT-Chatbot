@@ -3,7 +3,10 @@
 1. **User question** → `integrated_dssat_assistant.py` starts the chat graph.
 
 2. **Router** (`au_router`) — LLM decides *direct answer* or *needs simulation*.
-   - Direct → `answer_directly()` from the knowledge base. Done.
+   - Direct → `weather.forecast` checks whether the question is weather-sensitive.
+     Relevant questions receive a 16-day operational forecast plus seasonal ensemble
+     context before `answer_directly()` responds. Non-weather questions do not call a
+     weather provider. Done.
    - Simulation → continue.
 
 3. **Classifier** (`q_classifier`) — LLM extracts `focus_variable`, `crop`, `region`,
@@ -34,5 +37,7 @@
 ## Notes
 - Does **not** run DSSAT-CSM or XBuild — output is `.SNX` files only.
 - Location is fixed (`experiment_config.py`), not derived from the question.
+- Live forecasts inform direct conversational advice only. They do not replace the
+  historical weather period used to construct DSSAT FileX inputs.
 - `experiment_guidelines.json` is a scratch snapshot: overwritten by each new question's
   s01, not accumulated across conversations.
