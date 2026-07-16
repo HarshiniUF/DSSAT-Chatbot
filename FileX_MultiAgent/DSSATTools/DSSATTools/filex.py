@@ -1788,17 +1788,25 @@ def read_filex(filexpath):
         )
     return treatments
         
-def create_filex(field:Field, cultivar:Cultivar, planting:Planting, 
+def create_filex(field:Field, cultivar:Cultivar, planting:Planting,
                 simulation_controls:SimulationControls, harvest:Harvest=None,
-                initial_conditions:InitialConditions=None, 
-                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None, 
-                irrigation:Irrigation=None, residue:Residue=None, 
-                chemical:Chemical=None, tillage:Tillage=None):
+                initial_conditions:InitialConditions=None,
+                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None,
+                irrigation:Irrigation=None, residue:Residue=None,
+                chemical:Chemical=None, tillage:Tillage=None,
+                treatment_sequence:int=1):
     """
     Returns the FileX as a string
+
+    treatment_sequence: 2-digit experiment sequence number embedded in
+    *EXP.DETAILS (e.g. 1 -> "...01SN", 2 -> "...02SN"). Defaults to 1 for a
+    single-treatment run; callers generating multiple treatments for the same
+    field/year should pass a distinct number per treatment so each file gets
+    a distinct experiment code instead of colliding on the same name.
     """
     experiment_name = field["id_field"][:4] +\
-        simulation_controls["general"]["sdate"].strftime('%y01') + "SN"
+        simulation_controls["general"]["sdate"].strftime('%y') +\
+        f"{treatment_sequence:02d}" + "SN"
     out_str = f"*EXP.DETAILS: {experiment_name}\n\n"
     treatment = Treatment(**{
         "r": 1, "o": 0, "c": 0, "tname": "DSSATTools", "cu": 1, "fl": 1, 

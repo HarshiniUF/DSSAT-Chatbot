@@ -4,9 +4,9 @@ Bridge to the FileX_MultiAgent creation pipeline.
 FileX_MultiAgent/ defines its own `agents`, `utils`, `prompts`, and
 `judge_agents` packages — names that collide with this project's own
 chatbot `agents` package. Rather than importing it in-process, it is
-invoked as an isolated subprocess (its own venv, its own working
-directory) via FileX_MultiAgent/run_cli.py, passing a config JSON in and
-reading the generated FileX (.SNX) file back out.
+invoked as an isolated subprocess (shared venv, its own working directory)
+via FileX_MultiAgent/run_cli.py, passing a config JSON in and reading the
+generated FileX (.SNX) file back out.
 
 One subprocess call is made per treatment in `proposed_experiment.treatments`,
 so each generated file reflects the nitrogen rate that treatment actually
@@ -42,6 +42,14 @@ def _crop_code_from_name(crop_name: str) -> str:
     return _CROP_NAME_TO_CODE.get((crop_name or "").strip().upper(), "MZ")
 
 
+def _sequence_from_treatment_id(treatment_id: str, fallback: int) -> int:
+    """"s01" -> 1, "s02" -> 2, etc. Falls back to a caller-supplied number
+    (the treatment's 1-based position in the list) if the id has no digits,
+    so the *EXP.DETAILS sequence number is always unique per treatment."""
+    digits = "".join(ch for ch in treatment_id if ch.isdigit())
+    return int(digits) if digits else fallback
+
+
 def _resolve_location() -> Dict[str, Any]:
     """Every generated experiment uses this one fixed location, regardless of
     what region (if any) the user's question mentions."""
@@ -56,6 +64,7 @@ def _build_filex_config(
     intent: Dict[str, Any],
     target_n_rate_kg_ha: Optional[float] = None,
     guidelines: Optional[Dict[str, Any]] = None,
+    treatment_sequence: int = 1,
 ) -> Dict[str, Any]:
     """Translate the chatbot's classified intent (+ a specific treatment's
     nitrogen rate) into the config schema FileX_MultiAgent's pipeline expects.
@@ -80,6 +89,11 @@ def _build_filex_config(
             "end_date": f"{year + 1}-12-31",
         },
         "cultivar": {"CR": crop_code},
+        # Embedded as the 2-digit sequence number in *EXP.DETAILS (e.g.
+        # KETR1001SN for treatment 1, KETR1002SN for treatment 2) so each
+        # treatment's experiment code -- and therefore its output filename --
+        # is unique on its own, without an extra "_s01"/"_s02" suffix.
+        "treatment_sequence": treatment_sequence,
     }
     if target_n_rate_kg_ha is not None:
         config["fertilizer"] = {"target_n_rate_kg_ha": target_n_rate_kg_ha}
@@ -111,15 +125,13 @@ def _launch_filex_cli(config_path: str, extra_args: List[str], timeout: int) -> 
 
 
 def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_name: str) -> Dict[str, Any]:
-    """Invoke FileX_MultiAgent as a subprocess. The output filename follows
-    FileX_MultiAgent's own convention (see streamlit_ui/app.py, which names
-    downloads after the DSSAT experiment code on the file's own *EXP.DETAILS
-    line, e.g. "KETR2601SN.SNX") -- with this treatment's id appended, e.g.
-    "KETR2601SN_s01.SNX". The suffix is required, not cosmetic: that
-    *EXP.DETAILS code depends only on field id + planting-season date, so
-    every treatment in the same run shares the identical code -- without a
-    per-treatment suffix, treatment 2's file would silently overwrite
-    treatment 1's. Returns {"ok": bool, "path": str|None, "summary": str}."""
+    """Invoke FileX_MultiAgent as a subprocess. The output filename is the DSSAT
+    experiment code from the file's own *EXP.DETAILS line (e.g. "KETR1001SN.SNX"
+    for treatment 1, "KETR1002SN.SNX" for treatment 2) -- config["treatment_sequence"]
+    (set by the caller from this treatment's id) is embedded as that code's 2-digit
+    sequence number by FileX_MultiAgent's create_filex(), so each treatment's code,
+    and therefore its filename, is unique without needing an extra suffix.
+    Returns {"ok": bool, "path": str|None, "summary": str}."""
     with tempfile.TemporaryDirectory() as tmp:
         config_path = os.path.join(tmp, "runtime_config.json")
         tmp_output_path = os.path.join(tmp, "runtime_output.SNX")
@@ -155,7 +167,7 @@ def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_na
     first_line = content.strip().splitlines()[0] if content.strip() else ""
     if first_line.startswith("*EXP.DETAILS:"):
         exp_code = first_line.split(":", 1)[1].strip()
-        output_name = f"{exp_code}_{treatment_id}.SNX"
+        output_name = f"{exp_code}.SNX"
     else:
         # Shouldn't normally happen -- FileAssemblerAgent always writes this
         # line first. Fall back to the caller's generic name rather than lose
@@ -265,10 +277,13 @@ def multiagent_xfile_node(state: Dict) -> Dict:
     generated_files = []
     summaries = []
     guidelines: Optional[Dict[str, Any]] = None
-    for t in treatments:
+    for position, t in enumerate(treatments, start=1):
         treatment_id = t.get("id", "s01")
+        treatment_sequence = _sequence_from_treatment_id(treatment_id, fallback=position)
         rate = t.get("modifications", {}).get("basal_rate")
-        config = _build_filex_config(intent, target_n_rate_kg_ha=rate, guidelines=guidelines)
+        config = _build_filex_config(
+            intent, target_n_rate_kg_ha=rate, guidelines=guidelines, treatment_sequence=treatment_sequence
+        )
         fallback_name = f"generated_{crop_code}_{treatment_id}_{run_date}.SNX"
         result = _run_filex_multiagent(config, treatment_id, fallback_name)
         if result["ok"]:
