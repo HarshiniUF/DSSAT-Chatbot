@@ -172,15 +172,17 @@ def au_router(state: Dict) -> Dict:
     
     else:
         print(f"   🧠 AU Decision: Can answer directly")
-
-        # The workflow routes direct questions through weather.forecast before
-        # calling direct_answer_node. This keeps live provider calls out of the
-        # router and avoids fetching weather for simulation questions.
+        
+        # Answer directly using knowledge
+        direct_answer = answer_directly(question, context, memory)
+        
+        print(f"   💭 AU Response: {direct_answer[:100]}...")
+        
         return sanitize_state({
             **state,
             "needs_simulation": False,
             "conversation_memory": memory.to_dict(),
-            "final_answer": ""
+            "final_answer": direct_answer
         })
 
 
@@ -265,12 +267,7 @@ def _format_context_list(items: List[Dict[str, Any]], formatter) -> str:
 #     return answer
 # old
 # new
-def answer_directly(
-    question: str,
-    context: str,
-    memory: ConversationMemory,
-    forecast_context: str = "",
-) -> str:
+def answer_directly(question: str, context: str, memory: ConversationMemory) -> str:
     """Answers questions directly, prioritizing local data if found, 
     otherwise using expert LLM knowledge silently."""
 
@@ -324,11 +321,6 @@ def answer_directly(
     {regional_info}
     ---
 
-    ---
-    LIVE WEATHER CONTEXT (use only when it is relevant and available):
-    {forecast_context}
-    ---
-
     CRITICAL INSTRUCTIONS:
     1. **Crop Consideration**: If a crop is mentioned in the question, use that crop. Otherwise, use the crop from the farmer's context above.
     2. **Location-Specific**: Tailor your answer to the farmer's location (country, latitude/longitude, agroecological zone).
@@ -336,7 +328,6 @@ def answer_directly(
     4. **Scale & Resources**: Consider the scale of production and access to local resources when making recommendations.
     5. **Representative Farmer**: Assume this is an average farmer in this region - don't recommend expensive or hard-to-access solutions unless specifically appropriate.
     6. **Practical Recommendations**: Provide actionable advice that fits the agroecological zone and local conditions.
-    7. **Forecast Integrity**: Never invent forecast values. Distinguish the operational daily forecast from the lower-resolution seasonal ensemble guidance, and communicate uncertainty.
     
     RESPONSE GUIDELINES:
     - **Be CONCISE and RELEVANT**: Keep answers focused and to the point - no unnecessary elaboration.
@@ -363,8 +354,7 @@ def answer_directly(
         farmer_context=farmer_context,
         fertilizer_info=fert_info,
         variety_info=variety_info,
-        regional_info=region_info,
-        forecast_context=forecast_context or "No live forecast context is available for this question."
+        regional_info=region_info
     ))
     
     answer = result.content.strip()
@@ -373,25 +363,6 @@ def answer_directly(
     memory.add_message("assistant", answer)
     
     return answer
-
-
-def direct_answer_node(state: Dict) -> Dict:
-    """Generate the direct response after optional forecast enrichment."""
-    memory_data = state.get("conversation_memory", {})
-    memory = ConversationMemory.from_dict(memory_data) if isinstance(memory_data, dict) else ConversationMemory()
-    answer = answer_directly(
-        state["user_question"],
-        memory.get_context(),
-        memory,
-        state.get("forecast_context_text", ""),
-    )
-    print(f"   💭 AU Response: {answer[:100]}...")
-    return sanitize_state({
-        **state,
-        "needs_simulation": False,
-        "conversation_memory": memory.to_dict(),
-        "final_answer": answer,
-    })
 
 
 def _load_farmer_context() -> str:
