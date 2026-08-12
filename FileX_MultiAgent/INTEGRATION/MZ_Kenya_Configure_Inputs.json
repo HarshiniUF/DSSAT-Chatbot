@@ -1,0 +1,56 @@
+{
+  "Location":{
+    "Country": "Kenya",
+    "Latitude": 1.292,
+    "Longitude": 36.821
+  },
+  "weather": {
+    "start_date": "2024-01-01",
+    "end_date": "2025-12-31"
+  },
+  "cultivar": {
+    "CR": "MZ",									
+    "CNAME": "H614"
+  },
+  "planting_details": {
+    "PDATE": "2025-03-15", 
+    "PPOP": 6, 
+    "PLDS": "R",
+    "PLRS": 75,
+    "PLDP": 5 
+  },
+  "irrigation_and_water_management": {
+    "applications": [
+      {
+        "IDATE": 25092, 
+        "IROP": "IR003", 
+        "IRVAL": 20
+      }
+    ]
+  },
+  "fertilizers_inorganic": [
+    {
+      "FDATE": "2025-03-15", 
+      "FMCD": "FE001", 
+      "FACD": "AP001", 
+      "FDEP": 5, 
+      "FAMN": 30,
+      "FAMP": 15,
+      "FAMK": 10 
+    }
+  ],
+  "residues_and_organic": {
+    "applications": [
+      {
+        "RDATE": "25060", 
+        "RCOD": "RE003", 
+        "RAMT": 100, 
+        "RESN": 0.5, 
+        "RESP": 0.2, 
+        "RESK": 0.1,
+        "RDEP": 5, 
+        "RMET": "AP001"
+      }
+    ]
+  }
+}

@@ -1317,28 +1317,28 @@ class AMResidues(Record):
 class AMHarvest(Record):
     prefix = "n"
     dtypes = {
-        'hfrst': DateType, 'hlast': DateType, 'hpcnp': NumberType,
-        'hpcnr': NumberType, 'hmfrq': NumberType, 'hmgdd': NumberType,
-        'hmcut': NumberType, 'hmmow': NumberType, 'hrspl': NumberType,
+        'hfrst': NumberType, 'hlast': DateType, 'hpcnp': NumberType, 
+        'hpcnr': NumberType, 'hmfrq': NumberType, 'hmgdd': NumberType, 
+        'hmcut': NumberType, 'hmmow': NumberType, 'hrspl': NumberType, 
         'hmvs': NumberType
     }
     pars_fmt = {
-        'hfrst': "%y%j", 'hlast': "%y%j", 'hpcnp': ">5.0f", 'hpcnr': ">5.0f",
-        'hmfrq': ">5.0f", 'hmgdd': ">5.0f", 'hmcut': ">5.2f", 'hmmow': ">5.0f",
+        'hfrst': ">5.0f", 'hlast': "%y%j", 'hpcnp': ">5.0f", 'hpcnr': ">5.0f", 
+        'hmfrq': ">5.0f", 'hmgdd': ">5.0f", 'hmcut': ">5.2f", 'hmmow': ">5.0f", 
         'hrspl': ">5.0f", 'hmvs': ">5.0f"
     }
-    def __init__(self, hfrst:date=None, hlast:date=None, hpcnp:float=100, hpcnr:float=0,
+    def __init__(self, hfrst:date, hlast:date, hpcnp:float=100, hpcnr:float=0,
                  hmfrq:float=None, hmgdd:float=None, hmcut:float=None,
                  hmmow:float=None, hrspl:float=None, hmvs:float=None):
         """
-        Initializes a Automatic Management Harvest section.
+        Initializes a Automatic Management Harvest section. 
 
         Arguments
         ----------
         hfrst: date
-            First day of harvest window. None or -99 means no lower bound.
+            First day of harvest window
         hlast: date
-            Last day of harvest window. None or -99 means no upper bound.
+            Last day of harvest window
         hpcnp: float
             Percentage of product harvested
         hpcnr: float
@@ -1346,6 +1346,7 @@ class AMHarvest(Record):
         hmfrq, hmgdd, hmcut, hmmow, hrspl, hmvs: float
             Automow parameters
         """
+        hfrst = 0 # Option not implemented yet on the GUI
         super().__init__()
         kwargs = {
             'hfrst': hfrst, 'hlast': hlast, 'hpcnp': hpcnp, 'hpcnr': hpcnr,
@@ -1451,7 +1452,7 @@ class SimulationControls:
         out_str += f" 1 NI          {self.__data['nitrogen']._write_row()}"
         out_str += "@N RESIDUES    RIPCN RTIME RIDEP\n"
         out_str += f" 1 RE          {self.__data['residues']._write_row()}"
-        out_str += "@N HARVEST     HFRST HLAST HPCNP HPCNR HMFRQ HMGDD HMCUT HMMOW HRSPL HMVS\n"
+        out_str += "@N HARVEST     HFRST HLAST HPCNP HPCNR\n"
         out_str += f" 1 HA          {self.__data['harvest']._write_row()}"
         return out_str
     
@@ -1788,25 +1789,17 @@ def read_filex(filexpath):
         )
     return treatments
         
-def create_filex(field:Field, cultivar:Cultivar, planting:Planting,
+def create_filex(field:Field, cultivar:Cultivar, planting:Planting, 
                 simulation_controls:SimulationControls, harvest:Harvest=None,
-                initial_conditions:InitialConditions=None,
-                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None,
-                irrigation:Irrigation=None, residue:Residue=None,
-                chemical:Chemical=None, tillage:Tillage=None,
-                treatment_sequence:int=1):
+                initial_conditions:InitialConditions=None, 
+                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None, 
+                irrigation:Irrigation=None, residue:Residue=None, 
+                chemical:Chemical=None, tillage:Tillage=None):
     """
     Returns the FileX as a string
-
-    treatment_sequence: 2-digit experiment sequence number embedded in
-    *EXP.DETAILS (e.g. 1 -> "...01SN", 2 -> "...02SN"). Defaults to 1 for a
-    single-treatment run; callers generating multiple treatments for the same
-    field/year should pass a distinct number per treatment so each file gets
-    a distinct experiment code instead of colliding on the same name.
     """
     experiment_name = field["id_field"][:4] +\
-        simulation_controls["general"]["sdate"].strftime('%y') +\
-        f"{treatment_sequence:02d}" + "SN"
+        simulation_controls["general"]["sdate"].strftime('%y01') + "SN"
     out_str = f"*EXP.DETAILS: {experiment_name}\n\n"
     treatment = Treatment(**{
         "r": 1, "o": 0, "c": 0, "tname": "DSSATTools", "cu": 1, "fl": 1, 

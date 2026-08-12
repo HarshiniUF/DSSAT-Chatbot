@@ -1,0 +1,100 @@
+{
+  "crop_code": "CB",
+  "crop_name": "Cabbage",
+  "model_file": "CBGRO048.CUL",
+  "bounds": {
+    "min": {
+      "csdl": 12.33,
+      "ppsen": 0.0,
+      "em-fl": 25.0,
+      "fl-sh": 4.0,
+      "fl-sd": 11.0,
+      "sd-pm": 50.0,
+      "fl-lf": 40.0,
+      "lfmax": 1.0,
+      "slavr": 210.0,
+      "sizlf": 40.0,
+      "xfrt": 0.55,
+      "wtpsd": 0.19,
+      "sfdur": 23.0,
+      "sdpdv": 2.2,
+      "podur": 10.0,
+      "thrsh": 10.0,
+      "sdpro": 0.18,
+      "sdlip": 0.02
+    },
+    "max": {
+      "csdl": 12.33,
+      "ppsen": 0.0,
+      "em-fl": 28.0,
+      "fl-sh": 6.0,
+      "fl-sd": 13.0,
+      "sd-pm": 60.0,
+      "fl-lf": 60.0,
+      "lfmax": 1.1,
+      "slavr": 240.0,
+      "sizlf": 60.0,
+      "xfrt": 0.8,
+      "wtpsd": 0.25,
+      "sfdur": 23.0,
+      "sdpdv": 2.2,
+      "podur": 40.0,
+      "thrsh": 10.0,
+      "sdpro": 0.18,
+      "sdlip": 0.02
+    }
+  },
+  "cultivars": {
+    "990001": {
+      "vrname": "Tastie    4",
+      "expno": ".",
+      "eco#": "CB0401",
+      "coefficients": {
+        "csdl": 13.09,
+        "ppsen": 0.0,
+        "em-fl": 26.0,
+        "fl-sh": 5.0,
+        "fl-sd": 11.0,
+        "sd-pm": 55.0,
+        "fl-lf": 42.0,
+        "lfmax": 1.03,
+        "slavr": 220.0,
+        "sizlf": 50.0,
+        "xfrt": 0.6,
+        "wtpsd": 0.25,
+        "sfdur": 23.0,
+        "sdpdv": 2.2,
+        "podur": 40.0,
+        "thrsh": 10.0,
+        "sdpro": 0.18,
+        "sdlip": 0.02
+      }
+    },
+    "990002": {
+      "vrname": "CG        4",
+      "expno": ".",
+      "eco#": "CB0402",
+      "coefficients": {
+        "csdl": 13.09,
+        "ppsen": 0.0,
+        "em-fl": 27.0,
+        "fl-sh": 6.0,
+        "fl-sd": 13.0,
+        "sd-pm": 55.0,
+        "fl-lf": 40.0,
+        "lfmax": 1.03,
+        "slavr": 220.0,
+        "sizlf": 50.0,
+        "xfrt": 0.75,
+        "wtpsd": 0.19,
+        "sfdur": 23.0,
+        "sdpdv": 2.2,
+        "podur": 10.0,
+        "thrsh": 10.0,
+        "sdpro": 0.18,
+        "sdlip": 0.02
+      }
+    }
+  },
+  "skipped": {}
+}

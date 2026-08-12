@@ -1,0 +1,1013 @@
+{
+  "crop": "PN",
+  "generated_at": "2026-08-06 22:32:29",
+  "total_locations": 1,
+  "processed": 1,
+  "locations": {
+    "Kaolack, Senegal": {
+      "55-437": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect Spanish bunch type with compact to semi-compact canopy",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian (Senegal Peanut Basin; ~600-900 mm annual rainfall) ",
+            "adaptation_notes": "Well adapted to the Peanut Basin including Kaolack where rains are concentrated over a short season; performs best on well-drained sandy to sandy-loam soils with timely sowing at the onset of rains; benefits from vigilant management of rosette and leaf spot diseases and timely harvest to limit aflatoxin risk.",
+            "normal_planting_window": "mid-June to mid-July (with the onset of the main rains)",
+            "planting_density": "180000-250000 plants/ha (e.g., 45 cm row spacing with 10-12 cm between plants)",
+            "harvest_time": "September-October (about 90-100 days after planting)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Across Kaolack Region, notably in the departments of Kaolack, Nioro du Rip, and Guinguinéo, including production zones around Ndoffane, Keur Madiabel, Paoskoto, Sibassor, Kahone, and Latmingué"
+          },
+          "source": "Expert synthesis of Senegal Peanut Basin recommendations for Spanish-type groundnut and commonly reported attributes of variety 55-437; specific Kaolack adaptation based on regional agronomy norms.",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "47-16": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "85-95",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect, compact Spanish-type (bunch)",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Groundnut Basin (Kaolack and surrounding regions)",
+            "adaptation_notes": "Best adapted to the Sudano-Sahelian Groundnut Basin around Kaolack with 600-800 mm annual rainfall on light sandy to sandy-loam, well-drained soils. Early-maturing Spanish-type suited to short rainy seasons and timely late plantings; fits rotations with millet/sorghum. Responds to phosphorus and calcium (gypsum at pegging), and benefits from seed treatment and early weed control. Avoid waterlogging and plant with onset of rains for optimal stands.",
+            "normal_planting_window": "mid-June to mid-July (with onset of rains)",
+            "planting_density": "200000-250000 plants/ha (e.g., 50 cm row spacing x 10 cm in-row spacing)",
+            "harvest_time": "September-October (85-95 days after planting)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kaolack, Nioro du Rip, and Guinguinéo departments within Kaolack Region"
+          },
+          "source": "Expert agronomic knowledge for Senegal’s Groundnut Basin and general recommendations for Spanish-type early cultivars; specific varietal datasheet for 47-16 not available",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "57-422": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "1800-3000",
+            "plant_height_cm": "40-60",
+            "growth_habit": "semi-spreading (Virginia bunch type)",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian (Groundnut Basin) of Senegal, including Kaolack",
+            "adaptation_notes": "Performs best on light sandy to sandy-loam soils of the Groundnut Basin under 500-800 mm seasonal rainfall; ensure early planting with the onset of rains in June to avoid terminal drought; responsive to basal P and Ca (gypsum at pegging) and timely weeding; avoid waterlogging; harvest promptly at physiological maturity to reduce pod loss and aflatoxin risk.",
+            "normal_planting_window": "mid-June to early July (immediately after the first effective rains)",
+            "planting_density": "120000-160000 plants/ha (e.g., 0.60-0.75 m row spacing x 15-20 cm within-row; sow 2 seeds per station then thin to 1)",
+            "harvest_time": "October-November (110-120 days after planting)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Kaolack Region, particularly the departments of Kaolack, Nioro du Rip, and Guinguinéo within the Groundnut Basin"
+          },
+          "source": "Compiled from Senegal Groundnut Basin agronomic recommendations and West African peanut varietal descriptions for Virginia/Spanish types, including ISRA/CNRA and ICRISAT regional guides.",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "48-15": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Peanut Basin of Senegal (Kaolack region)",
+            "adaptation_notes": "Best suited to the sandy to sandy-loam, well-drained soils common in the Kaolack Peanut Basin. Sow immediately after the first effective rains (≥25–30 mm over 2–3 days), ensure weed-free conditions through 40–45 days after planting, and avoid waterlogging. Apply basal phosphorus and calcium (e.g., SSP/DAP at planting; gypsum at early pegging) to enhance pod fill and quality. Optimal rainfall window is roughly 500–800 mm with a 90–120 day growing period typical for Kaolack; fields with light-textured, friable topsoil facilitate pegging and pod development.",
+            "normal_planting_window": "Late June to early July at onset of rains in Kaolack",
+            "planting_density": "200000 plants/ha for bunch (Spanish) types at 0.50 m rows x 0.10 m in-row; 133000 plants/ha for spreading (Virginia/runner) types at 0.75 m x 0.20 m",
+            "harvest_time": "September–October for early types; October–November for medium to late types, depending on seasonal onset",
+            "season_suitability": "main season",
+            "major_crop_areas": "Nioro du Rip, Guinguinéo, and Kaolack departments; especially around Gandiaye, Sibassor, Ndiaffate, Keur Madiabel, and surrounding communes"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "28-206": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-45",
+            "growth_habit": "erect (bunch type, Spanish-type architecture)",
+            "disease_resistance": [
+              "no specific resistance documented",
+              "susceptible to groundnut rosette disease",
+              "moderate susceptibility to early leaf spot (Cercospora arachidicola)",
+              "moderate susceptibility to late leaf spot (Cercosporidium personatum)",
+              "moderate susceptibility to rust (Puccinia arachidis)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudanian savanna zone (approximately 700-1000 mm annual rainfall), Senegal Groundnut Basin including Kaolack",
+            "adaptation_notes": "28-206 is an early-maturing erect/bunch peanut suited to the central Groundnut Basin’s sandy to sandy-loam, well-drained soils. Best performance occurs with timely planting at the onset of rains, adequate calcium (gypsum) at pegging, and phosphorus fertilization on low-P soils. Its early maturity helps it escape late-season drought and end-of-rains disease pressure, making it suitable for the variable rainfall of Kaolack. Because it is generally susceptible to rosette and leaf spots, integrated management (healthy seed, early planting, aphid management to limit rosette, and timely fungicide sprays where feasible) is recommended.",
+            "normal_planting_window": "mid-June to mid-July (with the onset of the main rains)",
+            "planting_density": "160000-200000 plants/ha (e.g., 50-60 cm row spacing with 10-15 cm within-row spacing)",
+            "harvest_time": "90-105 days after planting (September-October in Kaolack)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Across Kaolack Region’s Groundnut Basin, notably the departments of Nioro du Rip, Guinguinéo and Kaolack"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "69-101": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "85-95",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect (Spanish bunch type), compact canopy",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano–Sahelian zone (Central Groundnut Basin, ~500-800 mm annual rainfall)",
+            "adaptation_notes": "Best adapted to the Central Groundnut Basin around Kaolack with sandy to sandy-loam, well-drained soils and a short rainy season. Early, erect Spanish-type lines like 69-101 fit areas with variable onset and early cessation of rains; timely planting with the first effective rains and weed control in the first 4-6 weeks are important. Avoid waterlogging and harvest promptly at physiological maturity to limit pod losses and aflatoxin risk.",
+            "normal_planting_window": "Late June to mid-July with the first effective rains",
+            "planting_density": "160000-220000 plants/ha; typical spacing 0.5-0.6 m between rows x 0.10-0.12 m within rows",
+            "harvest_time": "85-95 days after planting; typically late September to October",
+            "season_suitability": "short season",
+            "major_crop_areas": "Kaolack, Nioro du Rip, and Guinguinéo departments across the Central Groundnut Basin belt (bordering Kaffrine and Fatick)"
+          },
+          "source": "Expert agronomic knowledge and regional peanut production recommendations for Senegal; specific published varietal datasheet for 69-101 is limited in public domain",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "73-33": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "early Spanish-bunch type",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1000-2000",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect, Spanish-bunch, semi-compact canopy",
+            "disease_resistance": [
+              "moderate tolerance to early leaf spot (Cercospora arachidicola)",
+              "moderate tolerance to late leaf spot (Cercosporidium personatum)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Peanut Basin (central groundnut basin) with 500-800 mm seasonal rainfall on sandy soils",
+            "adaptation_notes": "Adapted to the central Peanut Basin around Kaolack on light, well-drained sandy or sandy-loam soils. Suited to short rainy seasons; best performance with timely sowing at the onset of rains, adequate seedbed preparation, good seed quality, and effective early weed control. Early maturity helps escape late-season drought and foliar disease pressure; avoid late sowing to minimize rosette and end-of-season stress.",
+            "normal_planting_window": "mid-June to mid-July (with onset of rains)",
+            "planting_density": "180000-220000 plants/ha (e.g., 45-50 cm rows with 10-12 cm in-row spacing; 2 seeds/hill)",
+            "harvest_time": "90-100 days after planting; typically late September to October for normal sowing",
+            "season_suitability": "main season",
+            "major_crop_areas": "Kaolack Region’s Peanut Basin including the departments of Kaolack, Nioro du Rip, and Guinguinéo (notably areas around Kaolack/Kahone, Ndoffane, Paoskoto, Keur Madiabel, and Sibassor)"
+          },
+          "source": "ISRA/ICRISAT and Senegalese extension recommendations for Spanish-type groundnut (Peanut Basin) and common descriptors for variety 73-33",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "73-30": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "85-95",
+            "average_yield_kg_ha": "1000-1800",
+            "plant_height_cm": "25-40",
+            "growth_habit": "erect Spanish bunch (compact canopy)",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Groundnut Basin (Kaolack region)",
+            "adaptation_notes": "Early Spanish-type variety suited to the Sudano-Sahelian Groundnut Basin conditions of Kaolack with 500-800 mm seasonal rainfall. Performs well on light, well-drained sandy or sandy-loam soils typical of the Groundnut Basin; avoid waterlogging. Best results with timely planting at the onset of rains, two weedings in the first 40 days, adequate calcium at pegging, and inoculation or fertile rotations where possible. Fits late or short rainy seasons and areas with intermittent dry spells due to its earliness.",
+            "normal_planting_window": "late June to mid-July (with onset of rains)",
+            "planting_density": "200000-250000 plants/ha (e.g., 5-6 plants/m in 0.5 m rows)",
+            "harvest_time": "85-95 days after planting (late September to October)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Nioro du Rip, Kaolack and Guinguineo departments across the Groundnut Basin of Kaolack region"
+          },
+          "source": "Expert agronomic knowledge of Spanish-type early peanut (73-30) used in Senegal’s Groundnut Basin and regional production recommendations for Kaolack",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "Fleur 11": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-45",
+            "growth_habit": "erect bunch (Spanish-type)",
+            "disease_resistance": [
+              "groundnut rosette disease (tolerant)",
+              "early leaf spot (Cercospora arachidicola) (moderate tolerance)",
+              "late leaf spot (Phaeoisariopsis personata) (moderate tolerance)",
+              "rust (Puccinia arachidis) (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian zone of Senegal’s Groundnut Basin (≈500-800 mm annual rainfall), including Kaolack",
+            "adaptation_notes": "Best adapted to the sandy to sandy-loam soils of the Groundnut Basin around Kaolack, with planting at the onset of reliable rains. Performs well under short rainy seasons and intermittent dry spells typical of the Sudano-Sahelian climate. Requires good field drainage (sensitive to waterlogging), benefits from basal phosphorus (e.g., SSP/DAP) and gypsum at early pegging for pod fill, and responds to timely weed control and 1–2 fungicide sprays if leaf spot/rust pressure is high.",
+            "normal_planting_window": "mid-June to early July (with onset of rains)",
+            "planting_density": "200000-250000 plants/ha (rows 45-50 cm apart, 10 cm within rows)",
+            "harvest_time": "90-100 days after planting (typically September-October in Kaolack)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Nioro du Rip, Guinguinéo, and Kaolack departments, notably around Ndoffane, Keur Madiabel, Kahone, and Paoskoto"
+          },
+          "source": "General ISRA/ICRISAT variety guides for Senegal’s groundnut basin and regional agronomy recommendations",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "Bambey 21": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-3000",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect (Spanish type)",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian zone (Groundnut Basin) with 600-900 mm seasonal rainfall, sandy loam \"dior\" soils",
+            "adaptation_notes": "Well adapted to the Senegal Groundnut Basin including Kaolack; performs best on well-drained sandy soils with good fertility management and timely weed control. Early maturity allows escape from late-season drought and intermittent dry spells common in the Sudano-Sahelian climate.",
+            "normal_planting_window": "mid-June to early July (at onset of rains)",
+            "planting_density": "180000-220000 plants/ha (approximately 50 cm between rows x 10-12 cm within-row)",
+            "harvest_time": "90-100 days after planting (typically late September to early October)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Kaolack Region departments of Nioro du Rip, Guinguinéo, and Kaolack"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "JL 24": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "85-95",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "Spanish bunch (erect, compact canopy)",
+            "disease_resistance": [
+              "no notable genetic resistance reported",
+              "generally susceptible to late leaf spot, rust, and groundnut rosette disease"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian groundnut basin (approximately 600-900 mm annual rainfall)",
+            "adaptation_notes": "Well adapted to the Senegal Groundnut Basin including Kaolack on light to medium, well-drained sandy loam soils; performs best with early sowing at the onset of effective rains, timely weeding, and Ca (gypsum) at pegging; early maturity helps the crop escape end-of-season drought but foliar disease pressure (leaf spots, rust) and groundnut rosette must be managed.",
+            "normal_planting_window": "mid-June to early July (immediately after the first effective rains)",
+            "planting_density": "180000-220000 plants/ha (rows 50-60 cm apart with 10 cm between plants)",
+            "harvest_time": "85-95 days after planting (late September–October)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Nioro du Rip, Kaolack, and Guinguinéo departments within Kaolack Region"
+          },
+          "source": "Compiled from ICRISAT groundnut variety notes on JL 24 and Senegal (ISRA/FAO) production recommendations for the Groundnut Basin",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "ICGV 91114": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "Spanish bunch; erect to semi-erect, compact",
+            "disease_resistance": [
+              "late leaf spot (tolerant)",
+              "rust (tolerant)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Peanut Basin of Senegal (600-900 mm rainfall) on well-drained sandy to sandy loam soils",
+            "adaptation_notes": "ICGV 91114 is a Spanish-bunch, medium-duration, drought-tolerant groundnut suited to the Sudano-Sahelian Peanut Basin, including Kaolack. It performs well under end-of-season (terminal) drought and erratic rainfall, typical of the region. Best results are obtained on light, well-drained sandy to sandy-loam soils with adequate calcium at pegging, good weed control during the first 30-40 days, and timely harvest to avoid pod sprouting and aflatoxin risk. Avoid waterlogging and heavy clays. In Kaolack, align planting with the reliable onset of rains (late June–July) and harvest before late-season dry spells intensify (October–November).",
+            "normal_planting_window": "late June to mid-July (with onset of monsoon rains)",
+            "planting_density": "unknown",
+            "harvest_time": "110-120 days after planting (October-November in Kaolack)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Nioro du Rip, Guinguinéo and Kaolack departments; notably around Wack Ngouna, Ndoffane, Keur Madiabel and Paoskoto"
+          },
+          "source": "ICRISAT profile notes for ICGV 91114 (traits, maturity, drought tolerance), FEWS NET Senegal seasonal calendar (planting/harvest timing), and Wikipedia pages on the Groundnut (Peanut) Basin and Kaolack Region for agro-ecology and production geography.",
+          "source_url": [
+            "https://www.icrisat.org/icgv-91114-the-most-widely-adopted-groundnut-variety-in-india/",
+            "https://fews.net/west-africa/senegal",
+            "https://en.wikipedia.org/wiki/Groundnut_Basin",
+            "https://en.wikipedia.org/wiki/Kaolack_Region"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "ICGV 91278": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "2000-3000",
+            "plant_height_cm": "30-45",
+            "growth_habit": "erect to semi-erect (Spanish-bunch type)",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian zone of central Senegal (ca. 600-900 mm seasonal rainfall), Peanut Basin",
+            "adaptation_notes": "Well adapted to the Senegal Peanut Basin around Kaolack on well-drained sandy to sandy-loam soils with moderate fertility; performs best with timely planting at onset of rains, two early weedings, and adequate calcium (gypsum) around pegging for pod filling; suitable for short rainy seasons and for late plantings within the main rainy season due to early maturity.",
+            "normal_planting_window": "mid-June to mid-July (with onset of rains)",
+            "planting_density": "100000-150000 plants/ha (e.g., 50 cm rows x 20-15 cm within-row spacing; approximately 4-6 seeds per meter of row)",
+            "harvest_time": "90-110 days after planting (September-October in Kaolack)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kaolack, Guinguinéo and Nioro du Rip departments; notably communes such as Wack Ngouna, Ndoffane, Gandiaye, Keur Madiabel, Paoskoto and Medina Sabakh"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "ICGV 91324": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-45",
+            "growth_habit": "erect (Spanish bunch type)",
+            "disease_resistance": [
+              "groundnut rosette disease (GRD) – resistant",
+              "early leaf spot – moderate tolerance",
+              "late leaf spot – moderate tolerance",
+              "rust – moderate tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian zone of Senegal’s Groundnut Basin (including Kaolack)",
+            "adaptation_notes": "Early-maturing Spanish-bunch variety adapted to the short rainy season of Senegal’s Groundnut Basin; performs well on well-drained sandy to sandy-loam soils with 600-900 mm seasonal rainfall; best results with early planting at onset of rains to escape late-season drought and reduce rosette vector pressure; responds to balanced phosphorus and calcium (gypsum) at pegging; suitable for low-input conditions but yields improve with timely weeding and fertilizer.",
+            "normal_planting_window": "mid-June to mid-July (with the onset of rains)",
+            "planting_density": "180000-220000 plants/ha (e.g., 45 cm row spacing x 10-12 cm within-row spacing)",
+            "harvest_time": "90-100 days after planting (September-October for June-July sowing in Kaolack)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Kaolack, Nioro du Rip, and Guinguinéo departments; notable peanut-growing communes include Ndoffane, Keur Madiabel, Paos Koto, and Kahone"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "ICGV 93305": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-40",
+            "growth_habit": "erect Spanish-bunch type",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian Peanut Basin (600-900 mm rainfall), including Kaolack region of Senegal",
+            "adaptation_notes": "Adapted to the Senegalese Peanut Basin on light to medium-textured, well-drained sandy loam soils. Performs best when sown with the first effective rains and where seasonal rainfall totals 600-900 mm. Early-maturing, erect Spanish types are suited to the short rainy season and areas prone to terminal drought. Avoid waterlogging and heavy clays; maintain weed-free fields during the first 30-40 days. Apply calcium (gypsum) at early pegging to improve pod fill on sandy soils; balanced P and S nutrition supports yield. Harvest at optimal maturity (70-80% pods mature) to reduce aflatoxin risk and maximize kernel quality.",
+            "normal_planting_window": "late June to mid-July (with onset of rains)",
+            "planting_density": "180000-220000 plants/ha (e.g., 50 cm x 10 cm spacing for Spanish types)",
+            "harvest_time": "September-October (about 90-100 days after planting)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Kaolack, Nioro du Rip, and Guinguinéo departments of Kaolack Region"
+          },
+          "source": "ICRISAT/Tropical Legumes variety notes for ICGV 93305 (Fleur 11) and general ISRA–ICRISAT groundnut production recommendations for Senegal’s Peanut Basin",
+          "source_url": [
+            "https://tropicallegumes.icrisat.org/varieties/groundnut-senegal/",
+            "https://oar.icrisat.org/10805/1/Groundnut-Variety-Catalogue-WCA.pdf",
+            "https://www.icrisat.org/what-we-do/crops/groundnut/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      },
+      "ICGV 86024": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "1500-2500",
+            "plant_height_cm": "30-45",
+            "growth_habit": "erect (Spanish bunch type), compact canopy",
+            "disease_resistance": [
+              "moderate resistance to early leaf spot (Cercospora arachidicola)",
+              "moderate resistance to late leaf spot (Nothopassalora personata)",
+              "moderate resistance to rust (Puccinia arachidis)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Sudano-Sahelian (semi-arid) Peanut Basin of Senegal; 500-800 mm seasonal rainfall on sandy loam soils",
+            "adaptation_notes": "Early-maturing, drought-tolerant Spanish bunch adapted to the Sudano-Sahelian Peanut Basin around Kaolack; performs well under end-of-season drought and on well-drained sandy to sandy loam soils with low to moderate fertility. Best results with early, timely planting after the onset of rains, good weed control in the first 30-40 days, and application of calcium (gypsum) at pegging on light soils. Monitor and manage groundnut rosette vectors and foliar diseases; variety has moderate foliar disease tolerance but is not specifically rosette-resistant.",
+            "normal_planting_window": "late June to mid-July (immediately after effective onset of rains)",
+            "planting_density": "180000-220000 plants/ha (e.g., 50 cm between rows x 10-12 cm within-row)",
+            "harvest_time": "90-100 days after planting (typically September-October for timely June-July planting)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kaolack, Nioro du Rip, and Guinguinéo departments; key production communes/zones include Paoskoto, Keur Madiabel, Wack Ngouna, Gandiaye and surrounding areas"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "CSDL": false,
+            "PPSEN": false,
+            "EM-FL": false,
+            "FL-SH": false,
+            "FL-SD": false,
+            "SD-PM": false,
+            "FL-LF": false,
+            "LFMAX": false,
+            "SLAVR": false,
+            "SIZLF": false,
+            "XFRT": false,
+            "WTPSD": false,
+            "SFDUR": false,
+            "SDPDV": false,
+            "PODUR": false,
+            "THRSH": false,
+            "SDPRO": false,
+            "SDLIP": false
+          },
+          "notes": ""
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_cultivars_identified": {
+      "55-437": [
+        "Kaolack, Senegal"
+      ],
+      "47-16": [
+        "Kaolack, Senegal"
+      ],
+      "57-422": [
+        "Kaolack, Senegal"
+      ],
+      "48-15": [
+        "Kaolack, Senegal"
+      ],
+      "28-206": [
+        "Kaolack, Senegal"
+      ],
+      "69-101": [
+        "Kaolack, Senegal"
+      ],
+      "73-33": [
+        "Kaolack, Senegal"
+      ],
+      "73-30": [
+        "Kaolack, Senegal"
+      ],
+      "Fleur 11": [
+        "Kaolack, Senegal"
+      ],
+      "Bambey 21": [
+        "Kaolack, Senegal"
+      ],
+      "JL 24": [
+        "Kaolack, Senegal"
+      ],
+      "ICGV 91114": [
+        "Kaolack, Senegal"
+      ],
+      "ICGV 91278": [
+        "Kaolack, Senegal"
+      ],
+      "ICGV 91324": [
+        "Kaolack, Senegal"
+      ],
+      "ICGV 93305": [
+        "Kaolack, Senegal"
+      ],
+      "ICGV 86024": [
+        "Kaolack, Senegal"
+      ]
+    },
+    "location_detailed": {
+      "Kaolack, Senegal": {
+        "num_cultivars": 16,
+        "num_llm_knowledge_coefficients": 0,
+        "num_web_paper_coefficients": 0,
+        "num_not_found_coefficients": 16,
+        "crop_suitability_note": "Major cultivation location with diverse cultivar options"
+      }
+    },
+    "cultivars_overlap_info": {
+      "total_cultivars_with_repeats": 16,
+      "total_unique_cultivars": 16,
+      "cultivars_in_single_location": 16,
+      "cultivars_in_multiple_locations": 0
+    }
+  }
+}

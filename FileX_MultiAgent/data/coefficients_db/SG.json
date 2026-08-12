@@ -1,0 +1,1140 @@
+{
+  "crop_code": "SG",
+  "crop_name": "Sorghum",
+  "model_file": "SGCER048.CUL",
+  "bounds": {
+    "min": {
+      "p1": 200.0,
+      "p2": 102.0,
+      "p2o": 11.0,
+      "p2r": 1.0,
+      "panth": 617.5,
+      "p3": 152.5,
+      "p4": 81.5,
+      "p5": 300.0,
+      "phint": 49.0,
+      "g1": 0.0,
+      "g2": 2.0,
+      "pbase": null,
+      "psat": null
+    },
+    "max": {
+      "p1": 500.0,
+      "p2": 300.0,
+      "p2o": 17.0,
+      "p2r": 300.0,
+      "panth": 617.5,
+      "p3": 152.5,
+      "p4": 81.5,
+      "p5": 700.0,
+      "phint": 49.0,
+      "g1": 22.0,
+      "g2": 6.0,
+      "pbase": null,
+      "psat": null
+    }
+  },
+  "cultivars": {
+    "990001": {
+      "var-name": "N.AMERICAN",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 360.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "990002": {
+      "var-name": "INDIAN",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 410.0,
+        "p2": 102.0,
+        "p2o": 13.6,
+        "p2r": 40.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 3.0,
+        "g2": 5.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "990003": {
+      "var-name": "AUSTRALIAN",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "990004": {
+      "var-name": "W.AFRICAN",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 413.0,
+        "p2": 102.0,
+        "p2o": 13.6,
+        "p2r": 40.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 640.0,
+        "phint": 49.0,
+        "g1": 3.0,
+        "g2": 6.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0001": {
+      "var-name": "RIO",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 430.0,
+        "p2": 102.0,
+        "p2o": 11.6,
+        "p2r": 24.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0002": {
+      "var-name": "9188",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 393.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 23.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0003": {
+      "var-name": "BRANDES",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 374.0,
+        "p2": 102.0,
+        "p2o": 11.0,
+        "p2r": 116.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0004": {
+      "var-name": "MN1500",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 495.0,
+        "p2": 102.0,
+        "p2o": 11.8,
+        "p2r": 139.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0005": {
+      "var-name": "HEGARI",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 273.0,
+        "p2": 102.0,
+        "p2o": 11.5,
+        "p2r": 136.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0006": {
+      "var-name": "100M",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 291.0,
+        "p2": 102.0,
+        "p2o": 11.0,
+        "p2r": 127.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0007": {
+      "var-name": "80M",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 337.0,
+        "p2": 102.0,
+        "p2o": 12.6,
+        "p2r": 262.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0008": {
+      "var-name": "60M",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 337.0,
+        "p2": 102.0,
+        "p2o": 12.8,
+        "p2r": 290.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0009": {
+      "var-name": "SM100",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 365.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 45.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0010": {
+      "var-name": "SM80",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 356.0,
+        "p2": 102.0,
+        "p2o": 12.0,
+        "p2r": 74.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0011": {
+      "var-name": "SM60",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 365.0,
+        "p2": 102.0,
+        "p2o": 12.2,
+        "p2r": 74.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0012": {
+      "var-name": "REDLON",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 393.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0013": {
+      "var-name": "CAPROCK",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 393.0,
+        "p2": 102.0,
+        "p2o": 12.8,
+        "p2r": 84.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0014": {
+      "var-name": "ATx378XRTx7000",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 384.0,
+        "p2": 102.0,
+        "p2o": 11.3,
+        "p2r": 24.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0015": {
+      "var-name": "ATx623",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 380.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 35.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0016": {
+      "var-name": "RTx430",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 400.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 123.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0017": {
+      "var-name": "ATx623XRTx430",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 390.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 35.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0018": {
+      "var-name": "BTx3197",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 411.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 108.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0019": {
+      "var-name": "RTx7078",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 421.0,
+        "p2": 102.0,
+        "p2o": 14.4,
+        "p2r": 221.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0020": {
+      "var-name": "TX 610",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 180.0,
+        "p2": 102.0,
+        "p2o": 16.5,
+        "p2r": 1.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 580.0,
+        "phint": 49.0,
+        "g1": 22.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0021": {
+      "var-name": "WHEATLAND",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 365.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0022": {
+      "var-name": "ATx399XRTx430",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 393.0,
+        "p2": 102.0,
+        "p2o": 12.8,
+        "p2r": 40.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0023": {
+      "var-name": "ATx378XRTx430",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 411.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 20.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0024": {
+      "var-name": "ATx623XRTx7000",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 374.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 14.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0025": {
+      "var-name": "38M",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 291.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 12.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0026": {
+      "var-name": "CSH-1",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 410.0,
+        "p2": 102.0,
+        "p2o": 13.6,
+        "p2r": 40.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 640.0,
+        "phint": 49.0,
+        "g1": 3.0,
+        "g2": 6.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0027": {
+      "var-name": "DE KALB 46",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 325.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 9.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0028": {
+      "var-name": "PIONEER 8333",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 325.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 11.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0029": {
+      "var-name": "DK",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 200.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 12.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0030": {
+      "var-name": "PIONEER 8515",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 275.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 500.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0031": {
+      "var-name": "RS 626",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 300.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 400.0,
+        "phint": 49.0,
+        "g1": 0.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0032": {
+      "var-name": "DK- E57",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 325.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 450.0,
+        "phint": 49.0,
+        "g1": 13.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0040": {
+      "var-name": "RS610",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0041": {
+      "var-name": "NK212",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 420.0,
+        "p2": 102.0,
+        "p2o": 15.5,
+        "p2r": 30.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 500.0,
+        "phint": 49.0,
+        "g1": 13.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0042": {
+      "var-name": "PIONEER 846",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 480.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 190.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 650.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 5.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0043": {
+      "var-name": "CSH-6",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 410.0,
+        "p2": 102.0,
+        "p2o": 13.6,
+        "p2r": 40.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 510.0,
+        "phint": 49.0,
+        "g1": 7.0,
+        "g2": 4.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0044": {
+      "var-name": "CSH-6*",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 320.0,
+        "p2": 102.0,
+        "p2o": 13.5,
+        "p2r": 180.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 540.0,
+        "phint": 49.0,
+        "g1": 7.0,
+        "g2": 5.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0046": {
+      "var-name": "M-35-1",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 320.0,
+        "p2": 102.0,
+        "p2o": 14.0,
+        "p2r": 45.6,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 556.0,
+        "phint": 49.0,
+        "g1": 15.0,
+        "g2": 4.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0047": {
+      "var-name": "SPV-504",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 310.0,
+        "p2": 102.0,
+        "p2o": 13.0,
+        "p2r": 35.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 554.0,
+        "phint": 49.0,
+        "g1": 15.0,
+        "g2": 4.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0048": {
+      "var-name": "CSH-5",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 255.0,
+        "p2": 102.0,
+        "p2o": 13.5,
+        "p2r": 40.5,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 490.0,
+        "phint": 49.0,
+        "g1": 10.0,
+        "g2": 5.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0049": {
+      "var-name": "CSH-9",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 225.0,
+        "p2": 102.0,
+        "p2o": 13.5,
+        "p2r": 45.1,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 573.0,
+        "phint": 49.0,
+        "g1": 10.0,
+        "g2": 5.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0050": {
+      "var-name": "SPH-388",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 232.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 43.7,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 590.0,
+        "phint": 49.0,
+        "g1": 10.0,
+        "g2": 4.5,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0051": {
+      "var-name": "CARGIL_1090",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0052": {
+      "var-name": "CARGIL DR.1125",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0053": {
+      "var-name": "CARGIL 837",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0054": {
+      "var-name": "ORGO-G-EXTRA",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0055": {
+      "var-name": "PIONEER 850",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "p1": 460.0,
+        "p2": 102.0,
+        "p2o": 12.5,
+        "p2r": 90.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 600.0,
+        "phint": 49.0,
+        "g1": 5.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0056": {
+      "var-name": "CSM335",
+      "expno": ".",
+      "eco#": "IB0002",
+      "coefficients": {
+        "p1": 400.0,
+        "p2": 252.0,
+        "p2o": 12.8,
+        "p2r": 1000.0,
+        "panth": 617.5,
+        "p3": 252.5,
+        "p4": 81.5,
+        "p5": 400.0,
+        "phint": 60.0,
+        "g1": 10.0,
+        "g2": 3.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0057": {
+      "var-name": "CSM63E",
+      "expno": ".",
+      "eco#": "IB0002",
+      "coefficients": {
+        "p1": 300.0,
+        "p2": 102.0,
+        "p2o": 12.8,
+        "p2r": 100.0,
+        "panth": 647.5,
+        "p3": 142.5,
+        "p4": 61.5,
+        "p5": 450.0,
+        "phint": 55.0,
+        "g1": 16.0,
+        "g2": 3.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0058": {
+      "var-name": "Fadda",
+      "expno": ".",
+      "eco#": "IB0002",
+      "coefficients": {
+        "p1": 300.0,
+        "p2": 252.0,
+        "p2o": 12.8,
+        "p2r": 1000.0,
+        "panth": 617.5,
+        "p3": 152.5,
+        "p4": 81.5,
+        "p5": 350.0,
+        "phint": 49.0,
+        "g1": 10.0,
+        "g2": 6.0,
+        "pbase": null,
+        "psat": null
+      }
+    },
+    "IB0059": {
+      "var-name": "IS15401",
+      "expno": ".",
+      "eco#": "IB0002",
+      "coefficients": {
+        "p1": 500.0,
+        "p2": 300.0,
+        "p2o": 12.8,
+        "p2r": 1800.0,
+        "panth": 640.5,
+        "p3": 300.5,
+        "p4": 81.5,
+        "p5": 350.0,
+        "phint": 55.0,
+        "g1": 0.5,
+        "g2": 2.0,
+        "pbase": null,
+        "psat": null
+      }
+    }
+  },
+  "skipped": {}
+}

@@ -1,23 +1,32 @@
 """
-StandaloneCultivarHelperAgent v2 - Enhanced zone-based cultivar discovery
+StandaloneCultivarHelperAgent v3 - Crop + location cultivar discovery
 
-Key improvements from v1:
-- Removed fixed cultivar count constraints (allows 0 to N cultivars)
-- Added major_crop_areas field to characteristics
-- Enhanced field descriptions and validation
-- Maintains same workflow structure as v1
+Key changes from v2:
+- Input collapsed to crop_code + location_name (zone/country split removed)
+- Coefficients no longer read local .CUL files or borrow an "analog"
+  cultivar's values as a proxy. They come from exactly two mechanisms,
+  matching how cultivars/characteristics are already generated:
+    1. The LLM is asked directly for coefficients it actually knows
+    2. If it doesn't know, a web search + paper extraction fallback runs
+  Every coefficient key for the crop's real DSSAT model schema is always
+  present in the output — a number if found, `false` if not. Each
+  candidate value is sanity-checked in the backend against that crop's
+  real min/max range from data/coefficients_db/<CROP>.json (values
+  outside range are rejected as `false`), but the bounds themselves are
+  not written to the output file — the output stays a plain
+  {found, source, source_url, coefficients: {KEY: value|false}, notes}
+  shape, matching the rest of the cultivar DB.
 
 Workflow per cultivar:
-  1. Generate list of suitable cultivars for zone (variable count)
-  2. LLM predicts agronomic characteristics for each cultivar
-  3. Search local .CUL files for coefficients
-  4. If not found locally, search research papers for coefficients
+  1. LLM predicts agronomic characteristics
+  2. LLM is asked directly for known genotypic coefficients
+  3. If nothing found, web search + paper extraction for coefficients
 """
 
 from __future__ import annotations
 
+import io
 import json
-import re
 import time
 from pathlib import Path
 from typing import Optional, Dict, List, Any, Tuple
@@ -27,19 +36,51 @@ from bs4 import BeautifulSoup
 
 from utils.llm import get_llm
 from utils.helpers import strip_markdown_fences
+from utils.coefficients_lookup import load_coefficients_db
 
 from prompts.standalone_cultivar_helper_agent_prompts import (
     generate_cultivar_list_prompt,
     extract_characteristics_prompt,
-    parse_cul_file_coefficients_prompt,
-    search_coefficients_in_research_prompt,
+    get_known_coefficients_prompt,
     extract_coefficients_from_paper_prompt,
-    find_analog_cultivar_prompt,
 )
 
 
+def _extract_pdf_text(content: bytes, max_chars: int = 8000) -> str:
+    """
+    Extract plain text from PDF bytes using pdfplumber.
+
+    Fetched paper URLs are sometimes PDFs, not HTML — those must NOT be run
+    through BeautifulSoup (it would parse raw PDF binary as if it were
+    markup and produce nothing usable). Returns "" on any failure so the
+    caller can just skip that URL, same as an HTML fetch/parse failure.
+    """
+    try:
+        import pdfplumber
+    except ImportError:
+        return ""
+
+    try:
+        text_parts: List[str] = []
+        total_len = 0
+        with pdfplumber.open(io.BytesIO(content)) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text() or ""
+                text_parts.append(page_text)
+                total_len += len(page_text)
+                if total_len >= max_chars:
+                    break
+        return " ".join(text_parts)[:max_chars]
+    except Exception:
+        return ""
+
+
 # ============================================================================
-# HELPER FUNCTIONS (unchanged from v1)
+# HELPER FUNCTIONS
+#
+# Still used by utils/cul_parser.py (a separate .CUL-parsing tool) — kept
+# here even though this agent's own coefficient workflow no longer calls
+# them.
 # ============================================================================
 
 def find_cul_files(genotype_dir: Path, crop_code: str) -> List[Path]:
@@ -96,48 +137,36 @@ def get_all_cul_file_contents(genotype_dir: Path, crop_code: str) -> List[Tuple[
     return file_contents
 
 
-def search_cultivar_in_all_cul_files(
-    cultivar_name: str,
-    file_contents: List[Tuple[Path, str]]
-) -> Optional[Tuple[Path, str]]:
-    """
-    Search for cultivar name across multiple .CUL files.
-    Returns (Path, content) for first file containing the cultivar, or None.
-    """
-    if not cultivar_name or not file_contents:
-        return None
-
-    cultivar_lower = cultivar_name.lower()
-
-    for cul_file, content in file_contents:
-        if cultivar_lower in content.lower():
-            return (cul_file, content)
-
-    return None
-
-
 # ============================================================================
-# STANDALONE CULTIVAR HELPER AGENT CLASS v2
+# STANDALONE CULTIVAR HELPER AGENT CLASS v3
 # ============================================================================
 
 class StandaloneCultivarHelperAgent:
     """
-    Standalone agent for cultivar discovery and coefficient retrieval v2.
-    
-    Enhanced features:
-    - Variable cultivar count per zone (0 to N)
-    - Added major_crop_areas field
-    - Improved field descriptions
-    
+    Standalone agent for cultivar discovery and coefficient retrieval v3.
+
     Output per cultivar:
         {
             "cultivar_name": "...",
-            "characteristics": { ... with major_crop_areas ... },
-            "coefficients": { ... }
+            "characteristics": { ... },
+            "coefficients": {
+                "found": bool,
+                "source": "LLM knowledge" | "WebFetch: <url>" | "not_found",
+                "source_url": str | None,
+                "coefficients": {
+                    "COEFF_KEY": number | false,
+                    ...
+                },
+                "notes": "..."
+            }
         }
+
+    Min/max bounds from data/coefficients_db/<CROP>.json are used only as a
+    backend sanity check on candidate values (out-of-range values are
+    rejected as `false`) — they are not part of the output.
     """
 
-    AGENT_NAME = "StandaloneCultivarHelperAgent_v2"
+    AGENT_NAME = "StandaloneCultivarHelperAgent_v3"
 
     # ========================================================================
     # CROP CODE -> NAME MAPPING
@@ -152,7 +181,7 @@ class StandaloneCultivarHelperAgent:
         "SG": "Sorghum",
         "ML": "Millet",
         "SC": "Sugarcane",
-        "TN": "Sunflower",
+        "SU": "Sunflower",
         "PP": "Pigeonpea",
         "CH": "Chickpea",
         "BN": "Dry Bean",
@@ -175,8 +204,7 @@ class StandaloneCultivarHelperAgent:
                 - config (dict, optional)
                 - crop_code (str)
                 - crop_name_text (str, optional)
-                - zone_name (str): agro-ecological zone name
-                - country (str): country name
+                - location_name (str): free-text location, e.g. "Kaolack, Senegal"
                 - generator_model (str, optional): LLM model name
             verbose: If True, print detailed logs. If False, print progress only.
 
@@ -203,7 +231,7 @@ class StandaloneCultivarHelperAgent:
         crop_code = state.get("crop_code", "")
         if not crop_code:
             crop_code = (config.get("cultivar", {}) or {}).get("CR", "MZ")
-        crop_code = str(crop_code).strip() or "MZ"
+        crop_code = str(crop_code).strip().upper() or "MZ"
 
         crop_name = state.get("crop_name_text", "")
         if not crop_name:
@@ -211,33 +239,29 @@ class StandaloneCultivarHelperAgent:
         if not crop_name:
             crop_name = StandaloneCultivarHelperAgent.CROP_MAP.get(crop_code, crop_code)
 
-        zone_name = state.get("zone_name", "Unknown Zone")
-        country = state.get("country", "Unknown Country")
+        location_name = state.get("location_name", "Unknown Location")
 
-        log(f"🌍 Country: {country}")
-        log(f"📍 Zone: {zone_name}")
+        log(f"📍 Location: {location_name}")
         log(f"🌾 Crop: {crop_name} ({crop_code})")
 
         # ====================================================================
-        # STEP 2: RESOLVE GENOTYPE DIRECTORY
+        # STEP 2: LOAD THIS CROP'S COEFFICIENT SCHEMA + MIN/MAX BOUNDS
         # ====================================================================
-        genotype_dir = Path(__file__).resolve().parents[1] / "Genotype"
+        coefficient_bounds = StandaloneCultivarHelperAgent._load_crop_bounds(crop_code)
+        coefficient_keys = list(coefficient_bounds.keys())
 
-        if not genotype_dir.exists():
-            msg = f"Genotype directory not found at {genotype_dir}"
-            state.setdefault("errors", []).append(f"{agent}: {msg}")
-            progress(f"❌ {msg}")
-            return state
-
-        log(f"📁 Genotype directory: {genotype_dir}")
+        if coefficient_keys:
+            log(f"📐 Coefficient schema ({len(coefficient_keys)} keys): {', '.join(coefficient_keys)}")
+        else:
+            log(f"⚠️ No coefficient schema found for crop code '{crop_code}' — coefficients will be skipped")
 
         # ====================================================================
-        # STEP 3: GENERATE CULTIVAR LIST (v2: variable count)
+        # STEP 3: GENERATE CULTIVAR LIST
         # ====================================================================
-        progress("Step 1/4: Generating cultivar list for zone...")
+        progress("Step 1/2: Generating cultivar list for location...")
 
         cultivar_list = StandaloneCultivarHelperAgent._generate_cultivar_list(
-            state, crop_name, crop_code, zone_name, country, verbose=verbose
+            state, crop_name, crop_code, location_name, verbose=verbose
         )
 
         if cultivar_list is None:
@@ -246,12 +270,11 @@ class StandaloneCultivarHelperAgent:
             progress(f"❌ {msg}")
             return state
 
-        # v2: Allow empty list if zone is unsuitable
         if len(cultivar_list) == 0:
-            progress(f"✅ Zone unsuitable for {crop_name} - no cultivars generated")
+            progress(f"✅ Location unsuitable for {crop_name} - no cultivars generated")
             state["cultivar_helper_output"] = {}
             state.setdefault("messages", []).append(
-                f"{agent}: Zone unsuitable - 0 cultivars"
+                f"{agent}: Location unsuitable - 0 cultivars"
             )
             return state
 
@@ -259,20 +282,9 @@ class StandaloneCultivarHelperAgent:
         log(f"   Cultivars: {cultivar_list}")
 
         # ====================================================================
-        # STEP 4: LOAD ALL .CUL FILES
+        # STEP 4: PROCESS EACH CULTIVAR
         # ====================================================================
-        all_cul_files = get_all_cul_file_contents(genotype_dir, crop_code)
-
-        if all_cul_files:
-            file_names = [f.name for f, _ in all_cul_files]
-            log(f"📄 Loaded {len(all_cul_files)} .CUL file(s): {', '.join(file_names)}")
-        else:
-            log(f"⚠️ No .CUL files found for {crop_code}")
-
-        # ====================================================================
-        # STEP 5: PROCESS EACH CULTIVAR
-        # ====================================================================
-        progress("Step 2/4: Processing each cultivar...")
+        progress("Step 2/2: Processing each cultivar...")
 
         cultivar_results = {}
 
@@ -280,8 +292,8 @@ class StandaloneCultivarHelperAgent:
             progress(f"  [{idx}/{len(cultivar_list)}] Processing: {cultivar_name}")
 
             result = StandaloneCultivarHelperAgent._process_single_cultivar(
-                state, cultivar_name, crop_name, crop_code,
-                zone_name, country, all_cul_files, verbose=verbose
+                state, cultivar_name, crop_name, crop_code, location_name,
+                coefficient_keys, coefficient_bounds, verbose=verbose
             )
 
             cultivar_results[cultivar_name] = result
@@ -290,7 +302,7 @@ class StandaloneCultivarHelperAgent:
             log(f"    └─ Coefficients source: {coeff_source}")
 
         # ====================================================================
-        # STEP 6: SAVE RESULTS TO STATE
+        # STEP 5: SAVE RESULTS TO STATE
         # ====================================================================
         state["cultivar_helper_output"] = cultivar_results
         state.setdefault("messages", []).append(
@@ -300,9 +312,8 @@ class StandaloneCultivarHelperAgent:
         summary = StandaloneCultivarHelperAgent._summarize_results(cultivar_results)
 
         progress(
-            f"📊 Summary: {summary['local']} local .CUL, "
-            f"{summary['web']} web paper, "
-            f"{summary['analog']} analog, "
+            f"📊 Summary: {summary['llm_knowledge']} from LLM knowledge, "
+            f"{summary['web_paper']} from web papers, "
             f"{summary['not_found']} not found"
         )
 
@@ -310,7 +321,7 @@ class StandaloneCultivarHelperAgent:
         return state
 
     # ========================================================================
-    # STEP 3: GENERATE CULTIVAR LIST (v2: variable count)
+    # GENERATE CULTIVAR LIST
     # ========================================================================
 
     @staticmethod
@@ -318,19 +329,22 @@ class StandaloneCultivarHelperAgent:
         state: Dict[str, Any],
         crop_name: str,
         crop_code: str,
-        zone_name: str,
-        country: str,
+        location_name: str,
         verbose: bool = False
     ) -> Optional[List[str]]:
         """
-        Generate list of suitable cultivars using LLM.
-        v2: Returns empty list if zone is unsuitable (not None).
+        Generate list of suitable cultivars using LLM, grounded with a
+        best-effort web search for real released/grown variety names so
+        recall isn't limited to pure model memory.
+        Returns an empty list if the location is unsuitable (not None).
         """
         agent = StandaloneCultivarHelperAgent.AGENT_NAME
 
-        prompt = generate_cultivar_list_prompt(
-            crop_name, crop_code, zone_name, country
+        web_context = StandaloneCultivarHelperAgent._search_web_for_cultivar_names(
+            crop_name, location_name, verbose=verbose
         )
+
+        prompt = generate_cultivar_list_prompt(crop_name, crop_code, location_name, web_context)
 
         gen_model = state.get("generator_model", "gpt-5")
 
@@ -348,8 +362,7 @@ class StandaloneCultivarHelperAgent:
                 raise ValueError("LLM did not return a list")
 
             cultivar_list = [c for c in cultivar_list if c and isinstance(c, str)]
-            
-            # v2: Empty list is valid (zone unsuitable)
+
             return cultivar_list
 
         except Exception as e:
@@ -358,8 +371,64 @@ class StandaloneCultivarHelperAgent:
             state.setdefault("errors", []).append(f"{agent}: Failed to generate cultivar list - {e}")
             return None
 
+    @staticmethod
+    def _search_web_for_cultivar_names(
+        crop_name: str,
+        location_name: str,
+        verbose: bool = False
+    ) -> str:
+        """
+        Best-effort web search for real cultivar/variety names released or
+        grown for this crop near this location, used to ground the cultivar
+        list LLM call beyond pure model memory. Uses DDGS result titles +
+        snippets directly (no page fetch needed here) — this only has to
+        surface candidate names for the LLM to cross-reference, not full
+        coefficient tables. Returns "" on any failure (ddgs not installed,
+        network error, no results) so the caller just proceeds without it.
+        """
+        agent = StandaloneCultivarHelperAgent.AGENT_NAME
+
+        try:
+            try:
+                from ddgs import DDGS
+            except ImportError:
+                from duckduckgo_search import DDGS
+        except ImportError:
+            if verbose:
+                print(f"[{agent}]   ├─ ddgs not installed, skipping cultivar web search")
+            return ""
+
+        queries = [
+            f"{crop_name} varieties released {location_name}",
+            f"{crop_name} cultivars grown {location_name} extension",
+        ]
+
+        snippets: List[str] = []
+        for query in queries:
+            try:
+                if verbose:
+                    print(f"[{agent}]   ├─ Cultivar web search: {query}")
+
+                with DDGS() as ddgs:
+                    results = list(ddgs.text(query, max_results=6))
+
+                time.sleep(1)  # avoid rate-limiting
+
+                for r in results:
+                    title = (r.get("title") or "").strip()
+                    body = (r.get("body") or "").strip()
+                    if title or body:
+                        snippets.append(f"- {title}: {body}")
+
+            except Exception as e:
+                if verbose:
+                    print(f"[{agent}]   ├─ Cultivar web search error for '{query}': {e}")
+                continue
+
+        return "\n".join(snippets[:15])
+
     # ========================================================================
-    # STEP 5: PROCESS SINGLE CULTIVAR
+    # PROCESS SINGLE CULTIVAR
     # ========================================================================
 
     @staticmethod
@@ -368,23 +437,21 @@ class StandaloneCultivarHelperAgent:
         cultivar_name: str,
         crop_name: str,
         crop_code: str,
-        zone_name: str,
-        country: str,
-        all_cul_files: List[Tuple[Path, str]],
+        location_name: str,
+        coefficient_keys: List[str],
+        coefficient_bounds: Dict[str, Dict[str, Optional[float]]],
         verbose: bool = False
     ) -> Dict[str, Any]:
         """
-        Process a single cultivar through the workflow:
+        Process a single cultivar:
           1. LLM predicts agronomic characteristics (always)
-          2. Search local .CUL files for coefficients
-          3. If not found locally, search research papers for coefficients
+          2. LLM is asked directly for known genotypic coefficients
+          3. If nothing found, web search + paper extraction for coefficients
 
-        Returns:
-            {
-                "cultivar_name": str,
-                "characteristics": { ... },
-                "coefficients": { ... }
-            }
+        No local .CUL file matching and no analog/proxy borrowing —
+        coefficients come only from the LLM's own knowledge or a real
+        published source, the same two mechanisms already used to decide
+        cultivars and characteristics.
         """
         agent = StandaloneCultivarHelperAgent.AGENT_NAME
 
@@ -395,80 +462,62 @@ class StandaloneCultivarHelperAgent:
             print(f"[{agent}]   ├─ Extracting agronomic characteristics...")
 
         characteristics = StandaloneCultivarHelperAgent._extract_characteristics(
-            state, cultivar_name, crop_name, zone_name, country, verbose=verbose
+            state, cultivar_name, crop_name, location_name, verbose=verbose
         )
 
         # ==================================================================
-        # STEP B: SEARCH LOCAL .CUL FILES FOR COEFFICIENTS
+        # STEP B: ASK THE LLM DIRECTLY FOR KNOWN COEFFICIENTS
         # ==================================================================
-        coefficients = None
+        raw_coeffs = None
 
-        if all_cul_files:
-            found_in_file = search_cultivar_in_all_cul_files(cultivar_name, all_cul_files)
-
-            if found_in_file:
-                cul_file, cul_content = found_in_file
-                if verbose:
-                    print(f"[{agent}]   ├─ Found in {cul_file.name}, parsing coefficients...")
-
-                local_result = StandaloneCultivarHelperAgent._parse_local_cul_file(
-                    state, cultivar_name, crop_code, cul_content, verbose=verbose
-                )
-
-                if local_result.get("found"):
-                    coefficients = {
-                        "found": True,
-                        "source": f"Local .CUL file: {cul_file.name}",
-                        "source_url": None,
-                        "coefficients": local_result.get("coefficients", {}),
-                        "notes": f"Parsed from local file {cul_file.name}. "
-                                 f"INGENO: {local_result.get('ingeno', 'N/A')}. "
-                                 f"Cultivar name in file: {local_result.get('cultivar_name', cultivar_name)}"
-                    }
-            else:
-                if verbose:
-                    print(f"[{agent}]   ├─ Not found in any local .CUL files")
-        else:
+        if coefficient_keys:
             if verbose:
-                print(f"[{agent}]   ├─ No .CUL files available to search")
+                print(f"[{agent}]   ├─ Step 1: Asking LLM for known coefficients...")
 
-        # ==================================================================
-        # STEP C: REAL WEB SEARCH + FETCH (Step 2 of fallback chain)
-        # ==================================================================
-        if coefficients is None:
-            if verbose:
-                print(f"[{agent}]   ├─ Step 2: Searching web for published coefficients...")
-
-            web_result = StandaloneCultivarHelperAgent._search_web_for_coefficients(
-                state, cultivar_name, crop_name, crop_code, zone_name, country, verbose=verbose
+            raw_coeffs = StandaloneCultivarHelperAgent._get_llm_known_coefficients(
+                state, cultivar_name, crop_name, crop_code, coefficient_keys, verbose=verbose
             )
 
-            if web_result:
-                coefficients = web_result
+            # ==============================================================
+            # STEP C: WEB SEARCH + PAPER EXTRACTION (only if step B found nothing)
+            # ==============================================================
+            if raw_coeffs is None:
                 if verbose:
-                    print(f"[{agent}]   ├─ ✅ Found via web: {coefficients['source']}")
+                    print(f"[{agent}]   ├─ Step 2: Searching web for published coefficients...")
 
-        # ==================================================================
-        # STEP D: ANALOG CULTIVAR FROM .CUL FILES (Step 3 of fallback chain)
-        # ==================================================================
-        if coefficients is None:
-            if verbose:
-                print(f"[{agent}]   ├─ Step 3: Looking for analog cultivar in .CUL files...")
-
-            if all_cul_files:
-                analog_result = StandaloneCultivarHelperAgent._find_analog_from_cul(
-                    state, cultivar_name, characteristics, all_cul_files, crop_code, verbose=verbose
+                raw_coeffs = StandaloneCultivarHelperAgent._search_web_for_coefficients(
+                    state, cultivar_name, crop_name, crop_code, location_name,
+                    coefficient_keys, verbose=verbose
                 )
-                if analog_result:
-                    coefficients = analog_result
-                    if verbose:
-                        print(f"[{agent}]   ├─ ✅ Analog found: {coefficients['source']}")
+        else:
+            if verbose:
+                print(f"[{agent}]   ├─ No coefficient schema for crop '{crop_code}' — skipping coefficients")
 
         # ==================================================================
         # ASSEMBLE FINAL OUTPUT
         # ==================================================================
-        if coefficients is None:
-            coefficients = {"found": False, "source": "not_found", "source_url": None, "coefficients": {}}
+        raw_values = raw_coeffs.get("coefficients", {}) if raw_coeffs is not None else {}
+        values = StandaloneCultivarHelperAgent._assemble_coefficient_values(
+            raw_values, coefficient_keys, coefficient_bounds
+        )
+        found_any = any(v is not False for v in values.values())
+
+        if found_any:
+            coefficients = {
+                "found": True,
+                "source": raw_coeffs["source"],
+                "source_url": raw_coeffs.get("source_url"),
+                "coefficients": values,
+                "notes": raw_coeffs.get("notes", ""),
+            }
+        else:
+            coefficients = {
+                "found": False,
+                "source": "not_found",
+                "source_url": None,
+                "coefficients": values,
+                "notes": "" if coefficient_keys else f"No coefficient schema available for crop code '{crop_code}'",
+            }
 
         return {
             "cultivar_name": cultivar_name,
@@ -477,7 +526,7 @@ class StandaloneCultivarHelperAgent:
         }
 
     # ========================================================================
-    # EXTRACT CHARACTERISTICS (v2: includes major_crop_areas)
+    # EXTRACT CHARACTERISTICS
     # ========================================================================
 
     @staticmethod
@@ -485,14 +534,13 @@ class StandaloneCultivarHelperAgent:
         state: Dict[str, Any],
         cultivar_name: str,
         crop_name: str,
-        zone_name: str,
-        country: str,
+        location_name: str,
         verbose: bool = False
     ) -> Dict[str, Any]:
         """Extract agronomic characteristics using LLM."""
         agent = StandaloneCultivarHelperAgent.AGENT_NAME
 
-        prompt = extract_characteristics_prompt(crop_name, cultivar_name, zone_name, country)
+        prompt = extract_characteristics_prompt(crop_name, cultivar_name, location_name)
         gen_model = state.get("generator_model", "gpt-5")
 
         try:
@@ -524,21 +572,99 @@ class StandaloneCultivarHelperAgent:
             }
 
     # ========================================================================
-    # PARSE LOCAL .CUL FILE (unchanged from v1)
+    # CROP COEFFICIENT SCHEMA + BOUNDS
     # ========================================================================
 
     @staticmethod
-    def _parse_local_cul_file(
+    def _load_crop_bounds(crop_code: str) -> Dict[str, Dict[str, Optional[float]]]:
+        """
+        Return {"COEFF_KEY": {"min": x, "max": y}, ...} for this crop's real
+        DSSAT model, sourced from data/coefficients_db/<CROP>.json's "bounds"
+        section (built from the actual range of values across cultivars
+        already in the crop's local .CUL file).
+
+        This also defines exactly which coefficient keys the LLM/web steps
+        below are asked to fill in — never a hardcoded CERES-Maize schema.
+        Returns {} if the crop has no extracted database (coefficients are
+        then skipped entirely for that crop, rather than guessed under the
+        wrong schema).
+        """
+        db = load_coefficients_db(crop_code)
+        if not db or "bounds" not in db:
+            return {}
+
+        mins = db["bounds"].get("min", {}) or {}
+        maxs = db["bounds"].get("max", {}) or {}
+        ordered_keys = list(mins.keys()) + [k for k in maxs if k not in mins]
+
+        return {
+            key.upper(): {"min": mins.get(key), "max": maxs.get(key)}
+            for key in ordered_keys
+        }
+
+    @staticmethod
+    def _assemble_coefficient_values(
+        raw_coefficients: Dict[str, Any],
+        coefficient_keys: List[str],
+        bounds: Dict[str, Dict[str, Optional[float]]],
+    ) -> Dict[str, Any]:
+        """
+        Build the final per-coefficient value dict: every key in this crop's
+        schema always appears — a number if the LLM/web step supplied one
+        AND it falls within this crop's real min/max range from
+        coefficients_db, else `false`.
+
+        Bounds are a backend-only sanity check here, not part of the
+        output: a value outside the crop's known range is far more likely
+        to be a hallucinated or wrong-units number than a genuine outlier
+        cultivar, so it's rejected rather than surfaced. This keeps the
+        output shape a plain {KEY: value_or_false} dict, matching the rest
+        of the cultivar DB's format.
+        """
+        raw_lower = {str(k).lower(): v for k, v in (raw_coefficients or {}).items()}
+
+        values: Dict[str, Any] = {}
+        for key in coefficient_keys:
+            raw_val = raw_lower.get(key.lower(), False)
+            numeric = raw_val if isinstance(raw_val, (int, float)) and not isinstance(raw_val, bool) else False
+
+            if numeric is not False:
+                b = bounds.get(key, {})
+                lo, hi = b.get("min"), b.get("max")
+                if lo is not None and hi is not None:
+                    tolerance = max(abs(hi - lo), 1.0) * 0.02  # small slack for rounding noise
+                    if numeric < lo - tolerance or numeric > hi + tolerance:
+                        numeric = False
+
+            values[key] = numeric
+
+        return values
+
+    # ========================================================================
+    # STEP B: ASK THE LLM DIRECTLY FOR KNOWN COEFFICIENTS
+    # ========================================================================
+
+    @staticmethod
+    def _get_llm_known_coefficients(
         state: Dict[str, Any],
         cultivar_name: str,
+        crop_name: str,
         crop_code: str,
-        cul_content: str,
+        coefficient_keys: List[str],
         verbose: bool = False
-    ) -> Dict[str, Any]:
-        """Parse coefficients for specific cultivar from .CUL file using LLM."""
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Step 1 of the coefficient chain: ask the LLM directly whether it
+        knows real, credible coefficient values for this cultivar. No file
+        or web access — pure model knowledge, the same mechanism already
+        used to decide cultivars and characteristics.
+
+        Returns a coefficients dict on success, or None if the LLM reports
+        nothing it's confident about.
+        """
         agent = StandaloneCultivarHelperAgent.AGENT_NAME
 
-        prompt = parse_cul_file_coefficients_prompt(crop_code, cultivar_name, cul_content)
+        prompt = get_known_coefficients_prompt(crop_name, crop_code, cultivar_name, coefficient_keys)
         gen_model = state.get("generator_model", "gpt-5")
 
         try:
@@ -546,16 +672,25 @@ class StandaloneCultivarHelperAgent:
             response = llm.invoke(prompt)
 
             clean = strip_markdown_fences(response)
-            result = json.loads(clean)
-            return result
+            parsed = json.loads(clean)
+
+            if not parsed.get("found_any"):
+                return None
+
+            return {
+                "source": "LLM knowledge",
+                "source_url": None,
+                "coefficients": parsed.get("coefficients", {}),
+                "notes": parsed.get("notes") or parsed.get("source", ""),
+            }
 
         except Exception as e:
             if verbose:
-                print(f"[{agent}]   └─ Error parsing .CUL file: {e}")
-            return {"found": False, "reason": f"Parse error: {e}"}
+                print(f"[{agent}]   ├─ Error getting LLM-known coefficients: {e}")
+            return None
 
     # ========================================================================
-    # STEP C: REAL WEB SEARCH + FETCH FOR COEFFICIENTS
+    # STEP C: WEB SEARCH + FETCH FOR COEFFICIENTS
     # ========================================================================
 
     @staticmethod
@@ -564,15 +699,16 @@ class StandaloneCultivarHelperAgent:
         cultivar_name: str,
         crop_name: str,
         crop_code: str,
-        zone_name: str,
-        country: str,
+        location_name: str,
+        coefficient_keys: List[str],
         verbose: bool = False
     ) -> Optional[Dict[str, Any]]:
         """
-        Step 2 of fallback chain: Real web search + page fetch.
-        Fires DuckDuckGo queries, fetches open-access pages, then asks
-        the LLM to extract the coefficient table from the page text.
-        Returns a coefficients dict on success, or None on failure.
+        Step 2 of the coefficient chain: real web search + page fetch.
+        Fires DuckDuckGo queries, fetches open-access pages, then asks the
+        LLM to extract this crop's real coefficient table (coefficient_keys)
+        from the page text. Returns a coefficients dict on success, or None
+        on failure.
         """
         agent = StandaloneCultivarHelperAgent.AGENT_NAME
 
@@ -589,9 +725,10 @@ class StandaloneCultivarHelperAgent:
         gen_model = state.get("generator_model", "gpt-5")
 
         queries = [
-            f'DSSAT CERES {crop_name} "{cultivar_name}" genotypic coefficients P1 P2 P5',
-            f'"{cultivar_name}" DSSAT calibration {country} coefficients',
-            f'DSSAT {crop_name} calibration {country} {zone_name} coefficients table',
+            f'DSSAT {crop_name} "{cultivar_name}" genotypic coefficients',
+            f'"{cultivar_name}" DSSAT calibration coefficients',
+            f'DSSAT {crop_name} calibration {location_name} coefficients table',
+            f'DSSAT CROPGRO {crop_name} cultivar coefficients calibration',
         ]
 
         # Domains where full text is freely accessible
@@ -604,7 +741,14 @@ class StandaloneCultivarHelperAgent:
             "frontiersin.org",
             "tandfonline.com",
             "researchgate.net",
+            "oar.icrisat.org",
+            "cgspace.cgiar.org",
+            "core.ac.uk",
+            "academia.edu",
+            "dssat.net",
         ]
+
+        coeff_tokens = [k.upper() for k in coefficient_keys] + ["genotypic"]
 
         for query in queries:
             try:
@@ -612,7 +756,7 @@ class StandaloneCultivarHelperAgent:
                     print(f"[{agent}]   ├─ Web search: {query}")
 
                 with DDGS() as ddgs:
-                    search_results = list(ddgs.text(query, max_results=5))
+                    search_results = list(ddgs.text(query, max_results=8))
 
                 time.sleep(1)  # avoid rate-limiting
 
@@ -628,18 +772,25 @@ class StandaloneCultivarHelperAgent:
 
                     try:
                         resp = requests.get(
-                            url, timeout=12,
+                            url, timeout=20,
                             headers={"User-Agent": "Mozilla/5.0 (compatible; research-bot/1.0)"}
                         )
                         if resp.status_code != 200:
                             continue
 
-                        soup = BeautifulSoup(resp.text, "html.parser")
-                        page_text = soup.get_text(separator=" ", strip=True)
+                        content_type = resp.headers.get("Content-Type", "")
+                        if is_pdf or "application/pdf" in content_type:
+                            page_text = _extract_pdf_text(resp.content)
+                        else:
+                            soup = BeautifulSoup(resp.text, "html.parser")
+                            page_text = soup.get_text(separator=" ", strip=True)
 
-                        # Pre-filter: page must mention the cultivar or DSSAT coefficients
+                        if not page_text:
+                            continue  # nothing extractable (e.g. scanned/image PDF)
+
+                        # Pre-filter: page must mention the cultivar or this crop's coefficients
                         has_cultivar = cultivar_name.lower() in page_text.lower()
-                        has_coeffs = any(tok in page_text for tok in ["P1", "PHINT", "genotypic"])
+                        has_coeffs = any(tok in page_text for tok in coeff_tokens)
                         if not (has_cultivar or has_coeffs):
                             continue
 
@@ -647,16 +798,15 @@ class StandaloneCultivarHelperAgent:
                             print(f"[{agent}]   ├─ Fetching: {url}")
 
                         prompt = extract_coefficients_from_paper_prompt(
-                            crop_name, crop_code, cultivar_name, page_text
+                            crop_name, crop_code, cultivar_name, coefficient_keys, page_text
                         )
                         llm = get_llm(mode="api", model=gen_model)
                         response = llm.invoke(prompt)
                         clean = strip_markdown_fences(response)
                         parsed = json.loads(clean)
 
-                        if parsed.get("found"):
+                        if parsed.get("found_any"):
                             return {
-                                "found": True,
                                 "source": f"WebFetch: {url}",
                                 "source_url": url,
                                 "coefficients": parsed.get("coefficients", {}),
@@ -674,68 +824,15 @@ class StandaloneCultivarHelperAgent:
         return None  # all queries exhausted without a hit
 
     # ========================================================================
-    # STEP D: ANALOG CULTIVAR FROM .CUL FILES
-    # ========================================================================
-
-    @staticmethod
-    def _find_analog_from_cul(
-        state: Dict[str, Any],
-        cultivar_name: str,
-        characteristics: Dict[str, Any],
-        all_cul_files: List[Tuple[Path, str]],
-        crop_code: str,
-        verbose: bool = False
-    ) -> Optional[Dict[str, Any]]:
-        """
-        Step 3 of fallback chain: Find the closest cultivar already in .CUL files
-        based on matching traits (DTM, maturity class) and use its coefficients
-        as a proxy for the unknown cultivar.
-        Returns a coefficients dict on success, or None on failure.
-        """
-        agent = StandaloneCultivarHelperAgent.AGENT_NAME
-        gen_model = state.get("generator_model", "gpt-5")
-        crop_name = StandaloneCultivarHelperAgent.CROP_MAP.get(crop_code, crop_code)
-
-        for cul_file, cul_content in all_cul_files:
-            try:
-                prompt = find_analog_cultivar_prompt(
-                    crop_name, crop_code, cultivar_name, characteristics, cul_content
-                )
-                llm = get_llm(mode="api", model=gen_model)
-                response = llm.invoke(prompt)
-                clean = strip_markdown_fences(response)
-                parsed = json.loads(clean)
-
-                if parsed.get("found"):
-                    analog_name = parsed.get("analog_cultivar_name", "unknown")
-                    if verbose:
-                        print(f"[{agent}]   ├─ Analog: '{analog_name}' from {cul_file.name}")
-                    return {
-                        "found": True,
-                        "source": f"analog: {analog_name} from {cul_file.name}",
-                        "source_url": None,
-                        "coefficients": parsed.get("coefficients", {}),
-                        "notes": parsed.get("match_reason", ""),
-                    }
-
-            except Exception as e:
-                if verbose:
-                    print(f"[{agent}]   ├─ Analog search error in {cul_file.name}: {e}")
-                continue
-
-        return None  # no analog found across all .CUL files
-
-    # ========================================================================
     # SUMMARIZE RESULTS
     # ========================================================================
 
     @staticmethod
     def _summarize_results(cultivar_results: Dict[str, Dict]) -> Dict[str, int]:
-        """Summarize results by coefficient source type (3-step fallback chain)."""
+        """Summarize results by coefficient source (2-step LLM-knowledge / web-search chain)."""
         summary = {
-            "local": 0,
-            "web": 0,
-            "analog": 0,
+            "llm_knowledge": 0,
+            "web_paper": 0,
             "not_found": 0,
         }
 
@@ -743,15 +840,14 @@ class StandaloneCultivarHelperAgent:
             coeff = result.get("coefficients", {})
             if not coeff.get("found", False):
                 summary["not_found"] += 1
+                continue
+
+            source = coeff.get("source", "")
+            if source.startswith("WebFetch"):
+                summary["web_paper"] += 1
+            elif source == "LLM knowledge":
+                summary["llm_knowledge"] += 1
             else:
-                source = coeff.get("source", "")
-                if "Local .CUL file" in source:
-                    summary["local"] += 1
-                elif "WebFetch" in source:
-                    summary["web"] += 1
-                elif source.startswith("analog:"):
-                    summary["analog"] += 1
-                else:
-                    summary["not_found"] += 1
+                summary["not_found"] += 1
 
         return summary

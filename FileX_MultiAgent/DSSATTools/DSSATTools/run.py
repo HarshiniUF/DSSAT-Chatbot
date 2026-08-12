@@ -281,18 +281,10 @@ class DSSAT:
                 sys.stdout.write(line + '\n')
 
         if excinfo.returncode != 0:
-            error_out_path = os.path.join(self.run_path, "ERROR.OUT")
-            try:
-                with open(error_out_path, "r") as f:
-                    for line in f:
-                        print(line, end='')
-            except FileNotFoundError:
-                print(f"(ERROR.OUT not found at {error_out_path})")
-            raise RuntimeError(
-                "DSSAT execution Failed (return code "
-                f"{excinfo.returncode}). stdout/stderr:\n{excinfo.stdout}\n"
-                f"{excinfo.stderr}"
-            )
+            with open(os.path.join(self.run_path, "ERROR.OUT"), "r") as f:
+                for line in f:
+                    print(line, end='')
+            raise RuntimeError("DSSAT execution Failed. Check the ERROR.OUT file")
 
         # Get the output files
         self._fetch_output()

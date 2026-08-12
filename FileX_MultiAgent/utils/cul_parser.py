@@ -29,6 +29,11 @@ from typing import Dict, List, Optional, Tuple, Any
 
 from utils.llm import get_llm
 from utils.helpers import strip_markdown_fences
+from utils.coefficients_lookup import (
+    load_coefficients_db,
+    find_cultivar_by_name,
+    find_generic_fallback,
+)
 
 # Reuse CUL file discovery helpers from the standalone cultivar helper agent
 from agents.standalone_cultivar_helper_agent import (
@@ -158,11 +163,28 @@ def _lookup_cultivar_in_cul(
     model: str = "gpt-5",
 ) -> Optional[dict]:
     """
-    Send raw CUL file content to LLM and ask it to find the INGENO (VAR#)
-    and all coefficient values for a specific cultivar name.
+    Find the INGENO (VAR#) and all coefficient values for a specific
+    cultivar name.
+
+    Uses the deterministic coefficients_db (data/coefficients_db/<CROP>.json,
+    built by scripts/build_coefficients_db.py) when available for this crop
+    — no LLM call, no parse errors. Falls back to the original LLM-based raw
+    .CUL parsing for crops that don't have an extracted database yet.
 
     Returns dict with keys: VAR#, ECO#, EXPNO, + all coefficients, or None if not found.
     """
+    db = load_coefficients_db(crop_code)
+    if db is not None:
+        result = find_cultivar_by_name(db, cultivar_name)
+        if result:
+            print(
+                f"[cul_parser] Found '{cultivar_name}' in coefficients_db → "
+                f"VAR#={result.get('VAR#', '?')}, ECO#={result.get('ECO#', '?')}"
+            )
+        else:
+            print(f"[cul_parser] '{cultivar_name}' not found in coefficients_db for {crop_code}.")
+        return result
+
     file_sections = []
     for file_path, content in cul_file_contents:
         file_sections.append(
@@ -238,9 +260,25 @@ def _lookup_medium_season_generic(
     model: str = "gpt-5",
 ) -> Tuple[str, dict]:
     """
-    Fallback: ask LLM to find the medium-season generic cultivar in the CUL file
-    and return its name + details.
+    Fallback: find the medium-season generic cultivar in the CUL file and
+    return its name + details.
+
+    Uses the deterministic coefficients_db when available (prefers a VRNAME
+    containing "MEDIUM"; else the first cultivar in the file as a safe
+    default — most non-maize DSSAT files don't have a literal "MEDIUM"
+    entry). Falls back to the original LLM-based raw .CUL parsing otherwise.
     """
+    db = load_coefficients_db(crop_code)
+    if db is not None:
+        fallback = find_generic_fallback(db)
+        if fallback is None:
+            raise ValueError(
+                f"coefficients_db for crop '{crop_code}' has no cultivars to use as a fallback."
+            )
+        name, result = fallback
+        print(f"[cul_parser] Fallback: generic '{name}' from coefficients_db → VAR#={result.get('VAR#')}")
+        return (name, result)
+
     file_sections = []
     for file_path, content in cul_file_contents:
         file_sections.append(

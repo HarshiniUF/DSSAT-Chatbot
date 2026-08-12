@@ -43,14 +43,3 @@ def ui_event(
 def ui_log(state: Dict[str, Any], agent: str, msg: str) -> None:
     state.setdefault("_ui", {}).setdefault("logs", {}).setdefault(agent, []).append(msg)
     ui_event(state, agent=agent, kind="step", message=msg)
-
-
-def ui_error(
-    state: Dict[str, Any],
-    agent: str,
-    msg: str,
-    *,
-    data: Optional[Dict[str, Any]] = None,
-) -> None:
-    state.setdefault("_ui", {}).setdefault("logs", {}).setdefault(agent, []).append(msg)
-    ui_event(state, agent=agent, kind="error", message=msg, data=data)

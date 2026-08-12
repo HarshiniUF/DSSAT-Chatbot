@@ -1,4 +1,4 @@
-*EXP.DETAILS: KEUA1001SN 
+*EXP.DETAILS: SESE1001SN 
 
 *GENERAL
 @PEOPLE
@@ -16,19 +16,19 @@
 
 *CULTIVARS
 @C CR INGENO CNAME
- 1 MZ KY0011 H614
+ 1 PN IB0005 Fleur 11
 
 *FIELDS
 @L ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX  SLDP  ID_SOIL    FLNAME
- 1 KEUA1011 KEUA1011   -99   -99   -99   -99   -99   -99 -99    -99  KE04624982 -99
+ 1 SESE1011 SESE1011   -99   -99   -99   -99   -99   -99 -99    -99  SN03946129 -99
 @L ...........XCRD ...........YCRD .....ELEV .............AREA .SLEN .FLWR .SLAS FLHST FHDUR
- 1            0.76           35.25       -99               -99   -99   -99   -99   -99   -99
+ 1           13.85          -15.88       -99               -99   -99   -99   -99   -99   -99
 @L PMALB  BDWD  BDHT
  1   -99   -99   -99
 
 *INITIAL CONDITIONS
 @C   PCR ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID ICNAME
- 1    MZ 10079   100   -99     1     1   -99  1000   0.5   -99   100     5 Initial
+ 1    MZ 10181   100   -99     1     1   -99  1000   0.5   -99   100     5 Initial
 @C  ICBL  SH2O  SNH4  SNO3
  1     5 0.250     1     5
  1    15 0.250     1     5
@@ -39,7 +39,7 @@
 
 *PLANTING DETAILS
 @P PDATE EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL                        PLNAME
- 1 10079   -99   4.4   4.4     S     R    75   -99     5   -99   -99   -99   -99   -99                        -99
+ 1 10181   -99    20    20     S     R    45   -99     5   -99   -99   -99   -99   -99                        -99
 
 *IRRIGATION AND WATER MANAGEMENT
 @I  EFIR  IDEP  ITHR  IEPT  IOFF  IAME  IAMT IRNAME
@@ -49,8 +49,7 @@
 
 *FERTILIZERS (INORGANIC)
 @F FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD FERNAME
- 1 10079 FE006 AP004     5  22.5  25.1     0   -99   -99   -99 Fertilizer_2
- 1 10110 FE011 AP001     0    39     0     0   -99   -99   -99 Fertilizer_2
+ 1 10181 FE013 AP004     5     0     7     0   -99   -99   -99 Fertilizer_1
 
 *SIMULATION CONTROLS
 @N GENERAL     NYERS NREPS START SDATE RSEED SNAME.................... SMODEL
@@ -66,7 +65,7 @@
 
 @  AUTOMATIC MANAGEMENT
 @N PLANTING    PFRST PLAST PH2OL PH2OU PH2OD PSTMX PSTMN
- 1 PL          10079 10079    40   100    30    40    10
+ 1 PL          10181 10181    40   100    30    40    10
 @N IRRIGATION  IMDEP ITHRL ITHRU IROFF IMETH IRAMT IREFF
  1 IR             30    70   100 GS000 IR001    10     1
 @N NITROGEN    NMDEP NMTHR NAMNT NCODE NAOFF
@@ -74,5 +73,5 @@
 @N RESIDUES    RIPCN RTIME RIDEP
  1 RE            100     1    20
 @N HARVEST     HFRST HLAST HPCNP HPCNR HMFRQ HMGDD HMCUT HMMOW HRSPL HMVS
- 1 HA              0 10079   100     0   -99   -99   -99   -99   -99  -99
+ 1 HA              0 10181   100     0   -99   -99   -99   -99   -99  -99
 

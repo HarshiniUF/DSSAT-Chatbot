@@ -1,0 +1,14 @@
+pandas
+numpy
+requests
+openmeteo_requests
+geopy
+langgraph
+langchain-core
+jinja2
+langchain-ollama
+openai
+python-dotenv
+DSSATTools
+rasterio
+

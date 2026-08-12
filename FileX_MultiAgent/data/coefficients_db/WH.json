@@ -1,0 +1,140 @@
+{
+  "crop_code": "WH",
+  "crop_name": "Wheat",
+  "model_file": "WHCER048.CUL",
+  "bounds": {
+    "min": {
+      "p1v": 0.0,
+      "p1d": 0.0,
+      "p5": 100.0,
+      "g1": 10.0,
+      "g2": 10.0,
+      "g3": 0.5,
+      "phint": 30.0
+    },
+    "max": {
+      "p1v": 60.0,
+      "p1d": 200.0,
+      "p5": 999.0,
+      "g1": 50.0,
+      "g2": 80.0,
+      "g3": 8.0,
+      "phint": 150.0
+    }
+  },
+  "cultivars": {
+    "DFAULT": {
+      "var-name": "DEFAULT",
+      "exp#": ".",
+      "eco#": "DFAULT",
+      "coefficients": {
+        "p1v": 5.0,
+        "p1d": 75.0,
+        "p5": 450.0,
+        "g1": 30.0,
+        "g2": 35.0,
+        "g3": 1.0,
+        "phint": 60.0
+      }
+    },
+    "IB1500": {
+      "var-name": "MANITOU",
+      "exp#": "1,14",
+      "eco#": "CAWH01",
+      "coefficients": {
+        "p1v": 8.0,
+        "p1d": 100.0,
+        "p5": 320.0,
+        "g1": 23.0,
+        "g2": 23.0,
+        "g3": 2.5,
+        "phint": 86.0
+      }
+    },
+    "IB0488": {
+      "var-name": "NEWTON",
+      "exp#": "1,6",
+      "eco#": "USWH01",
+      "coefficients": {
+        "p1v": 45.0,
+        "p1d": 75.0,
+        "p5": 500.0,
+        "g1": 25.0,
+        "g2": 30.0,
+        "g3": 2.0,
+        "phint": 95.0
+      }
+    },
+    "IB1015": {
+      "var-name": "MARIS FUNDIN",
+      "exp#": "1,8",
+      "eco#": "UKWH01",
+      "coefficients": {
+        "p1v": 30.0,
+        "p1d": 83.0,
+        "p5": 515.0,
+        "g1": 15.0,
+        "g2": 44.0,
+        "g3": 3.2,
+        "phint": 100.0
+      }
+    },
+    "AW0071": {
+      "var-name": "Yecora_Rojo",
+      "exp#": "16,33",
+      "eco#": "AZWH18",
+      "coefficients": {
+        "p1v": 10.0,
+        "p1d": 40.0,
+        "p5": 450.0,
+        "g1": 20.0,
+        "g2": 60.0,
+        "g3": 1.5,
+        "phint": 95.0
+      }
+    },
+    "CI0001": {
+      "var-name": "Yecora_Rojo",
+      "exp#": "1,2",
+      "eco#": "CI0001",
+      "coefficients": {
+        "p1v": 2.0,
+        "p1d": 40.0,
+        "p5": 570.0,
+        "g1": 27.0,
+        "g2": 45.0,
+        "g3": 4.0,
+        "phint": 100.0
+      }
+    },
+    "KZ0001": {
+      "var-name": "North KAZAK1",
+      "exp#": "",
+      "eco#": "DFAULT",
+      "coefficients": {
+        "p1v": 10.0,
+        "p1d": 120.0,
+        "p5": 670.0,
+        "g1": 16.0,
+        "g2": 42.0,
+        "g3": 2.0,
+        "phint": 90.0
+      }
+    },
+    "TX0001": {
+      "var-name": "TAMU112",
+      "exp#": ".",
+      "eco#": "TXWH01",
+      "coefficients": {
+        "p1v": 10.0,
+        "p1d": 68.0,
+        "p5": 450.0,
+        "g1": 30.0,
+        "g2": 30.0,
+        "g3": 1.0,
+        "phint": 30.0
+      }
+    }
+  },
+  "skipped": {}
+}

@@ -1,0 +1,2484 @@
+{
+  "crop": "MZ",
+  "generated_at": "2026-08-09 19:47:08",
+  "total_locations": 1,
+  "processed": 1,
+  "locations": {
+    "Kenya": {
+      "H614": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "150-180",
+            "average_yield_kg_ha": "7000-10000",
+            "plant_height_cm": "240-280",
+            "growth_habit": "erect, tall plants with good husk cover and strong stalks",
+            "disease_resistance": [
+              "grey leaf spot (tolerant)",
+              "common rust (tolerant)",
+              "northern leaf blight (moderate tolerance)",
+              "maize streak virus (moderate)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Upper midland and highland moist zones at roughly 1500-2200 m asl",
+            "adaptation_notes": "Performs best in the Kenyan highlands and upper midlands with reliable rainfall (>900-1000 mm), deep fertile loam soils (pH 5.5-7.0), and cool to mild temperatures. Best suited to the main (long-rains) season due to its longer maturity; avoid very hot lowlands and short-rains areas unless the season length is sufficient. Good standability and husk cover; manage foliar diseases in wet years and ensure adequate nitrogen for full yield potential.",
+            "normal_planting_window": "At onset of the long rains: March-April in Rift Valley and Western/Central highlands; in bimodal areas with sufficient season length, September-October",
+            "planting_density": "53000-60000 plants/ha (typical spacing 75 cm x 25-30 cm)",
+            "harvest_time": "150-180 days after planting; typically August-October for March-April plantings",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Nakuru, Bungoma, Kakamega, Kericho, Bomet, and Nyandarua counties"
+          },
+          "source": "Kenya Seed Company variety descriptions and Kenya extension recommendations for highland maize hybrids (general references)",
+          "source_url": "unknown",
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H614D": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "180-200",
+            "average_yield_kg_ha": "7000-10000",
+            "plant_height_cm": "240-300",
+            "growth_habit": "tall, erect, semi-compact canopy with strong stalks",
+            "disease_resistance": [
+              "Maize streak virus (MSV) - tolerant",
+              "Gray leaf spot (Cercospora zeae-maydis) - moderate resistance",
+              "Northern leaf blight (Exserohilum turcicum) - resistance",
+              "Common rust (Puccinia sorghi) - moderate resistance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "low"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Upper highlands (UH1-UH3), 1800-2600 m altitude with >1000 mm annual rainfall",
+            "adaptation_notes": "Best adapted to cool, high-rainfall upper highland zones of Kenya at 1800-2600 m. Suited for long-rains, full-season production on fertile, well-drained soils. Not recommended for short-season or lowland hot/dry areas. Responds well to good fertility and timely topdressing; maintain moderate plant populations to minimize lodging risk under high winds. Monitor and manage foliar diseases (GLS, NLB) in seasons conducive to disease development.",
+            "normal_planting_window": "late February to April (long rains) in Kenyan highlands; in bimodal highland pockets, September to October if a full-length short-rains season is expected",
+            "planting_density": "44000-55000 plants/ha (e.g., 75 cm x 30 cm with 1 plant per hill, or 90 cm x 25-30 cm)",
+            "harvest_time": "180-200 days after planting (typically August-October for March-April plantings)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Nakuru (Molo, Njoro), Bomet, Nyandarua, Laikipia highlands, Narok highlands, West Pokot highlands, Elgeyo Marakwet highlands"
+          },
+          "source": "Kenyan highland maize hybrid recommendations and common H614D product descriptors from seed company and extension variety guides",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H613": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "170-200",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "240-300",
+            "growth_habit": "erect, tall stature with robust stalks suited to cool highland conditions",
+            "disease_resistance": [
+              "grey leaf spot (moderate tolerance)",
+              "northern leaf blight (moderate tolerance)",
+              "common rust (moderate tolerance)",
+              "maize streak virus (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "low"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya highland maize zones, particularly Upper Highlands (UH) and cooler Upper Midlands (UM1-UM2) at approximately 1800-2600 m with high rainfall",
+            "adaptation_notes": "Best adapted to cool, high-rainfall highlands of the Rift Valley and Central/Mt. Kenya regions; performs well in deep, fertile, well-drained soils with good basal fertility; suited to long-rains main season due to long maturity; not ideal for short rains except in the coolest, wettest sites.",
+            "normal_planting_window": "March-May (long rains) depending on onset of rains; late March to April is typical in the Rift Valley highlands",
+            "planting_density": "53000-60000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m in-row spacing, one plant per hill)",
+            "harvest_time": "August-November, or 170-200 days after planting depending on altitude and planting date",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Nakuru, Elgeyo Marakwet highlands; parts of Bungoma and Kakamega highlands; Central and Mt. Kenya highlands including Nyeri, Laikipia and Meru"
+          },
+          "source": "Synthesized from Kenyan maize hybrid guides and general highland maize agronomy for Kenya; specific public datasheet for H613 is limited",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H6213": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "130-150",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "240-280",
+            "growth_habit": "erect, tall plants with semi-compact canopy and good standability",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Grey leaf spot (moderate tolerance)",
+              "Turcicum/Northern leaf blight (moderate tolerance)",
+              "Common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Medium to high altitude maize belt (Upper Midland and Lower Highland zones) of Kenya",
+            "adaptation_notes": "Best suited to medium-to-high altitude areas (approx. 1500-2200 m) with reliable rainfall (>800 mm/season) and fertile, well-drained soils; performs well in the Rift Valley and adjacent high-potential zones; less suited to lowland/coastal hot-dry zones unless irrigation is available.",
+            "normal_planting_window": "February-April for the long rains; October-November in areas with reliable short rains",
+            "planting_density": "53000-60000 plants/ha (approximately 75 cm x 25-30 cm spacing, 1 plant per station)",
+            "harvest_time": "130-160 days after planting (typically August-September for long-rains planting)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma highlands, Kericho, Nakuru, Bomet, Narok highlands, Laikipia and other mid-to-high altitude parts of the Rift Valley and Central Kenya"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H6210": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "150-180",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "240-280",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Grey leaf spot (tolerant)",
+              "Common rust (tolerant)",
+              "Leaf blights (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Highland (LH1-LH3) and Upper Midland (UM1) high rainfall zones, roughly 1500-2200 m asl",
+            "adaptation_notes": "Best adapted to Kenya’s cool, high-potential highland and upper midland zones with reliable long rains; performs well in deep, fertile, well-drained soils under good fertility and weed control; suited to areas with prolonged moisture availability and cooler night temperatures.",
+            "normal_planting_window": "Main long rains: March-April in Rift Valley and Western highlands; short rains planting (Oct-Nov) only where the season length reliably exceeds 5 months",
+            "planting_density": "53000-60000 plants/ha in high-potential zones; 45000-50000 plants/ha in lower rainfall fields",
+            "harvest_time": "150-180 days after planting; typically August-September for March-April plantings in highlands",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Bungoma (Mt Elgon), Nakuru (Njoro/Rongai), Narok North, Bomet, parts of Nyandarua and Laikipia highlands"
+          },
+          "source": "Kenya Seed Company maize variety guide and Kenya National Variety List (KEPHIS) entries for highland hybrids including H6210",
+          "source_url": [
+            "https://www.kenyaseed.com/maize",
+            "https://kephis.org/national-variety-list/"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H623": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "160-180",
+            "average_yield_kg_ha": "9000-13000",
+            "plant_height_cm": "250-300",
+            "growth_habit": "erect, tall, robust stems with good standability",
+            "disease_resistance": [
+              "gray leaf spot (Cercospora zeae-maydis)",
+              "northern leaf blight (Exserohilum turcicum)",
+              "common rust (Puccinia sorghi)",
+              "maize streak virus (tolerant)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Upper Highland (UH1-UH2) and Lower Highland (LH1) zones, approximately 1800-2400 m ASL, high rainfall high-potential maize areas",
+            "adaptation_notes": "Best suited to cool, high-altitude, high-rainfall environments of Kenya’s Rift Valley and western highlands; performs well on deep, fertile, well-drained soils with adequate nitrogen. Intended for the long (main) rains; not recommended for lowlands or short-season environments.",
+            "normal_planting_window": "Main (long) rains: March–April in the Rift Valley and western highlands; in reliable bimodal areas, late October–November for short rains where season length permits",
+            "planting_density": "53000-60000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m within-row spacing, 1 plant per hill)",
+            "harvest_time": "August–November (about 160–180 days after planting), depending on altitude and planting date",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Nakuru, Bomet, Narok (high-altitude areas), and Mt Elgon zones of Bungoma County"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H624": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "150-170",
+            "average_yield_kg_ha": "9000-12000",
+            "plant_height_cm": "250-300",
+            "growth_habit": "erect, tall plants with semi-compact canopy",
+            "disease_resistance": [
+              "Gray leaf spot",
+              "Northern leaf blight (Turcicum)",
+              "Common rust",
+              "Maize streak virus"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "low"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Highland (LH1-LH3) and Upper Midland (UM1-UM2) zones, approximately 1500-2200 m elevation",
+            "adaptation_notes": "Best suited to cool, high-potential highlands and upper mid-altitude areas with reliable rainfall (>900-1200 mm/season) and deep, fertile loam soils; performs best in main (long-rains) season; avoid hot lowland zones due to reduced heat tolerance; monitor and manage foliar diseases under cool-wet highland conditions despite generally good resistance; responsive to adequate N and K nutrition and timely weeding; use windward field edges or modest densities to minimize lodging risk in very high rainfall/windy sites.",
+            "normal_planting_window": "March-April (long rains); October-November in areas with reliable short rains and adequate season length",
+            "planting_density": "44000-53000 plants/ha (e.g., 75 cm x 25-30 cm; 2 seeds per hole, thin to 1 plant)",
+            "harvest_time": "150-170 days after planting; typically August-October for March-April plantings",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Elgeyo-Marakwet, Nakuru, Kericho, Bomet, Narok (highland areas), Nyandarua, Laikipia and other upper mid-altitude to highland belts of the Rift Valley and Central Kenya"
+          },
+          "source": "Kenya Seed Company hybrid variety descriptions and Kenyan extension recommendations (KALRO/MoALF) for highland maize",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H625": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "170-190",
+            "average_yield_kg_ha": "7000-12000",
+            "plant_height_cm": "240-300",
+            "growth_habit": "tall, erect plants with semi-compact canopy, good husk cover and strong stalks",
+            "disease_resistance": [
+              "Maize streak virus (MSV) - resistant/tolerant",
+              "Grey leaf spot (Cercospora zeae-maydis) - moderate tolerance",
+              "Northern leaf blight (Exserohilum turcicum) - moderate tolerance",
+              "Common rust (Puccinia sorghi) - moderate tolerance",
+              "Good stalk and root strength to reduce lodging"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "High-potential, high-altitude maize zones of Kenya (Upper Highlands and Upper Midlands 1-3; ~1500-2400 m) with 900-1500+ mm annual rainfall",
+            "adaptation_notes": "Best suited to the Kenyan highlands and moist transitional zones with reliable long rains, deep fertile soils, and cool to mild temperatures (15-25°C). Performs well in the High Potential Maize Zone (Rift Valley and western highlands). Avoid very dry or very hot lowland areas; respond to good fertility and timely control of foliar diseases such as grey leaf spot and northern leaf blight.",
+            "normal_planting_window": "Main long rains: late February–April in Rift Valley and western highlands; in bimodal highland pockets, September–October for short rains where season length allows",
+            "planting_density": "53,000-60,000 plants/ha (e.g., 75 cm row spacing x 25 cm in-row spacing, 1 plant per station)",
+            "harvest_time": "September–November for March–April planting; February–March for September–October planting (approximately 170–190 days after planting)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Bomet, Nakuru, Elgeyo Marakwet highlands, parts of Bungoma and Kakamega highlands, and central highlands (Nyandarua, Nyeri)"
+          },
+          "source": "Kenya Seed Company product information for H625; Agri Experience One-Stop Maize Varieties Catalogue (Kenya); KALRO/Ministry of Agriculture guidance on highland maize agronomy",
+          "source_url": "https://www.kenyaseed.com/product/h625, https://www.agri-experience.com/wp-content/uploads/2019/07/One-Stop-Maize-Varieties-Catalogue-2019.pdf, https://www.kalro.org/maize",
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H626": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "unknown",
+            "adaptation_notes": "unknown",
+            "normal_planting_window": "unknown",
+            "planting_density": "unknown",
+            "harvest_time": "unknown",
+            "season_suitability": "unknown",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Narok, Kericho and Bomet counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H511": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-135",
+            "average_yield_kg_ha": "6000-10000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "grey leaf spot (moderate tolerance)",
+              "northern leaf blight (moderate tolerance)",
+              "common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Medium-altitude zones (approximately 1000-1800 m asl) with 800-1200 mm annual rainfall",
+            "adaptation_notes": "Best adapted to Kenya’s medium-altitude, medium-rainfall areas; performs well under good fertility and timely weeding; avoid very high altitudes (>1800 m) and very dry lowlands; recommended for both long and short rains where planting moisture is adequate.",
+            "normal_planting_window": "Long rains: March-April in Western and Rift Valley; Short rains: October-November in Central and parts of Eastern",
+            "planting_density": "53000-57000 plants/ha (e.g., 0.75 m rows x 0.25 m within-row, 1 plant per hill)",
+            "harvest_time": "120-135 days after planting (typically July-August for long rains; January-February for short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Kakamega, Bungoma, Busia, Siaya, Vihiga, Kisii, Nyamira, Kericho, Bomet, Nakuru, Narok, Laikipia (mid-altitude areas), and mid-altitude zones of Embu, Meru, Kirinyaga, Murang'a and parts of Machakos"
+          },
+          "source": "Kenya Seed Company maize varietal information and KALRO recommendations for medium-altitude maize in Kenya",
+          "source_url": [
+            "https://www.kenyaseed.com/products/maize",
+            "https://www.kalro.org/maize"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H512": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-140",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "Maize streak virus (MSV) tolerance",
+              "Gray leaf spot (Cercospora) tolerance",
+              "Northern leaf blight (Exserohilum turcicum) tolerance",
+              "Common rust (Puccinia sorghi) tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude maize zones of Kenya (approximately 1000-1800 m asl) including Upper Midlands (UM2-UM3) and Lower Highlands (LH2-LH4)",
+            "adaptation_notes": "Best adapted to mid-altitude, medium to high rainfall environments (about 800-1200 mm), well-drained fertile soils, and areas with cool to warm daytime temperatures; performs well across the moist transitional and lower highland zones with timely planting, adequate fertilization, and weed control; not ideal for very low-altitude hot/dry areas or very high, cold highlands.",
+            "normal_planting_window": "Long rains: March-April (western and central highlands); Short rains: October-November (central/eastern highlands). In western Kenya, also August-September for the second season.",
+            "planting_density": "53000-60000 plants/ha (e.g., 75 cm x 25 cm = ~53,000 plants/ha; up to ~60,000 plants/ha with 75 cm x 20 cm in higher rainfall or irrigated fields)",
+            "harvest_time": "120-140 days after planting; typically July-August (long rains plantings) or January-February (short rains plantings)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Mid-altitude and lower highland maize belts including Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Vihiga, Kisii, Nyamira, Kericho, Bomet, Nakuru, Laikipia, Nyeri, Murang'a, Kirinyaga, Embu and Meru counties"
+          },
+          "source": "Kenya Seed Company maize hybrid brochures and KALRO recommendations for mid-altitude maize zones in Kenya",
+          "source_url": [
+            "https://www.kenyaseed.com/maize-varieties/",
+            "https://www.kalro.org/maize/content/recommended-maize-varieties"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H513": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "200-260",
+            "growth_habit": "erect, semi-compact canopy",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "gray leaf spot (tolerant)",
+              "northern leaf blight (tolerant)",
+              "common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude maize zones of Kenya (UM2–UM4 and LH2–LH3; ~1000–1800 m asl)",
+            "adaptation_notes": "Best adapted to mid-altitude, medium-rainfall areas (≈800–1200 mm per season), fertile, well-drained soils; performs well under both long and short rains; avoid very high altitudes (>2000 m) and very dry lowlands; good standability and general foliar disease tolerance make it suitable for gray leaf spot and blight-prone mid-altitude zones.",
+            "normal_planting_window": "Long rains: March–April; Short rains: October–November",
+            "planting_density": "53000-60000 plants/ha (e.g., 75 cm rows x 25–30 cm within-row, 1 plant per hill)",
+            "harvest_time": "110-130 days after planting; typically July–August (long rains) or January–February (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Mid-altitude Western Kenya (Bungoma, Kakamega, Busia, Siaya, Vihiga), lower belts of Trans-Nzoia and Nandi, Rift Valley mid-altitudes (Nakuru, Bomet, Kericho lower highlands), Central Kenya mid-altitudes (Murang'a, Nyeri, Kirinyaga), Eastern highlands/upper midlands (Embu, Meru), and the upper mid-altitudes of Machakos and Makueni"
+          },
+          "source": "Kenya Seed Company maize variety guides and KALRO maize production recommendations for mid-altitude zones in Kenya",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H515": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-135",
+            "average_yield_kg_ha": "7000-10000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "erect, semi-compact canopy",
+            "disease_resistance": [
+              "Gray leaf spot (GLS)",
+              "Northern leaf blight (Turcicum leaf blight)",
+              "Common rust",
+              "Maize streak virus (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Upper midland (UM2-UM4) and lower highland (LH1-LH3) zones; approximately 1200-1800 m asl with >800 mm seasonal rainfall",
+            "adaptation_notes": "Best suited to moist mid-altitude and lower highland areas of Kenya with reliable rainfall, deep well-drained loam soils and good fertility. Performs well in Western highlands and Rift Valley mid-altitudes; less suited to very hot lowlands or drought-prone coastal/arid zones. Responds strongly to timely planting, adequate nitrogen, and proper weed and disease management; good standability and husk cover help reduce lodging and ear rot risks in high rainfall environments.",
+            "normal_planting_window": "Onset of long rains (March-April) in Western and Rift Valley; onset of short rains (October-November) in Central and parts of Eastern Kenya",
+            "planting_density": "53000-60000 plants/ha (e.g., 75 cm rows x 25-30 cm within-row spacing; 2 plants per station)",
+            "harvest_time": "120-135 days after planting; typically July-August for long-rains crop or January-February for short-rains crop",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Kericho, Bomet, Nakuru, Narok, Nyandarua, Kiambu, Laikipia, Meru, Embu and Kirinyaga counties"
+          },
+          "source": "Kenya Seed Company maize hybrid brochures, KALRO maize variety recommendations, and Kenya MoA/extension guides for mid-altitude maize production",
+          "source_url": "https://www.kenyaseed.com, https://www.kalro.org, https://kilimo.go.ke",
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "H516": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Expecting property name enclosed in double quotes: line 23 column 3 (char 1177)"
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "DH01": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-105",
+            "average_yield_kg_ha": "3000-6000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect, semi-compact canopy, good standability",
+            "disease_resistance": [
+              "Maize streak virus tolerance",
+              "Grey leaf spot moderate resistance",
+              "Northern leaf blight moderate resistance",
+              "Common rust moderate resistance"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "ASAL lowlands of Kenya (Lower Midland LM4-LM6 and Coastal Lowlands CL3-CL5; 0-1200 m altitude, 300-700 mm seasonal rainfall)",
+            "adaptation_notes": "Best suited to arid and semi-arid lowlands and dry mid-altitudes with short, erratic rains; performs well on well-drained soils with timely planting at onset of rains; responds to moderate fertilization and early weeding; avoid waterlogged fields and very high altitude cooler zones.",
+            "normal_planting_window": "At onset of rains: March-April (long rains) and October-November (short rains) in ASAL counties",
+            "planting_density": "35000-45000 plants/ha under low rainfall; up to 55000 plants/ha where moisture is reliable; typical spacing 90 cm x 30 cm or 75 cm x 25-30 cm",
+            "harvest_time": "95-110 days after planting for grain; typically January-February and July-August depending on season and county",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "ASAL and dry mid-altitude zones including Machakos, Makueni, Kitui, Taita Taveta, Kajiado, Embu Mbeere, Tharaka-Nithi lowlands, Meru North lowlands, Laikipia dry areas, southern Baringo, and coastal lowlands of Kilifi and Kwale"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "DH02": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-105",
+            "average_yield_kg_ha": "3000-7000",
+            "plant_height_cm": "160-190",
+            "growth_habit": "erect, semi-compact canopy",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Gray leaf spot (moderate tolerance)",
+              "Northern leaf blight (moderate tolerance)",
+              "Common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland (CL2-CL3) zones in Kenya",
+            "adaptation_notes": "Early-maturing, drought-tolerant hybrid suited to semi-arid and low to mid-altitude environments (approximately 600-1200 m a.s.l.). Performs best with 350-700 mm seasonal rainfall on well-prepared seedbeds; responsive to basal and topdress nitrogen where moisture is adequate. Plant promptly with onset of rains and prioritize moisture conservation practices (timely weeding, mulching, tied ridges where appropriate). Avoid cool highland zones and very humid, high disease-pressure areas.",
+            "normal_planting_window": "With onset of rains: March-April (long rains) and October-November (short rains) in Eastern and Coastal Kenya",
+            "planting_density": "44000-55000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m within-row spacing; 1 plant per hill)",
+            "harvest_time": "90-110 days after planting; typically June-July (long rains crop) and January-February (short rains crop)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Mwingi, lower Embu and Tharaka-Nithi, parts of Meru (lowlands), Kilifi, Kwale, Taita Taveta and Tana River counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "DH03": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "95-105",
+            "average_yield_kg_ha": "4000-8000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Gray leaf spot (moderate resistance)",
+              "Common rust (moderate resistance)",
+              "Turcicum leaf blight (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Semi-arid low to mid altitude zones (AEZ IV–VI), approximately 600–1500 m ASL",
+            "adaptation_notes": "Suited to Kenya’s arid and semi-arid low to mid altitude areas with 400–800 mm seasonal rainfall and short, erratic rainy seasons; performs best on well-drained soils with timely planting and moderate fertilizer; not recommended for cool high-altitude zones (>1800 m).",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains) in ASAL areas",
+            "planting_density": "35000-45000 plants/ha (e.g., 0.75 m x 0.30 m spacing in ASAL conditions)",
+            "harvest_time": "95-110 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Kajiado, Embu (Mbeere), Tharaka Nithi (Tharaka), lower Meru, Taita Taveta, Kilifi, Kwale, Tana River, and drier parts of Laikipia and Baringo counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "DH04": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-105",
+            "average_yield_kg_ha": "3000-7000",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "Maize streak virus (MSV)",
+              "Grey leaf spot (Cercospora zeae-maydis)",
+              "Northern leaf blight (Exserohilum turcicum)",
+              "Common rust (Puccinia sorghi)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowlands (CL3-CL5); semi-arid zones at 600-1500 m with 400-900 mm annual rainfall",
+            "adaptation_notes": "Bred for semi-arid and transitional zones; performs well under low to erratic rainfall and terminal drought. Best in well-prepared seedbeds with timely planting to capture onset of rains; responds to modest fertilizer and manure inputs. Avoid very high altitudes and persistently waterlogged fields.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains) in semi-arid eastern and coastal Kenya",
+            "planting_density": "53000-62500 plants/ha (0.75 m rows; 0.30-0.40 m in-row spacing)",
+            "harvest_time": "90-110 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Semi-arid Eastern and Coastal Kenya: Machakos, Makueni, Kitui, Embu (Mbeere), Tharaka-Nithi (Tharaka), Meru North lowlands, Taita Taveta, Kilifi, Kwale, Tana River; also pockets of Kajiado lowlands, Laikipia and Baringo drylands"
+          },
+          "source": "Synthesis of public information on DroughtTEGO early drought-tolerant maize for Kenya and Kenyan maize agronomy recommendations; specific DH04 datasheet not publicly available",
+          "source_url": [
+            "https://www.aatf-africa.org/project/droughttego/",
+            "https://www.kalro.org/maize",
+            "https://kephis.org"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV1": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "75-95",
+            "average_yield_kg_ha": "2000-5000",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "common rust (moderate tolerance)",
+              "leaf blight (moderate tolerance)",
+              "ear rots (moderate)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "ASAL: Lower Midland zones (LM4–LM5) and similar dry mid-altitude/lowland areas (approx. 600–1200 m, 400–800 mm rainfall)",
+            "adaptation_notes": "An early-maturing, drought-tolerant OPV bred for arid and semi-arid lands of Eastern and South-Eastern Kenya; performs best on well-prepared, fertile soils with timely planting at the onset of rains; suitable where seasons are short and rainfall is erratic; responds to modest basal fertilizer/manure but maintains acceptable yield under low-input conditions.",
+            "normal_planting_window": "At onset of seasonal rains: March–April (long rains) and October–November (short rains)",
+            "planting_density": "40,000-50,000 plants/ha (e.g., ~1 plant per 0.30 m in 0.75 m rows ≈ 44,000 plants/ha)",
+            "harvest_time": "75-95 days after planting; typically June–July (for March–April plantings) and December–January (for October–November plantings)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Eastern and South-Eastern drylands including Machakos, Makueni, Kitui, Mbeere (Embu), Tharaka (Tharaka-Nithi), Kajiado and parts of Taita Taveta; also pockets of Laikipia, Baringo and West Pokot in the Rift Valley drylands"
+          },
+          "source": "Agronomist synthesis from KALRO Katumani dryland maize variety guides and Kenyan county extension recommendations for early-maturing ASAL maize (KDV series).",
+          "source_url": [],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV2": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "80-95",
+            "average_yield_kg_ha": "2500-5000",
+            "plant_height_cm": "150-200",
+            "growth_habit": "semi-erect, compact canopy",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Northern leaf blight/Turcicum leaf blight (moderate tolerance)",
+              "Common rust (moderate tolerance)",
+              "Gray leaf spot (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland zones in Kenya (low to mid altitude drylands)",
+            "adaptation_notes": "Bred for semi-arid and dry sub-humid environments of Eastern and Coastal Kenya; performs best at 0-1500 m altitude with 400-800 mm seasonal rainfall on well-drained soils; avoid waterlogging; responds well to early planting at the onset of rains and timely weeding/fertilization; suited to short and erratic rainfall with frequent mid-season dry spells.",
+            "normal_planting_window": "With the onset of rains: March-April (long rains) and October-November (short rains) in Eastern and Coastal Kenya",
+            "planting_density": "50,000-60,000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m within-row, 1 plant per hill)",
+            "harvest_time": "90-110 days after planting; typically June-July for March plantings and January-February for October plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Lower Eastern (Machakos, Makueni, Kitui), Embu (Mbeere) and Tharaka-Nithi (Tharaka), Coastal lowlands (Kilifi, Kwale, Taita Taveta, Tana River), and other low to mid-altitude drylands including parts of Kajiado, Laikipia East and Baringo South"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV3": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "3500-7000",
+            "plant_height_cm": "150-200",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "Maize streak virus (MSV)",
+              "Gray leaf spot",
+              "Northern leaf blight",
+              "Common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland (CL2-CL3) zones; low to mid altitude (approximately 0-1400 m) in Kenya",
+            "adaptation_notes": "Early-maturing, drought-tolerant maize recommended for arid and semi-arid low to mid-altitude areas with 400-800 mm seasonal rainfall. Best performance when planted at the onset of rains to avoid terminal drought; suited to well-drained soils and short growing seasons common in Eastern and Coastal Kenya.",
+            "normal_planting_window": "At onset of seasonal rains: March-April (long rains) and October-November (short rains)",
+            "planting_density": "37000-53000 plants/ha in drylands; up to 60000 plants/ha where moisture is adequate",
+            "harvest_time": "90-110 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Tharaka Nithi (Tharaka), Embu (Mbeere), Taita Taveta, Kajiado, Laikipia (dry zones), Baringo, West Pokot, and coastal hinterlands of Kilifi and Kwale"
+          },
+          "source": "KALRO/Katumani maize variety profiles for the KDV series and CIMMYT DTMA descriptions of early, drought-tolerant Kenyan maize for ASAL zones",
+          "source_url": [
+            "https://www.kalro.org",
+            "https://www.cimmyt.org"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV4": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "3000-5000",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, semi-compact canopy with good husk cover",
+            "disease_resistance": [
+              "Maize streak virus (MSV)",
+              "Grey leaf spot",
+              "Common rust",
+              "Turcicum leaf blight"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland (CL3-CL5) dryland zones of Kenya",
+            "adaptation_notes": "An early-maturing, drought-tolerant open-pollinated variety bred for arid and semi-arid lands (ASAL). Best suited to 400-800 mm seasonal rainfall, well-drained sandy loam to loam soils, and areas prone to mid-season dry spells. Performs well under early planting at the onset of rains with timely weeding and modest fertilizer or manure inputs. Suitable for both short and long rains in ASAL counties; avoid cold highland zones.",
+            "normal_planting_window": "At onset of rains: March-April (long rains) and October-November (short rains)",
+            "planting_density": "44000-53000 plants/ha (e.g., 75 cm x 25-30 cm, 1 plant per hill)",
+            "harvest_time": "90-110 days after planting; typically June-July (from March-April planting) and January-February (from October-November planting)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Tharaka Nithi (Tharaka), Embu (Mbeere), Taita Taveta, Kajiado, Tana River, Kilifi and Kwale counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV6": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "2500-4500",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "maize streak virus",
+              "turcicum leaf blight",
+              "gray leaf spot",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland zones in Kenya, generally 0-1200 m ASL with 400-800 mm seasonal rainfall",
+            "adaptation_notes": "Developed for Kenya’s arid and semi-arid lowlands; best suited to eastern and coastal dryland areas with erratic rainfall. Performs well on well-drained loamy to sandy soils; not recommended for high altitude cool zones. Selected for early maturity and reliable grain set under terminal drought and maize streak virus pressure. Being an OPV, farmers can recycle seed for a limited number of seasons, though certified seed renewal is advised for best performance.",
+            "normal_planting_window": "With onset of rains: March-April (long rains) and October-November (short rains) in eastern and coastal Kenya",
+            "planting_density": "45000-60000 plants/ha (0.75 m rows; 25-30 cm within-row spacing)",
+            "harvest_time": "90-110 days after planting; typically June-July for March-April planting and January-February for October-November planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Makueni, Machakos, Kitui, Embu (Mbeere), Tharaka Nithi (Tharaka), lower Meru, Taita Taveta, Kilifi, Kwale and Tana River counties"
+          },
+          "source": "KALRO/KARI and CIMMYT briefs on Kenya Dryland (KDV) maize OPVs and Kenya ASAL maize production guides",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "KDV7": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-110",
+            "average_yield_kg_ha": "4000-6000",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Grey leaf spot (tolerant)",
+              "Northern leaf blight (moderate tolerance)",
+              "Common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "ASALs of Eastern and Coastal lowlands; lower mid-altitudes (~500-1500 m) in Kenya",
+            "adaptation_notes": "Developed for dryland conditions; best in areas with 350-800 mm seasonal rainfall, well-drained soils, and erratic rainfall patterns. Suited to short rains and quick season turnaround; plant with onset of rains and use moderate plant populations to conserve moisture.",
+            "normal_planting_window": "With onset of rains: March-April (long rains) and October-November (short rains) in Eastern and Coastal Kenya",
+            "planting_density": "40,000-53,000 plants/ha (e.g., 75 cm x 30 cm with 1 plant per hill; reduce to ~33,000 plants/ha in very low rainfall)",
+            "harvest_time": "90-110 days after planting; typically Jan-Feb (short-rains plantings) or Jun-Jul (long-rains plantings)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Embu (Mbeere), Tharaka-Nithi (lower zones), Meru (Tigania/Igembe), Kajiado (dry parts), Laikipia (dry parts), Baringo (lower), Kilifi, Kwale, Taita Taveta and Tana River counties"
+          },
+          "source": "Compiled from Kenyan dryland maize variety guides (KALRO/Katumani) and extension recommendations for KDV-series varieties in ASALs",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Katumani Composite B": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "75-90",
+            "average_yield_kg_ha": "3000-5000",
+            "plant_height_cm": "150-180",
+            "growth_habit": "erect, compact plant type; short-to-medium stature with predominantly one primary ear",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "common rust (moderate tolerance)",
+              "leaf blight (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM3-LM5) and Coastal Lowland zones; 400-800 mm seasonal rainfall; roughly 600-1500 m altitude",
+            "adaptation_notes": "Bred for Kenya’s arid and semi-arid lands (ASALs) with short, erratic rains. Performs best on well-prepared, weed-free seedbeds and timely planting at onset of rains. Suited to low-to-mid altitude hot zones with low-to-moderate fertility; responsive to modest basal and topdress nitrogen. Good option where terminal drought is common and seasons are 2–3 months.",
+            "normal_planting_window": "With onset of rains: March-April (long rains) and October-November (short rains) in Eastern and Coastal Kenya",
+            "planting_density": "53000-66000 plants/ha (e.g., 0.75 m row spacing x 0.25-0.30 m within-row, 1 plant per hill; in better moisture can increase to ~75,000 plants/ha; reduce under very dry conditions)",
+            "harvest_time": "75-90 days after planting; typically June-July (long rains) or December-January (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, and Kitui counties; lower Embu (Mbeere) and Tharaka-Nithi (Tharaka); lower Meru (Tigania/Igembe); coastal lowlands including Kilifi, Kwale, and parts of Taita Taveta; pockets of Kajiado and Tana River ASALs"
+          },
+          "source": "KALRO/KARI variety descriptions and Kenyan extension materials (NAFIS) on Katumani Composite B for ASAL zones",
+          "source_url": [
+            "https://www.kalro.org",
+            "http://www.nafis.go.ke/crops/maize",
+            "http://www.kilimo.go.ke"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Makueni Composite": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-105",
+            "average_yield_kg_ha": "2000-4000",
+            "plant_height_cm": "150-200",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "common rust (moderately resistant)",
+              "northern leaf blight (moderately resistant)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midland (LM) 3-6 and Coastal Lowland (CL) agro-ecological zones in ASALs",
+            "adaptation_notes": "Open-pollinated, early-maturing composite developed for semi-arid low to mid-altitudes (approx. 600-1200 m) with 500-800 mm seasonal rainfall. Performs best under early planting with onset of rains in Eastern and Coastal Kenya; suits light to medium-textured soils with good drainage; responds to timely weeding and modest fertilization or manure. Suitable for risk-prone, short-season environments where terminal drought is common.",
+            "normal_planting_window": "At onset of rains: March-April (long rains) and October-November (short rains) in Eastern and Coastal Kenya",
+            "planting_density": "40,000-55,000 plants/ha (e.g., 75 cm x 30 cm with 1 plant per hill; increase to 75 cm x 25 cm where moisture is adequate)",
+            "harvest_time": "90-105 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Makueni, Machakos, Kitui, Taita Taveta, Kilifi, Kwale, parts of Embu (Mbeere), Tharaka-Nithi and Meru North counties"
+          },
+          "source": "unknown",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Coast Composite": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "3000-6000",
+            "plant_height_cm": "200-250",
+            "growth_habit": "tall, semi-erect leaves with good husk cover",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "common rust (Puccinia polysora)",
+              "leaf blights (Helminthosporium spp.)",
+              "gray leaf spot (Cercospora)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Coastal Lowland zones (CL2–CL5), approximately 0–1250 m ASL in warm humid to sub-humid coastal Kenya",
+            "adaptation_notes": "Best adapted to Kenya’s coastal lowlands where temperatures are high and rainfall is moderate to high; performs well on sandy to loamy soils with good fertility and drainage; not suited to cool highland environments. Performs reliably under both long and short rains if planted with onset of rains; responds to timely weeding and balanced fertilization.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains), with onset of rains",
+            "planting_density": "44000-53000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m in-row)",
+            "harvest_time": "110-130 days after planting; typically July-August for long-rains plantings and January-February for short-rains plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kilifi, Kwale, Lamu, coastal parts of Tana River (including Tana Delta), and lowland areas of Taita Taveta and Mombasa environs"
+          },
+          "source": "Kenya agricultural variety recommendations and coastal lowland maize production guides from KALRO/KARI and Ministry of Agriculture extension materials",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Pwani Hybrid 1": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "95-110",
+            "average_yield_kg_ha": "4000-7000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "maize streak virus",
+              "gray leaf spot",
+              "northern leaf blight",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya Coastal Lowlands (low altitude, humid to sub-humid; approx. CL2-CL5)",
+            "adaptation_notes": "Adapted to the hot, humid to sub-humid coastal belt of Kenya at low altitudes (roughly 0-600 m a.s.l.) with bimodal rainfall. Performs best on well-drained sandy loam to loam soils with moderate fertility. Suited to timely planting with onset of rains and good weed control. Provides stable performance under coastal heat and intermittent dry spells; avoid planting in cooler mid- to high-altitude highlands where it is not specifically adapted.",
+            "normal_planting_window": "At onset of rains: March-April (long rains) and October-November (short rains) in the Coastal region",
+            "planting_density": "53,000-66,000 plants/ha (e.g., 75 cm x 25-30 cm, 1 plant per hill); in drier pockets use ~44,000 plants/ha (90 cm x 25 cm)",
+            "harvest_time": "95-110 days after planting; typically June-July (long rains plantings) and January-February (short rains plantings)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kilifi, Kwale, Lamu, Tana River and the lowland parts of Taita Taveta; peri-urban Mombasa and other coastal lowlands"
+          },
+          "source": "unknown",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Pwani Hybrid 4": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "105-120",
+            "average_yield_kg_ha": "5000-8000",
+            "plant_height_cm": "200-250",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "maize streak virus (MSV)",
+              "common rust (Puccinia sorghi)",
+              "northern leaf blight (Exserohilum turcicum)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Coastal Lowlands of Kenya (CL1–CL3; low altitude, warm, bimodal rainfall)",
+            "adaptation_notes": "Bred for Kenya’s coastal lowlands; best in warm, low-altitude environments with bimodal rains and well-drained sandy loam to loam soils. Suited to both long and short rains; ensure timely planting with onset of rains. Responds well to basal and top-dress fertilization and good weed control. Avoid cool high-altitude areas.",
+            "normal_planting_window": "Long rains: March–April; Short rains: October–November",
+            "planting_density": "53000-60000 plants/ha (e.g., 0.75 m rows x 25–30 cm within-row spacing)",
+            "harvest_time": "110-130 days after planting; typically July–August (long rains) and January–February (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Kilifi, Kwale, Taita Taveta, Lamu and parts of Tana River counties"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "SC Tembo 73": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "late",
+            "relative_maturity": "long-season hybrid (approx. 120-135 days to grain harvest under Kenyan high- and mid-altitude conditions)",
+            "days_to_maturity": "120-135",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with strong stalks and good root anchorage",
+            "disease_resistance": [
+              "Gray leaf spot (moderate resistance)",
+              "Maize streak virus (tolerant)",
+              "Northern leaf blight (moderate resistance)",
+              "Common rust (moderate resistance)",
+              "Good lodging tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Highlands (LH1-LH3) and Upper Midlands (UM1-UM3) of Kenya; 1000-2000 m altitude with >800 mm seasonal rainfall",
+            "adaptation_notes": "Performs best in medium to high rainfall, fertile, well-drained soils at mid- to high-altitudes. Target main-season (long-rains) plantings where the growing period exceeds 4 months. Responds strongly to timely basal and topdress nitrogen and good weed control. Manage gray leaf spot and northern leaf blight through adequate spacing, residue management, and fungicide only under high disease pressure.",
+            "normal_planting_window": "Main long rains: March-April in Rift Valley and western highlands (Feb-March in some western zones); Short rains: October-November only in mid-altitudes where the season length is sufficient",
+            "planting_density": "50,000-55,000 plants/ha (e.g., 0.75 m rows x 0.25-0.27 m in-row spacing)",
+            "harvest_time": "120-140 days after planting; typically August-September for March-April plantings in the Rift Valley/highlands",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Nakuru, Bungoma, Kakamega, Kericho, Narok (upper elevations), Laikipia, Nyandarua and other medium- to high-altitude maize belts"
+          },
+          "source": "Seed Co Kenya product literature and extension guides, KEPHIS national variety listings, and Kenyan maize production guidelines",
+          "source_url": [
+            "https://www.seedcogroup.com",
+            "https://kephis.org",
+            "https://www.kilimo.go.ke"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "SC Simba 61": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "200-240",
+            "growth_habit": "erect",
+            "disease_resistance": [
+              "maize streak virus",
+              "grey leaf spot",
+              "northern leaf blight",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude maize zones of Kenya (approximately 1000-1800 m ASL)",
+            "adaptation_notes": "Best suited to Kenya’s mid-altitude, medium-rainfall zones with well-drained soils; performs well under both long and short rains where planting is timely and fertility is adequate; manage foliar diseases (GLS/NLB) proactively in humid areas; avoid very cool highland sites prone to cold stress and very hot, drought-prone lowlands without moisture conservation.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains) in bimodal areas; April-May in Rift Valley highlands",
+            "planting_density": "53000-62500 plants/ha (spacing about 75 cm x 25-30 cm, 1 plant per hill)",
+            "harvest_time": "110-130 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Bungoma, Kakamega, Nandi, Kericho, Nakuru, Narok, Bomet, Nyandarua, Nyeri, Embu, Meru, Kirinyaga, Homa Bay, Migori and Siaya counties"
+          },
+          "source": "No cultivar-specific public datasheet located; parameters reflect Seed Co East Africa product knowledge context and Kenya maize production/seasonal guidance (KALRO and FAO) for mid-altitude hybrids.",
+          "source_url": [
+            "https://www.seedcogroup.com",
+            "https://www.kalro.org",
+            "https://www.fao.org/giews/countrybrief/country.jsp?code=KEN"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "SC Duma 43": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "90-110",
+            "average_yield_kg_ha": "7000-10000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "Maize streak virus (MSV) tolerance",
+              "Grey leaf spot tolerance",
+              "Common rust tolerance",
+              "Good husk cover; reduced ear rots"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Low to mid-altitudes (approximately 800-1500 m ASL), semi-arid to sub-humid zones with 400-800 mm seasonal rainfall",
+            "adaptation_notes": "An early-maturing, drought-tolerant Seed Co hybrid suited to Kenya’s lower and mid-altitude drylands. Performs best when planted at the onset of rains in Eastern and Coastal counties and lower Rift Valley zones. Good standability and husk cover; best for areas with frequent dry spells and shorter growing seasons. Not recommended for cool, high-elevation highlands above ~1800 m where late/long-season hybrids outperform it.",
+            "normal_planting_window": "At onset of rains: March-April (long rains) and October-November (short rains)",
+            "planting_density": "53000-66000 plants/ha (e.g., 75 cm rows x 20-30 cm within-row spacing depending on rainfall and fertility)",
+            "harvest_time": "90-110 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Embu (Mbeere), Tharaka Nithi lowlands, Meru North lowlands, Taita Taveta, Kilifi, Kwale, Tana River, Kajiado, Narok East/South, Baringo and West Pokot lowlands, Laikipia and lower zones of Nakuru and Bomet"
+          },
+          "source": "Seed Co Kenya product information and Kenyan agronomic guidelines for early, drought-tolerant maize hybrids; KEPHIS national variety listings",
+          "source_url": [
+            "https://www.seedcogroup.com",
+            "https://www.kephis.org"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH301": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "95-110",
+            "average_yield_kg_ha": "5000-8000",
+            "plant_height_cm": "170-210",
+            "growth_habit": "erect, semi-compact canopy",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Gray leaf spot (moderate resistance)",
+              "Northern leaf blight (moderate resistance)",
+              "Common rust (moderate resistance)"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower to mid-altitude maize zones (LM2-LM5 and UM3-UM4; approximately 900-1700 m elevation) in Kenya",
+            "adaptation_notes": "Best suited to lower and mid-altitude, warm maize areas with 600-1200 mm seasonal rainfall; performs well under timely planting for long and short rains; tolerant to common foliar diseases and maize streak; recommended where early maturity and reliable drought escape are desired; avoid poorly drained fields to minimize root lodging and stalk rots.",
+            "normal_planting_window": "March-April for the long rains; October-November for the short rains (regional adjustments apply)",
+            "planting_density": "53000-66000 plants/ha (e.g., 75 cm x 25 cm or 90 cm x 25 cm spacing; 1 plant per hole after thinning)",
+            "harvest_time": "95-120 days after planting; typically July-August for long-rains plantings and January-February for short-rains plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Busia, Siaya, Homa Bay, Migori, Kisii, Nyamira, Kericho, Bomet, Nakuru and parts of Narok counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH303": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "95-110",
+            "average_yield_kg_ha": "5000-9000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Gray leaf spot (moderate resistance)",
+              "Northern leaf blight (moderate resistance)",
+              "Common rust (moderate tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude moist transitional zones (approximately 1000-1800 m ASL) in western Kenya and lower Rift Valley",
+            "adaptation_notes": "Best suited to mid-altitude, moderate rainfall areas with well-drained, fertile soils; performs well in both long and short rains where seasonal length is 3-4 months; avoid high disease pressure highland zones above ~1800 m and waterlogged fields; responsive to good fertilization and timely weed/foliar disease management.",
+            "normal_planting_window": "March-April (long rains) and September-October (short rains)",
+            "planting_density": "53000-66000 plants/ha (e.g., 75 cm x 25 cm or 90 cm x 25 cm with appropriate plants per hill)",
+            "harvest_time": "95-115 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Bungoma, Kakamega, Busia, Vihiga, Siaya, Trans-Nzoia (lower belts), Uasin Gishu (lower belts), Nandi, Kericho (lower elevations), Nakuru and parts of Bomet counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH403": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "95-110",
+            "average_yield_kg_ha": "4500-7500",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "maize streak virus",
+              "grey leaf spot",
+              "northern leaf blight (turcicum)",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "high"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Lower Midlands (LM3-LM5), Coastal Lowlands (CL), and drier mid-altitude zones (900-1500 m)",
+            "adaptation_notes": "Regional suitability description",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains)",
+            "planting_density": "35,000-45,000 plants/ha in ASAL areas; 50,000-60,000 plants/ha where rainfall and soil fertility are adequate",
+            "harvest_time": "100-120 days after planting; typically July-August (long rains) and January-February (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Machakos, Makueni, Kitui, Tharaka-Nithi (lower zones), Embu (lower midlands), Meru (low to mid-altitude), Laikipia (drier zones), Baringo, Kajiado, Kilifi, Kwale, and parts of Taita Taveta; also grown in short-season windows in Bungoma and Kakamega"
+          },
+          "source": "Western Seed Company Kenya product literature and KEPHIS variety listing for WH403",
+          "source_url": "https://westernseed.co.ke, https://www.kephis.org",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH505": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-130",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "maize streak virus (MSV) tolerance",
+              "turcicum leaf blight tolerance",
+              "grey leaf spot tolerance",
+              "common rust tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Upper Midland and Lower Highland zones (approx. 1200–1800 m) in the moist mid-altitudes of western Kenya and the Rift Valley",
+            "adaptation_notes": "Best suited to moist mid-altitude environments with annual rainfall ≥800 mm, deep fertile loam soils, and temperatures typical of 1200–1800 m elevation. Performs well in Western and parts of Rift Valley maize belts under timely planting, adequate fertilization, and good weed and stover management. Avoid poorly drained, waterlogged fields and very hot lowlands or very cool highlands above ~2000 m.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains), aligned with regional onset of rains",
+            "planting_density": "53000-62500 plants/ha (e.g., 75 cm x 25-30 cm); reduce to 44000-50000 plants/ha in low-rainfall or marginal conditions",
+            "harvest_time": "120-130 days after planting; typically August-September for March plantings and January-February for October plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Bungoma, Kakamega, Busia, Vihiga, Siaya, Kisumu, Homa Bay, Trans-Nzoia, Uasin Gishu, Nandi, Kericho, Nakuru, and parts of Narok and Elgeyo-Marakwet counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH507": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-130",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect",
+            "disease_resistance": [
+              "maize streak virus (MSV)",
+              "gray leaf spot (GLS)",
+              "common rust (Puccinia sorghi)",
+              "northern leaf blight (Turcicum)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude and transitional zones of western Kenya (approximately 900-1700 m asl) with medium to high rainfall",
+            "adaptation_notes": "Best suited to mid-altitude, medium rainfall belts in Western, Rift Valley, and parts of Nyanza; performs well under timely planting for the long rains and can fit the short rains where rainfall is reliable; prefers fertile, well-drained soils; manage with timely topdressing (N at knee-high and at tasseling), good weed control, and stemborer/FAW monitoring.",
+            "normal_planting_window": "March-April (long rains); October-November (short rains), depending on local onset of rains",
+            "planting_density": "53000-60000 plants/ha (approx. 75 cm rows × 25-30 cm within-row spacing)",
+            "harvest_time": "110-130 days after planting; typically July-September (long rains) or January-February (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Busia, Siaya, Kisumu, Homa Bay, Kericho, Nakuru, and parts of Narok and Bomet counties"
+          },
+          "source": "Expert agronomist knowledge based on Western Kenya hybrid maize profiles and Kenyan maize production guidelines; specific WH507 datasheet not accessed",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "WH509": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "115-125",
+            "average_yield_kg_ha": "7000-12000",
+            "plant_height_cm": "200-240",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "Maize streak virus (MSV) tolerance",
+              "Northern leaf blight (Turcicum) tolerance",
+              "Gray leaf spot tolerance",
+              "Common rust tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude maize zones of Kenya (approximately 1000-1800 m asl) with 800-1500 mm annual rainfall",
+            "adaptation_notes": "Best adapted to mid-altitude and transitional zones of Western and Rift Valley Kenya with reliable long rains; performs well on fertile, well-drained soils under moderate input use. Suitable for both long and short rains where the short rains are well distributed. Manage foliar diseases with timely scouting in high humidity areas; apply basal and topdress fertilizers per soil test to reach yield potential.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains), depending on county/rainfall onset",
+            "planting_density": "53000-60000 plants/ha (e.g., 75 cm rows x 25-30 cm within-row spacing)",
+            "harvest_time": "115-130 days after planting; typically July-August for long-rains crop and January-February for short-rains crop",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Busia, Siaya, Homa Bay, Kisii, Nyamira, Kericho, Nakuru, Bomet, Narok; also parts of Machakos, Makueni and Kitui under short rains"
+          },
+          "source": "Synthesis of Western Seed hybrid guides, KEPHIS National Crop Variety List, and Kenya maize production/seasonal planting guidance from MoALD/KALRO for mid-altitude zones",
+          "source_url": [
+            "https://kephis.org/",
+            "https://kilimo.go.ke/",
+            "https://www.kalro.org/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "PAN 691": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-135",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy, good standability",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Grey leaf spot (moderate resistance)",
+              "Northern leaf blight (moderate resistance)",
+              "Common rust (moderate resistance)",
+              "Cob/ear rots (moderate)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya medium altitude and transitional maize zones (approximately 1000-1800 m a.s.l.) with 700-1200 mm seasonal rainfall",
+            "adaptation_notes": "Performs well in Kenya’s medium-altitude and transitional zones under rainfed conditions; best on well-drained, fertile soils with timely fertilization and weed control; suited to areas with reliable long rains and can be used in short rains where the season length allows medium maturity hybrids.",
+            "normal_planting_window": "At onset of long rains (March-April in most zones; April-May in the Rift Valley) and at onset of short rains (October-November) in suitable mid-altitude areas",
+            "planting_density": "44,000-55,000 plants/ha under rainfed conditions; up to ~60,000 plants/ha on high fertility and good rainfall; e.g., 0.75 m rows x 0.25-0.30 m in-row spacing",
+            "harvest_time": "120-135 days after planting; typically August-September for long-rains crops and January-February for short-rains crops",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nakuru, Narok, Nandi, Kericho, Bomet, Bungoma, Kakamega, Kisii highlands, Nyandarua, Laikipia, Meru, Embu, Kirinyaga, Nyeri upper midlands, and suitable higher elevations of Machakos and Makueni"
+          },
+          "source": "PANNAR Seed maize hybrid guide for East Africa and Kenyan maize production/agronomy guidelines (general); KEPHIS variety listings for Kenya",
+          "source_url": [
+            "https://www.pannar.com/ke/en",
+            "https://www.kephis.org/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "PAN 67": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "115-130",
+            "average_yield_kg_ha": "5000-9000",
+            "plant_height_cm": "200-260",
+            "growth_habit": "erect, semi-compact plants with good standability",
+            "disease_resistance": [
+              "maize streak virus (MSV)",
+              "grey leaf spot (GLS)",
+              "northern leaf blight (NLB)",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya mid-altitude maize zones (UM2–UM4; LH2–LH3)",
+            "adaptation_notes": "Best adapted to mid-altitude and moist transitional zones at roughly 1200–2000 m a.s.l., with reliable rainfall (>700–800 mm) and good fertility; suitable for both long and short rains in regions with adequate moisture; avoid very dry lowlands or cold high-altitude areas where later-maturing highland hybrids are preferred.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains), depending on region",
+            "planting_density": "53000-60000 plants/ha (e.g., 75 cm rows x 25-30 cm in-row spacing)",
+            "harvest_time": "115-130 days after planting, depending on site and season",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Narok, Kericho, Bomet, Kisii, Nyamira, Laikipia, Nyeri, Embu, Meru and Kirinyaga counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "PAN 53": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-140",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "200-250",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Grey leaf spot (moderate resistance)",
+              "Northern leaf blight (moderate resistance)",
+              "Common rust (moderate resistance)",
+              "Head smut (tolerant)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid- to high-potential maize zones of Kenya (AEZ II–III; ~1200–2100 m asl)",
+            "adaptation_notes": "Best suited to mid-altitude and high rainfall maize belts with fertile, well-drained soils; performs well under main-season long rains and can be planted in short rains in suitable mid-altitude areas; avoid very dry lowland conditions for optimal performance.",
+            "normal_planting_window": "March-April (long rains) in Rift Valley and western highlands; October-November (short rains) in mid-altitude zones",
+            "planting_density": "53000-60000 plants/ha under rain-fed conditions; up to 65000 plants/ha under high fertility and good rainfall",
+            "harvest_time": "120-140 days after planting; typically August-September for long-rains plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Kericho, Narok, parts of Laikipia and Nyandarua counties"
+          },
+          "source": "Professional agronomist knowledge and regional seed company brochures for East Africa (PANNAR/Pioneer); specific public URLs not available",
+          "source_url": "unknown",
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Pioneer P30G19": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-140",
+            "average_yield_kg_ha": "6000-10000",
+            "plant_height_cm": "220-270",
+            "growth_habit": "erect",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid- to high-altitude moist transitional zones of Kenya (approximately 1000-2000 m a.s.l.)",
+            "adaptation_notes": "Performs best in medium to high rainfall areas or where supplemental moisture is available; suited to mid-altitude to highland maize belts with well-drained soils and good fertility. Avoid poorly drained fields; respond well to timely topdressing and early weed control.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains) in suitable regions",
+            "planting_density": "50,000-60,000 plants/ha under good rainfall; 45,000-50,000 plants/ha in moisture-limited conditions",
+            "harvest_time": "120-150 days after planting; typically August-September for long-rains plantings and January-February for short-rains plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nakuru, Bungoma, Kakamega, Nandi, Kericho, Narok, Nyandarua, Nyeri, Embu (upper), Meru, and Laikipia counties"
+          },
+          "source": "Expert agronomic knowledge for medium-maturing Pioneer hybrids in East Africa and general Kenya maize production guidelines",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Pioneer P3253": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-135",
+            "average_yield_kg_ha": "7000-12000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "semi-erect, good standability with strong stalks and roots",
+            "disease_resistance": [
+              "Maize streak virus (tolerant)",
+              "Gray leaf spot (moderate to good tolerance)",
+              "Northern corn leaf blight (moderate to good tolerance)",
+              "Common rust (moderate)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya upper mid-altitude to high-potential maize zones (approximately 1500-2100 m a.s.l.)",
+            "adaptation_notes": "Performs best in medium to high rainfall, cooler mid- to high-altitude zones with deep, well-drained, fertile soils; responsive to timely planting and adequate nitrogen; avoid poorly drained fields and severe lowland heat stress.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains in central/eastern highlands)",
+            "planting_density": "53000-62000 plants/ha",
+            "harvest_time": "120-140 days after planting; typically July-September for March-April plantings and January-February for October-November plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Kericho, Bomet, Nyandarua, Nyeri and upper parts of Narok counties"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Pioneer P3812": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "120-130",
+            "average_yield_kg_ha": "7000-12000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with good stay-green; strong stalk and root strength",
+            "disease_resistance": [
+              "Grey leaf spot (Cercospora zeae-maydis): moderate",
+              "Northern leaf blight (Exserohilum turcicum): good",
+              "Common rust (Puccinia sorghi): moderate",
+              "Maize streak virus: moderate",
+              "Stalk and root lodging tolerance: good",
+              "Ear rot (Fusarium spp.): moderate",
+              "Maize lethal necrosis: no specific resistance documented; avoid high-pressure areas"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Kenya Upper Midlands (UM1-UM3) and Lower Highlands (LH1-LH3), typically 900-2100 m altitude with 800-1200+ mm seasonal rainfall",
+            "adaptation_notes": "Performs best in high- and medium-potential highland and upper mid-altitude zones with reliable long rains, fertile, well-drained soils and good nitrogen supply. Avoid waterlogging and very short-season or very hot lowland/coastal zones. Suited to main-season planting in the Rift Valley and western highlands; can fit short rains in bimodal mid-altitude areas where season length allows (~4 months).",
+            "normal_planting_window": "Long rains: March-April (western and highland zones); Short rains: October-November in bimodal mid-altitude areas",
+            "planting_density": "53,000-60,000 plants/ha in 0.75 m rows (25-30 cm in-row) under good rainfall; reduce to 40,000-50,000 plants/ha where moisture is limiting",
+            "harvest_time": "July-September for long-rains crop; 115-130 days after planting (Jan-Feb for short-rains areas)",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Narok, Bomet, Kericho, Elgeyo-Marakwet, Laikipia and parts of Nyandarua and Meru counties"
+          },
+          "source": "unknown",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Dekalb DK8031": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "maize streak virus (MSV)",
+              "grey leaf spot (GLS)",
+              "northern leaf blight (Turcicum)",
+              "common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude (approximately 1200-1700 m) and transitional zones with 800-1200 mm annual rainfall",
+            "adaptation_notes": "Performs best in mid-altitude and transitional maize zones of Kenya with reliable rainfall or supplemental moisture; suitable for both long and short rains; responds strongly to adequate nitrogen and timely weed and disease management; avoid late planting in very dry lowlands and manage for leaf diseases in humid areas.",
+            "normal_planting_window": "March-April (long rains) and October-November (short rains), depending on region",
+            "planting_density": "53000-74000 plants/ha (lower end in drier zones; higher end in high rainfall or under irrigation)",
+            "harvest_time": "110-130 days after planting; typically July-August (long rains) or January-February (short rains)",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Kericho, Bomet, Narok, Nyeri, Kiambu, Embu and Meru counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Dekalb DK777": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "6000-9000",
+            "plant_height_cm": "210-250",
+            "growth_habit": "erect, semi-compact canopy with strong stalks and good husk cover",
+            "disease_resistance": [
+              "maize streak virus (tolerant)",
+              "gray leaf spot (moderately tolerant)",
+              "northern leaf blight (moderately tolerant)",
+              "common rust (moderately tolerant)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Medium to high altitude maize zones of Kenya (approximately 1000-2200 m a.s.l.) in the Rift Valley and Western highlands",
+            "adaptation_notes": "Performs best in medium to high rainfall/high potential zones with deep, fertile, well-drained loam soils; suited to the long-rains main season in mid- to high-altitude areas. Can fit short rains in warmer mid-altitudes where the season length permits. Not ideal for very dry lowland zones or very cool, very high altitudes (>2400 m). Manage foliar diseases with rotation and timely fungicide in high-pressure areas; ensure adequate fertility and plant population for optimal cob fill.",
+            "normal_planting_window": "Long rains: March-April; Short rains (warmer mid-altitudes): October-November",
+            "planting_density": "53,000-60,000 plants/ha (e.g., 0.75 m rows x 0.25-0.30 m within-row); reduce to 44,000-53,000 plants/ha in drier fields; increase up to 60,000-65,000 plants/ha on fertile, well-watered fields",
+            "harvest_time": "110-130 days after planting; typically August-October for long-rains plantings",
+            "season_suitability": "main season",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Nakuru, Narok, Kericho, Bomet, and parts of Laikipia and Nyandarua counties"
+          },
+          "source": "General Kenyan maize hybrid positioning for DEKALB and national maize agronomy recommendations; specific DK777 technical sheet not available",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Dekalb DK8051": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "8000-12000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect to semi-compact canopy with strong stalks and good husk cover",
+            "disease_resistance": [
+              "Maize streak virus (MSV)",
+              "Grey leaf spot (GLS)",
+              "Northern leaf blight (NLB)",
+              "Common rust"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude zones of Kenya (approximately 1000-1800 m ASL) with annual rainfall ≥800-1000 mm",
+            "adaptation_notes": "Best suited to Kenya’s mid-altitude, high and medium rainfall belts in Western and Rift Valley and the Central Highlands. Performs well on fertile, well-drained soils under timely planting at onset of rains and adequate nutrition (particularly nitrogen). Not ideal for hot, lowland/coastal zones or very high, cool elevations. Good standability and husk cover support performance under disease and lodging pressure.",
+            "normal_planting_window": "March-April (long rains) in Western/Rift Valley; October-November (short rains) in the Central/Eastern highlands where reliable",
+            "planting_density": "55,000-65,000 plants/ha under rainfed conditions; up to 70,000-75,000 plants/ha on fertile soils with reliable moisture",
+            "harvest_time": "110-130 days after planting; typically July-August for March plantings and January-February for October plantings",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Trans-Nzoia, Uasin Gishu, Nandi, Bungoma, Kakamega, Kericho, Bomet, Nakuru, Narok, Nyandarua, Nyeri, Murang’a, Kirinyaga and Embu counties"
+          },
+          "source": "MbeguChoice (Kenya seed variety catalogue), Bayer East Africa DEKALB hybrid information for Kenya, and KALRO maize production guidelines for mid-altitude zones",
+          "source_url": [
+            "https://www.mbeguchoice.com",
+            "https://cropscience.bayer.co.ke/en-KE/Products/Seeds/DEKALB",
+            "https://www.kalro.org/maize"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      },
+      "Tumaini 1 (Type Wei 101)": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "6000-10000",
+            "plant_height_cm": "180-220",
+            "growth_habit": "erect to semi-compact",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "high",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Mid-altitude (approximately 1000-1800 m ASL) and dry mid-altitude zones in Kenya",
+            "adaptation_notes": "Suited to mid-altitude and dry mid-altitude environments with reliable onset of rains; performs best on well-drained loams with moderate fertility. Plant at onset of long or short rains; timely weeding and top-dressing improve yield. The variety is positioned as a water-efficient hybrid suitable for areas prone to intermittent drought and heat episodes, making it appropriate for Lower Eastern and other moisture-stressed maize zones, as well as mid-altitude maize belts.",
+            "normal_planting_window": "Long rains: March-April; Short rains: October-November (plant at onset of rains)",
+            "planting_density": "53000-66000 plants/ha (e.g., 75 cm x 25 cm with 1 plant per hill, or 90 cm x 25 cm with 1-2 plants per hill depending on rainfall)",
+            "harvest_time": "110-130 days after planting",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Lower Eastern (Machakos, Makueni, Kitui), parts of Embu (lower zones) and Tharaka Nithi, coastal hinterland (Kilifi, Kwale), and mid-altitude belts of Rift Valley and Western regions including Trans-Nzoia, Uasin Gishu, Bungoma and Kakamega"
+          },
+          "source": "Compiled from Kenyan maize extension guidance and water-efficient hybrid briefs (e.g., DroughtTEGO/WE hybrids) by KALRO/AATF, and general KEPHIS/KALRO variety information.",
+          "source_url": [
+            "https://www.aatf-africa.org/portfolio/droughttego/",
+            "https://www.kalro.org/maize",
+            "https://www.kephis.org/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {
+            "P1": false,
+            "P2": false,
+            "P5": false,
+            "G2": false,
+            "G3": false,
+            "PHINT": false
+          },
+          "notes": ""
+        }
+      }
+    }
+  },
+  "summary": {
+    "total_cultivars_identified": {
+      "H614": [
+        "Kenya"
+      ],
+      "H614D": [
+        "Kenya"
+      ],
+      "H613": [
+        "Kenya"
+      ],
+      "H6213": [
+        "Kenya"
+      ],
+      "H6210": [
+        "Kenya"
+      ],
+      "H623": [
+        "Kenya"
+      ],
+      "H624": [
+        "Kenya"
+      ],
+      "H625": [
+        "Kenya"
+      ],
+      "H626": [
+        "Kenya"
+      ],
+      "H511": [
+        "Kenya"
+      ],
+      "H512": [
+        "Kenya"
+      ],
+      "H513": [
+        "Kenya"
+      ],
+      "H515": [
+        "Kenya"
+      ],
+      "H516": [
+        "Kenya"
+      ],
+      "DH01": [
+        "Kenya"
+      ],
+      "DH02": [
+        "Kenya"
+      ],
+      "DH03": [
+        "Kenya"
+      ],
+      "DH04": [
+        "Kenya"
+      ],
+      "KDV1": [
+        "Kenya"
+      ],
+      "KDV2": [
+        "Kenya"
+      ],
+      "KDV3": [
+        "Kenya"
+      ],
+      "KDV4": [
+        "Kenya"
+      ],
+      "KDV6": [
+        "Kenya"
+      ],
+      "KDV7": [
+        "Kenya"
+      ],
+      "Katumani Composite B": [
+        "Kenya"
+      ],
+      "Makueni Composite": [
+        "Kenya"
+      ],
+      "Coast Composite": [
+        "Kenya"
+      ],
+      "Pwani Hybrid 1": [
+        "Kenya"
+      ],
+      "Pwani Hybrid 4": [
+        "Kenya"
+      ],
+      "SC Tembo 73": [
+        "Kenya"
+      ],
+      "SC Simba 61": [
+        "Kenya"
+      ],
+      "SC Duma 43": [
+        "Kenya"
+      ],
+      "WH301": [
+        "Kenya"
+      ],
+      "WH303": [
+        "Kenya"
+      ],
+      "WH403": [
+        "Kenya"
+      ],
+      "WH505": [
+        "Kenya"
+      ],
+      "WH507": [
+        "Kenya"
+      ],
+      "WH509": [
+        "Kenya"
+      ],
+      "PAN 691": [
+        "Kenya"
+      ],
+      "PAN 67": [
+        "Kenya"
+      ],
+      "PAN 53": [
+        "Kenya"
+      ],
+      "Pioneer P30G19": [
+        "Kenya"
+      ],
+      "Pioneer P3253": [
+        "Kenya"
+      ],
+      "Pioneer P3812": [
+        "Kenya"
+      ],
+      "Dekalb DK8031": [
+        "Kenya"
+      ],
+      "Dekalb DK777": [
+        "Kenya"
+      ],
+      "Dekalb DK8051": [
+        "Kenya"
+      ],
+      "Tumaini 1 (Type Wei 101)": [
+        "Kenya"
+      ]
+    },
+    "location_detailed": {
+      "Kenya": {
+        "num_cultivars": 48,
+        "num_llm_knowledge_coefficients": 0,
+        "num_web_paper_coefficients": 0,
+        "num_not_found_coefficients": 48,
+        "crop_suitability_note": "Major cultivation location with diverse cultivar options"
+      }
+    },
+    "cultivars_overlap_info": {
+      "total_cultivars_with_repeats": 48,
+      "total_unique_cultivars": 48,
+      "cultivars_in_single_location": 48,
+      "cultivars_in_multiple_locations": 0
+    }
+  }
+}

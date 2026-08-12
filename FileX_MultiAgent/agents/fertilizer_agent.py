@@ -97,7 +97,6 @@ class FertilizerAgent:
         # ============================================================================
         config = state.get("config", {})
         _ = config.get("fertilizers_inorganic", []) or []  # keep for later if you want to merge config+LLM
-        target_n_rate_kg_ha = (config.get("fertilizer") or {}).get("target_n_rate_kg_ha")
 
         MAX_JUDGE_ATTEMPTS = int(state.get("max_judge_attempts", 1))
         JUDGE_ENABLED = bool(state.get("enable_judge", False))
@@ -148,7 +147,6 @@ class FertilizerAgent:
                 fertilizer_judge_feedback,
                 fertilizer_fmcd_codes,
                 fertilizer_facd_codes,
-                target_n_rate_kg_ha=target_n_rate_kg_ha,
             )
 
             # 1) Generator

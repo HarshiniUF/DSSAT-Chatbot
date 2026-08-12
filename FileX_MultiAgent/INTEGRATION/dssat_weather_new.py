@@ -1,0 +1,341 @@
+#with quality assurance
+#new weather format in dssat
+# -*- coding: utf-8 -*-
+"""DSSAT Weather Data Fetcher with Quality Assurance
+Fetch climate data from the WeatherX API (NASA POWER / CHIRPS) and convert to DSSAT weather format.
+Uses the robust 'geopy' library for reverse geocoding and includes all QA/Critic features.
+Final version with all features and corrected header alignment.
+INSI code is now dynamically generated from Country and State/Region names.
+"""
+from __future__ import annotations
+import math
+import pandas as pd
+import numpy as np
+import requests
+from datetime import datetime
+from typing import Dict, List, Tuple
+# Import geopy for robust reverse geocoding
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderUnavailable
+
+from INTEGRATION.config import (
+    WEATHERX_API_URL, WEATHERX_TIMEOUT,
+    OPEN_ELEVATION_API_URL, OPEN_ELEVATION_TIMEOUT,
+    NOMINATIM_USER_AGENT,
+)
+
+def _round_duration_years(start_date_obj, end_date_obj) -> int:
+    """
+    Round a date range to the nearest whole number of years using a 6-month threshold.
+    If the remainder after full years is > 6 months, round up; otherwise round down.
+    Always returns at least 1.
+    """
+    full_years = end_date_obj.year - start_date_obj.year
+    if (end_date_obj.month, end_date_obj.day) < (start_date_obj.month, start_date_obj.day):
+        full_years -= 1
+    try:
+        anniversary = start_date_obj.replace(year=start_date_obj.year + full_years)
+    except ValueError:
+        anniversary = start_date_obj.replace(year=start_date_obj.year + full_years, day=28)
+    remaining_months = (end_date_obj - anniversary).days / 30.44
+    return max(1, full_years + 1 if remaining_months > 6 else full_years)
+
+
+def get_location_details(latitude: float, longitude: float) -> Dict[str, str]:
+    """
+    Performs reverse geocoding to get address details from coordinates using geopy.
+    
+    Returns a dictionary with address, country name, state/region name, and country code.
+    """
+    try:
+        # Initialize the geolocator with a unique user_agent
+        geolocator = Nominatim(user_agent=NOMINATIM_USER_AGENT)
+        
+        # Perform the reverse geocoding lookup
+        location = geolocator.reverse((latitude, longitude), exactly_one=True, language='en')
+        
+        if location and location.address:
+            address_details = location.raw.get('address', {})
+            city = address_details.get('city', address_details.get('town', address_details.get('village')))
+            state = address_details.get('state')
+            country = address_details.get('country')
+            country_code = address_details.get('country_code', 'XX').upper()
+            
+            # Construct a clean address string
+            parts = [part for part in [city, state, country] if part]
+            address = ', '.join(parts)
+            
+            # Return all necessary components for INSI generation
+            return {'address': address, 'country': country, 'state': state, 'country_code': country_code}
+            
+    except GeocoderUnavailable as e:
+        print("\n" + "!"*70)
+        print("🛑 CRITICAL WARNING: REVERSE GEOCODING FAILED.")
+        print(f"   Could not connect to the geocoding service. Error: {e}")
+        print("   This may be due to a network issue or firewall.")
+        print("   The script will continue with a generic site name.")
+        print("!"*70 + "\n")
+    except Exception as e:
+        print(f"An unexpected error occurred during geocoding: {e}")
+        
+    # Fallback dictionary with None for names
+    return {'address': f"Site at {latitude:.2f}, {longitude:.2f}", 'country': None, 'state': None, 'country_code': 'NOGEO'}
+
+def fetch_daily_climate(
+    latitude: float, longitude: float, start_date: str, end_date: str,
+    base_url: str = WEATHERX_API_URL,
+) -> pd.DataFrame:
+    """Fetch daily climate data for a given location from the WeatherX API
+    (NASA POWER / CHIRPS blend), e.g. GET {base_url}?latitude=..&longitude=..&start_date=..&end_date=..
+
+    Expected response shape:
+        {"daily": {"DATE": [...], "TMAX": [...], "TMIN": [...], "T2M": [...],
+                   "TDEW": [...], "WIND": [...], "RAIN": [...], "SRAD": [...]}}
+    where DATE is the DSSAT-format date (YYYYDDD).
+    """
+    params = {"latitude": latitude, "longitude": longitude, "start_date": start_date, "end_date": end_date}
+    response = requests.get(base_url, params=params, timeout=WEATHERX_TIMEOUT)
+    response.raise_for_status()
+    daily = response.json()["daily"]
+
+    df = pd.DataFrame(daily)
+    for col in ["TMAX", "TMIN", "T2M", "TDEW", "WIND", "RAIN", "SRAD"]:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+    df["DATE"] = df["DATE"].astype(int)
+    df["date"] = pd.to_datetime(df["DATE"].apply(_dssat_date_to_date))
+    return df.set_index("date")
+
+def get_elevation(latitude: float, longitude: float) -> float:
+    """Get elevation using Open Elevation API."""
+    try:
+        url = f"{OPEN_ELEVATION_API_URL}?locations={latitude},{longitude}"
+        response = requests.get(url, timeout=OPEN_ELEVATION_TIMEOUT)
+        response.raise_for_status()
+        return response.json()['results'][0]['elevation']
+    except requests.exceptions.RequestException as e:
+        print(f"Warning: Could not fetch elevation: {e}. Using default -99.")
+        return -99
+
+def _dssat_date_to_date(dssat_int: int):
+    """Convert DSSAT integer date (YYYYDDD) to a Python date object."""
+    from datetime import date, timedelta
+    year = dssat_int // 1000
+    doy  = dssat_int % 1000
+    return date(year, 1, 1) + timedelta(days=doy - 1)
+
+def quality_assurance_check(daily_data: pd.DataFrame) -> Dict[str, any]:
+    """Perform quality assurance checks on the weather data."""
+    qa_report = {
+        'total_records': len(daily_data),
+        'columns_checked': ['SRAD', 'TMAX', 'TMIN', 'RAIN'],
+        'missing_values': {},
+        'missing_days': [],
+        'has_issues': False,
+        'quality_score': 100.0,
+    }
+
+    # --- Check 1: -99 sentinel values per column ---
+    total_missing = 0
+    for col in qa_report['columns_checked']:
+        if col in daily_data.columns:
+            missing_mask = daily_data[col] == -99.0
+            missing_count = missing_mask.sum()
+            if missing_count > 0:
+                qa_report['has_issues'] = True
+                qa_report['missing_values'][col] = {
+                    'count': int(missing_count),
+                    'percentage': round((missing_count / len(daily_data)) * 100, 2),
+                    'first_5_dates': daily_data[missing_mask]['DATE'].tolist()[:5]
+                }
+                total_missing += missing_count
+    total_possible = len(daily_data) * len(qa_report['columns_checked'])
+    if total_possible > 0:
+        qa_report['quality_score'] = round(((total_possible - total_missing) / total_possible) * 100, 2)
+
+    # --- Check 2: Date sequence continuity (no skipped days) ---
+    if len(daily_data) >= 2:
+        from datetime import timedelta
+        actual_dates = set(_dssat_date_to_date(int(d)) for d in daily_data['DATE'])
+        first_date = min(actual_dates)
+        last_date  = max(actual_dates)
+        expected_count = (last_date - first_date).days + 1
+        if len(actual_dates) < expected_count:
+            # Build the full expected set and diff
+            all_expected = {first_date + timedelta(days=i) for i in range(expected_count)}
+            skipped = sorted(all_expected - actual_dates)
+            qa_report['missing_days'] = [d.strftime('%Y-%m-%d') for d in skipped]
+            qa_report['has_issues'] = True
+
+    return qa_report
+
+def print_qa_report(qa_report: Dict[str, any]) -> None:
+    """Print a formatted quality assurance report."""
+    print("\n" + "="*70)
+    print("📋 QUALITY ASSURANCE REPORT")
+    print("="*70)
+    print(f"Total Records: {qa_report['total_records']}")
+    print(f"Columns Checked: {', '.join(qa_report['columns_checked'])}")
+    print(f"Overall Quality Score: {qa_report['quality_score']}%")
+
+    # -99 sentinel check
+    if qa_report['missing_values']:
+        print("\n⚠️  MISSING VALUES DETECTED (-99):")
+        for col, info in qa_report['missing_values'].items():
+            print(f"\n  {col}:")
+            print(f"    - Missing Count: {info['count']} ({info['percentage']}%)")
+            print(f"    - First affected dates: {info['first_5_dates']}")
+    else:
+        print("\n✅ NO MISSING VALUES (-99) DETECTED")
+
+    # Date sequence check
+    skipped = qa_report.get('missing_days', [])
+    if skipped:
+        print(f"\n⚠️  DATE SEQUENCE GAPS DETECTED: {len(skipped)} day(s) missing")
+        preview = skipped[:10]
+        print(f"    - First affected dates: {preview}")
+        if len(skipped) > 10:
+            print(f"    - ... and {len(skipped) - 10} more")
+    else:
+        print("✅ DATE SEQUENCE COMPLETE - No gaps detected")
+
+    print("="*70 + "\n")
+
+class WeatherFileCritic:
+    """Critic agent to review and validate generated DSSAT weather files."""
+    def __init__(self, weather_file: str):
+        self.weather_file = weather_file; self.issues = []; self.warnings = []; self.info = []
+    def read_weather_file(self) -> Tuple[List[str], pd.DataFrame]:
+        with open(self.weather_file, 'r') as f: lines = f.readlines()
+        data_start = next((i + 1 for i, l in enumerate(lines) if l.strip().startswith('@  DATE')), None)
+        if data_start is None: self.issues.append("Could not find data section header"); return lines, pd.DataFrame()
+        data_records = []
+        for line in lines[data_start:]:
+            if line.strip():
+                try:
+                    data_records.append({
+                        'DATE': int(line[0:7].strip()), 'SRAD': float(line[7:13].strip()),
+                        'TMAX': float(line[13:19].strip()), 'TMIN': float(line[19:25].strip()),
+                        'RAIN': float(line[25:31].strip())
+                    })
+                except (ValueError, IndexError): self.warnings.append(f"Could not parse line: {line.strip()}")
+        return lines, pd.DataFrame(data_records)
+    def critique(self) -> Dict[str, any]:
+        lines, df = self.read_weather_file()
+        if not lines[0].startswith('$WEATHER DATA :'): self.issues.append("Header format incorrect (expected '$WEATHER DATA : ...')")
+        if df.empty: self.issues.append("No data records found")
+        status = "FAILED" if self.issues else "PASSED WITH WARNINGS" if self.warnings else "PASSED"
+        return {'status': status, 'issues': self.issues, 'warnings': self.warnings, 'total_records': len(df)}
+    def print_critique(self):
+        report = self.critique()
+        print("\n" + "="*70); print("🔍 CRITIC AGENT REVIEW"); print("="*70)
+        print(f"File: {self.weather_file}\nStatus: {report['status']}\nTotal Records: {report['total_records']}")
+        if report['issues']: print(f"\n❌ CRITICAL ISSUES:"); [print(f"  - {i}") for i in report['issues']]
+        if report['warnings']: print(f"\n⚠️  WARNINGS:"); [print(f"  - {w}") for w in report['warnings']]
+        if not report['issues'] and not report['warnings']: print("\n✅ ALL CHECKS PASSED!")
+        print("="*70 + "\n")
+
+def create_dssat_weather_file(df: pd.DataFrame, latitude: float, longitude: float, 
+                             site_name: str, insi: str, output_file: str) -> None:
+    """Creates a DSSAT weather file from climate DataFrame."""
+    df = df.copy()
+    TAV = df['T2M'].mean()
+    df['month'] = df.index.month
+    monthly_means = df.groupby('month')['T2M'].mean()
+    AMP = monthly_means.max() - monthly_means.min()
+    elev = get_elevation(latitude, longitude)
+    
+    header_lines = [
+        f"$WEATHER DATA : {site_name}",
+        "",
+        "@ INSI      LAT     LONG  ELEV   TAV   AMP REFHT WNDHT",
+        f"  {insi:<4} {latitude:8.3f} {longitude:8.3f} {elev:5.0f} {TAV:5.1f} {AMP:5.1f}   2.0  10.0",
+        "",
+        "@  DATE  SRAD  TMAX  TMIN  RAIN  DEWP  WIND   PAR"
+    ]
+
+    daily_data = pd.DataFrame({'DATE': df['DATE'].astype(int)})
+    daily_data['SRAD'] = df['SRAD'].fillna(-99.0).round(1)
+    daily_data['TMAX'] = df['TMAX'].fillna(-99.0).round(1)
+    daily_data['TMIN'] = df['TMIN'].fillna(-99.0).round(1)
+    daily_data['RAIN'] = df['RAIN'].fillna(-99.0).round(1)
+    daily_data['DEWP'] = df['TDEW'].fillna(-99.0).round(1)
+    daily_data['WIND'] = df['WIND'].fillna(-99.0).round(1)
+    daily_data['PAR'] = (daily_data['SRAD'] * 0.45).where(daily_data['SRAD'] != -99.0, -99.0).round(1)
+
+    qa_report = quality_assurance_check(daily_data)
+
+    with open(output_file, 'w') as f:
+        f.write('\n'.join(header_lines) + '\n')
+        for _, row in daily_data.iterrows():
+            f.write(
+                f"{row['DATE']:7.0f} {row['SRAD']:5.1f} {row['TMAX']:5.1f} {row['TMIN']:5.1f} "
+                f"{row['RAIN']:5.1f} {row['DEWP']:5.1f} {row['WIND']:5.1f} {row['PAR']:5.1f}\n"
+            )
+            
+    print(f"✅ DSSAT weather file created: {output_file}")
+    print(f"   📍 Location: {site_name}")
+    print(f"   📅 Period: {daily_data['DATE'].iloc[0]} to {daily_data['DATE'].iloc[-1]}")
+    
+    print_qa_report(qa_report)
+    WeatherFileCritic(output_file).print_critique()
+
+def generate_weather_for_location(latitude: float, longitude: float,
+                                start_date: str = "2024-01-01", end_date: str = "2025-12-31") -> str:
+    """Fully automated function to generate a weather file for a specific location."""
+    print(f"\n--- Starting process for coordinates: ({latitude}, {longitude}) ---")
+    location_info = get_location_details(latitude, longitude)
+    
+    address = location_info['address']
+    country_code = location_info['country_code']
+    country_name = location_info.get('country')
+    state_name = location_info.get('state')
+
+    # --- NEW LOGIC FOR DYNAMIC INSI CODE ---
+    if country_name:
+        country_part = country_name[:2].upper()
+        # If a state/region exists, use its first two letters. Otherwise, reuse the country part.
+        state_part = state_name[:2].upper() if state_name else country_part
+        insi = country_part + state_part
+    else:
+        # Fallback if geocoding completely fails
+        insi = "XXXX"
+
+    print(f"Found location: {address} (Country Code: {country_code})")
+    print(f"Generated INSI code: {insi}")
+
+    start_date_obj = datetime.strptime(start_date, "%Y-%m-%d")
+    end_date_obj   = datetime.strptime(end_date,   "%Y-%m-%d")
+    start_year_yy  = start_date_obj.year % 100
+    duration_years = _round_duration_years(start_date_obj, end_date_obj)
+
+    output_file = f"{insi[:4]}{start_year_yy:02d}{duration_years:02d}.WTH"
+    
+    print("Fetching climate data...")
+    df = fetch_daily_climate(latitude, longitude, start_date, end_date)
+    
+    # Pass the new 'insi' code to the writer function
+    create_dssat_weather_file(df, latitude, longitude, site_name=address, insi=insi, output_file=output_file)
+    
+    print(f"--- Process complete for {address} ---")
+    return output_file
+
+def main():
+    """Main function to demonstrate usage."""
+    # Example 1: Kitale, Kenya to test KETR logic
+    generate_weather_for_location(
+        latitude=1.016, 
+        longitude=35.000, # Approx. Kitale in Trans-Nzoia
+        start_date='2024-01-01', 
+        end_date='2024-12-31'
+    )
+    
+    # Example 2: Adama, Oromia, Ethiopia
+    generate_weather_for_location(
+        latitude=8.54, 
+        longitude=39.27,
+        start_date="2024-01-01", 
+        end_date="2024-12-31"
+    )
+
+if __name__ == "__main__":
+    main()

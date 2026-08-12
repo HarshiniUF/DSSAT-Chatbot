@@ -103,25 +103,15 @@ class SimulationControlAgent:
             pstmn=10
         )
         
-        # Automatic-irrigation thresholds only matter when IRRIG is set to
-        # automatic ("A"). When irrigation is off ("N") or on a reported
-        # schedule ("R"), leave this block empty instead of writing values
-        # that imply an active auto-irrigation plan that never runs.
-        if irrig == "A":
-            irrigation_am = AMIrrigation(
-                imdep=30,
-                ithrl=70,
-                ithru=100,
-                iroff="GS000",
-                imeth="IR001",
-                iramt=10,
-                ireff=1.0
-            )
-        else:
-            irrigation_am = AMIrrigation(
-                imdep=None, ithrl=None, ithru=None,
-                iroff=None, imeth=None, iramt=None, ireff=None
-            )
+        irrigation_am = AMIrrigation(
+            imdep=30,
+            ithrl=70,
+            ithru=100,
+            iroff="GS000",
+            imeth="IR001",
+            iramt=10,
+            ireff=1.0
+        )
         
         nitrogen = AMNitrogen(
             nmdep=30,
@@ -137,14 +127,9 @@ class SimulationControlAgent:
             ridep=20
         )
         
-        # HARVS="M" (harvest at physiological maturity) means this window is
-        # only a bound, not the actual trigger -- leave it open-ended rather
-        # than pinning it to the planting date. hfrst=None -> no lower bound;
-        # hlast is capped at the end of the simulated growing season year.
-        harvest_end_str = f"{growing_season_year}-12-31"
         harvest = AMHarvest(
-            hfrst=None,
-            hlast=convert_date_to_dssat_date(harvest_end_str),
+            hfrst=pdate_obj,
+            hlast=pdate_obj,
             hpcnp=100,
             hpcnr=0
         )

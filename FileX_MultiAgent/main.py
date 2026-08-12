@@ -30,8 +30,7 @@ from agents.initial_conditions_agent import InitialConditionsAgent
 from agents.simulation_control_agent import SimulationControlAgent
 from agents.file_assembler_agent import FileAssemblerAgent
 
-# Single project-root .env (dssat_project/.env) -- see run_cli.py
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+load_dotenv()
 
 # ============================================================================
 # DEFAULTS (script mode)
@@ -80,25 +79,6 @@ def create_dssat_workflow():
     workflow.add_edge("simulation_control", "assembler")
     workflow.add_edge("assembler", END)
 
-    workflow.set_entry_point("field")
-    return workflow.compile()
-
-
-def create_baseline_discovery_workflow():
-    """
-    Small graph used only to discover a representative-practice fertilizer
-    baseline: field -> planting -> fertilizer, skipping every other section.
-    Callers must omit config["fertilizer"]["target_n_rate_kg_ha"] so
-    FertilizerAgent's own prompt is free to infer a real total N rate instead
-    of hitting a caller-supplied target.
-    """
-    workflow = StateGraph(DSSATState)
-    workflow.add_node("field", FieldAgent.process)
-    workflow.add_node("planting", PlantingAgent.process)
-    workflow.add_node("fertilizer", FertilizerAgent.process)
-    workflow.add_edge("field", "planting")
-    workflow.add_edge("planting", "fertilizer")
-    workflow.add_edge("fertilizer", END)
     workflow.set_entry_point("field")
     return workflow.compile()
 
@@ -152,21 +132,12 @@ def build_initial_state(
     if not place_name or not str(place_name).strip():
         raise ValueError("Location.place is required in config (e.g., 'Trans Nzoia').")
 
-    existing_lat = location_cfg.get("Latitude") or location_cfg.get("latitude")
-    existing_lon = location_cfg.get("Longitude") or location_cfg.get("longitude")
-
-    if existing_lat is not None and existing_lon is not None:
-        # Coordinates already known (e.g. supplied by a calling process) —
-        # skip the live GeoNames lookup entirely.
-        lat, lon = float(existing_lat), float(existing_lon)
-        country = location_cfg.get("Country") or location_cfg.get("country") or ""
-    else:
-        lat, lon, country = geo_coordinates_search(
-            str(place_name).strip(),
-            max_rows=1,
-            username=geonames_username,
-        )
-    location_text = f"{place_name}, {country}" if country else str(place_name)
+    lat, lon, country = geo_coordinates_search(
+        str(place_name).strip(),
+        max_rows=1,
+        username=geonames_username,
+    )
+    location_text = f"{place_name}, {country}"
 
     # Update config with resolved coords
     config["Location"]["place"] = str(place_name).strip()
@@ -337,69 +308,6 @@ def run_workflow(
             ui_error(result, "Workflow", f"Failed writing output file: {e}", data={"output_path": output_path})
 
     return result
-
-
-def run_baseline_discovery(
-    *,
-    config_path: str,
-    geonames_username: str,
-    use_cache: bool = DEFAULT_USE_CACHE,
-    enable_judge: bool = DEFAULT_JUDGE_ENABLED,
-    max_judge_attempts: int = DEFAULT_MAX_JUDGE_ATTEMPTS,
-    generator_model: str = DEFAULT_GENERATOR_MODEL,
-    judge_model: str = DEFAULT_JUDGE_MODEL,
-    ui_emit=None,
-    ui_print: bool = False,
-) -> Dict[str, Any]:
-    """
-    Run only field -> planting -> fertilizer, with no forced target_n_rate_kg_ha,
-    so FertilizerAgent's own prompt (base_prompt_fertilizer_agent) is free to
-    infer a real representative farmer-practice total N rate for this crop and
-    location -- instead of the caller supplying one. Used by the chatbot to
-    pick a genuine baseline *before* designing treatments, rather than guessing
-    one with a generic prompt.
-
-    Returns {"ok", "pdate", "baseline_total_n_kg_ha", "narrative",
-    "fertilizer_events", "errors"}.
-    """
-    with open(config_path, "r", encoding="utf-8") as f:
-        config = json.load(f)
-
-    # A baseline lookup must not carry a forced target -- that would defeat
-    # the whole point of letting the prompt infer one freely.
-    config.pop("fertilizer", None)
-
-    state = build_initial_state(
-        config=config,
-        config_path=config_path,
-        geonames_username=geonames_username,
-        use_cache=use_cache,
-        run_list=["ALL"],
-        enable_judge=enable_judge,
-        max_judge_attempts=max_judge_attempts,
-        generator_model=generator_model,
-        judge_model=judge_model,
-        ui_emit=ui_emit,
-        ui_print=ui_print,
-    )
-
-    ui_event(state, agent="Workflow", kind="info", message="Compiling baseline-discovery graph")
-    workflow = create_baseline_discovery_workflow()
-
-    ui_event(state, agent="Workflow", kind="info", message="Invoking baseline-discovery workflow")
-    result = workflow.invoke(state)
-
-    fertilizer_events = result.get("fertilizer_config") or []
-    baseline_total_n = sum(float(ev.get("FAMN") or 0) for ev in fertilizer_events)
-
-    return {
-        "ok": not result.get("errors") and bool(fertilizer_events),
-        "pdate": result.get("pdate"),
-        "baseline_total_n_kg_ha": round(baseline_total_n, 2) if fertilizer_events else None,
-        "narrative": result.get("fertilizer_narrative", ""),
-        "fertilizer_events": fertilizer_events,
-        "errors": result.get("errors", []),
-    }
 
 
 # ============================================================================

@@ -1,0 +1,1523 @@
+{
+  "crop": "MZ",
+  "country": "United States",
+  "generated_at": "2026-07-27 18:46:21",
+  "total_zones": 3,
+  "processed": 3,
+  "summary": {
+    "total_cultivars_identified": {
+      "DEKALB DKC48-95RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "DEKALB DKC49-72RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "DEKALB DKC50-08RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "DEKALB DKC52-18RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "DEKALB DKC54-38RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Pioneer P0075AM": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Pioneer P0216AM": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Pioneer P0339AM": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Pioneer P0407AM": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Croplan CP4880VT2P": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Croplan CP5225VT2P": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Wyffels W5078RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Wyffels W5256RIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "LG Seeds LG51C42": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "LG Seeds LG54C29": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Golden Harvest G03T26": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Golden Harvest G04S19": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Channel 197-66STXRIB": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Stine 9734": [
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Minnesota 13": [
+        "Central Minnesota",
+        "Southern Minnesota (Corn Belt)"
+      ],
+      "Pioneer P9188": [
+        "Central Minnesota"
+      ],
+      "Pioneer P9608": [
+        "Central Minnesota"
+      ],
+      "Pioneer P9917": [
+        "Central Minnesota"
+      ],
+      "Pioneer P0157": [
+        "Central Minnesota"
+      ],
+      "DEKALB DKC41-99": [
+        "Central Minnesota"
+      ],
+      "DEKALB DKC44-15": [
+        "Central Minnesota"
+      ],
+      "DEKALB DKC46-20": [
+        "Central Minnesota"
+      ],
+      "DEKALB DKC47-47": [
+        "Central Minnesota"
+      ],
+      "Channel 194-49": [
+        "Central Minnesota"
+      ],
+      "Channel 197-66": [
+        "Central Minnesota"
+      ],
+      "NK9653": [
+        "Central Minnesota"
+      ]
+    },
+    "zone_detailed": {
+      "Southern Minnesota (Corn Belt)": {
+        "num_cultivars": 20,
+        "num_local_coefficients": 0,
+        "num_web_coefficients": 0,
+        "num_analog_coefficients": 20,
+        "num_estimated_coefficients": 0,
+        "crop_suitability_note": "Major cultivation zone with diverse cultivar options"
+      },
+      "Central Minnesota": {
+        "num_cultivars": 12,
+        "num_local_coefficients": 0,
+        "num_web_coefficients": 0,
+        "num_analog_coefficients": 7,
+        "num_estimated_coefficients": 0,
+        "crop_suitability_note": "Major cultivation zone with diverse cultivar options"
+      },
+      "Northern Minnesota": {
+        "num_cultivars": 0,
+        "num_local_coefficients": 0,
+        "num_web_coefficients": 0,
+        "num_analog_coefficients": 0,
+        "num_estimated_coefficients": 0,
+        "crop_suitability_note": "Crop not typically grown in this zone"
+      }
+    },
+    "cultivars_overlap_info": {
+      "total_cultivars_with_repeats": 32,
+      "total_unique_cultivars": 31,
+      "cultivars_in_single_zone": 30,
+      "cultivars_in_multiple_zones": 1
+    }
+  },
+  "zones": {
+    "Southern Minnesota (Corn Belt)": {
+      "DEKALB DKC48-95RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "98",
+            "days_to_maturity": "115-120",
+            "average_yield_kg_ha": "10000-14000",
+            "plant_height_cm": "240-260",
+            "growth_habit": "semi-erect leaves, medium-tall plants; semi-flex ear type; good stalk and root strength; fast drydown",
+            "disease_resistance": [
+              "Goss's wilt (moderate tolerance)",
+              "Northern corn leaf blight (good tolerance)",
+              "Gray leaf spot (moderate tolerance)",
+              "Anthracnose stalk rot (good tolerance)",
+              "Common rust (good tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2450-2550 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern counties)",
+            "adaptation_notes": "Best suited to Southern Minnesota’s main-season corn belt environments. Performs well on medium to high productivity soils and across variable fields with good early-season vigor and strong stand establishment. Semi-flex ear allows performance at moderate plant populations, with yield response to higher populations on better ground. Maintain a preventive fungicide program under high gray leaf spot or northern corn leaf blight pressure. Avoid fields with a known history of severe Goss's wilt. Adapted to early planting in cooler soils and to reduced- or no-till systems; good late-season standability and rapid drydown for timely harvest.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "74000-86000 plants/ha (approximately 30000-35000 plants/acre)",
+            "harvest_time": "Late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Nicollet, Waseca, Steele, Dodge, Freeborn, Mower, Olmsted, Goodhue, Rice, Le Sueur, Faribault, Martin, Brown, Redwood, Renville, Cottonwood, Jackson, Nobles, Rock, Pipestone, Murray, Fillmore, Winona and Houston counties"
+          },
+          "source": "Bayer DEKALB product literature and University/Extension corn hybrid performance guides for Minnesota",
+          "source_url": "unknown",
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: DEKALBXL45 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 150.0,
+            "P2": 0.4,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.15,
+            "PHINT": 38.9
+          },
+          "notes": "DEKALBXL45 has P1=150 (within the early 150–200 range) and a relatively low P5, aligning with an early 115–120 day maturity, and it is also a DEKALB hybrid."
+        }
+      },
+      "DEKALB DKC49-72RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "99 RM",
+            "days_to_maturity": "120-130",
+            "average_yield_kg_ha": "10000-15000",
+            "plant_height_cm": "240-260",
+            "growth_habit": "erect, medium-tall plants with good stay-green and strong stalks and roots",
+            "disease_resistance": [
+              "Goss's wilt (moderate tolerance)",
+              "Gray leaf spot (moderate to good tolerance)",
+              "Northern corn leaf blight (moderate tolerance)",
+              "Common rust (good tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2500-2600 GDD (base 50°F) to physiological maturity",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (approximately 95-100 RM zone)",
+            "adaptation_notes": "Well-suited to southern Minnesota main-season acres requiring ~99 RM. Performs best on well-drained, medium-to-high fertility soils; shows stable performance across rotated corn-soybean systems. Manage Goss's wilt risk with crop rotation and residue management; responds to timely nitrogen and population management. Avoid very late planting in this zone to ensure adequate GDD accumulation.",
+            "normal_planting_window": "Late April to mid-May in southern Minnesota",
+            "planting_density": "74000-89000 plants/ha (approximately 30000-36000 plants/acre); target the higher end on high-yield, well-drained fields",
+            "harvest_time": "Late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Southern Minnesota counties including Mower, Freeborn, Steele, Waseca, Blue Earth, Faribault, Martin, Nicollet, Brown, Dodge, Olmsted, Goodhue, Rice, and Le Sueur"
+          },
+          "source": "DEKALB DKC49-72RIB product literature and University of Minnesota Extension guidance on hybrid maturity, GDD, and planting windows for southern Minnesota",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2700-2750 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 240.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Its P1=240 falls squarely in the medium range (200–280) and the 2700–2750 GDD designation aligns with roughly 120–130 days to maturity."
+        }
+      },
+      "DEKALB DKC50-08RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "approximately 100 RM",
+            "days_to_maturity": "100-105",
+            "average_yield_kg_ha": "12000-16000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with good standability",
+            "disease_resistance": [
+              "moderate tolerance to Goss's wilt",
+              "moderate resistance to northern corn leaf blight (NCLB)",
+              "moderate resistance to gray leaf spot (GLS)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2450-2550 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southwestern Minnesota glaciated till plains)",
+            "adaptation_notes": "Performs well as a main-season hybrid in Southern Minnesota on well-drained loam or silt-loam soils. Suited to early planting in cool springs typical of the Upper Midwest; good drydown for timely October harvest. Target moderate-to-high plant populations on high-fertility fields. Rotate with soybean and manage residue to reduce foliar disease pressure; consider preventive fungicide if NCLB/GLS risk is high, especially in continuous corn. Avoid highly drought-prone coarse sands unless irrigation or timely rainfall is expected.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-90000 plants/ha on most fields; up to 90000-95000 plants/ha on high-yield or irrigated fields",
+            "harvest_time": "early to mid-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Faribault, Freeborn, Mower, Steele, Waseca, Martin, Nobles, Jackson, Rock, Pipestone, Murray, Cottonwood, Watonwan, Nicollet, Le Sueur, Dodge, and Rice counties"
+          },
+          "source": "Regional corn agronomy guidance for Minnesota and Upper Midwest on maturity, GDD, planting dates, and populations from University of Minnesota Extension, Iowa State University Extension, UNL CropWatch, and USDA NASS yield benchmarks",
+          "source_url": [
+            "https://extension.umn.edu/corn-planting",
+            "https://crops.extension.iastate.edu/cropnews/2018/04/seeding-rates-corn",
+            "https://cropwatch.unl.edu/growing-degree-units",
+            "https://quickstats.nass.usda.gov/"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2650-2700 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 212.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Selected because its GDD band (2650–2700) and P1=212 indicate a medium-maturity maize closely matching the 100–105 day target."
+        }
+      },
+      "DEKALB DKC52-18RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "102 CRM",
+            "days_to_maturity": "110-125",
+            "average_yield_kg_ha": "11000-15000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "Medium-tall, erect canopy with semi-flex ear; strong stalks and good standability",
+            "disease_resistance": [
+              "Good tolerance to Goss's wilt",
+              "Good tolerance to gray leaf spot",
+              "Moderate to good tolerance to northern corn leaf blight",
+              "Moderate resistance to common rust",
+              "Moderate tolerance to anthracnose stalk rot",
+              "Good root strength (reduced root lodging risk)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2550-2625 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (I-90 corridor, south-central and southeast Minnesota)",
+            "adaptation_notes": "Performs well across southern Minnesota on medium and high productivity soils; suitable for conventional or reduced tillage; place on well-drained loams to silt loams; responds to moderate-to-high fertility and timely nitrogen; good fit in fields with Goss's wilt and gray leaf spot pressure; manage population moderately to allow ear flex; avoid the most stress-prone, shallow soils under severe drought.",
+            "normal_planting_window": "Late April to mid-May (as soils reach ~10°C/50°F and are fit)",
+            "planting_density": "75000-90000 plants/ha (approximately 30000-36000 plants/ac) in 0.76 m rows",
+            "harvest_time": "October to early November",
+            "season_suitability": "main season",
+            "major_crop_areas": "Mower, Freeborn, Faribault, Steele, Dodge, Olmsted, Waseca, Blue Earth, Nicollet, Le Sueur, Martin and Jackson counties"
+          },
+          "source": "DEKALB product literature for DKC52-18RIB and University of Minnesota regional corn production guidelines",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2650-2700 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 212.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Labeled 2650–2700 GDD with P1=212, which is firmly in the medium maturity range and corresponds well to a 110–125 day medium-season hybrid."
+        }
+      },
+      "DEKALB DKC54-38RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "104 CRM",
+            "days_to_maturity": "110-115",
+            "average_yield_kg_ha": "11000-15000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "semi-erect with good stay-green and strong stalks",
+            "disease_resistance": [
+              "moderate resistance to Northern corn leaf blight (NCLB)",
+              "moderate resistance to gray leaf spot (GLS)",
+              "good tolerance to common rust",
+              "average tolerance to Goss's wilt",
+              "good stalk strength and root lodging tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "approximately 2575 GDD (base 50°F)",
+            "agro_ecological_zone": "South-central and southeastern Minnesota Corn Belt (Southern Minnesota)",
+            "adaptation_notes": "Best adapted to the Southern Minnesota Corn Belt on well-drained, medium to high-fertility soils with timely planting. Suited to main-season planting in south-central and southeastern counties where a ~104-day hybrid reliably reaches black layer before typical fall frost. Manage for foliar diseases (NCLB, GLS) with rotation, residue management, and fungicide as needed in continuous corn or high-residue systems. Performs well at moderate to higher populations on better soils; reduce population slightly on lighter or drought-prone fields. Good stalk and root strength support harvest flexibility into October.",
+            "normal_planting_window": "late April to mid-May (approximately April 25 to May 20)",
+            "planting_density": "75000-90000 plants/ha (about 5.7-6.8 plants/m in 0.76 m rows)",
+            "harvest_time": "late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Martin, Faribault, Freeborn, Mower, Steele, Waseca, Blue Earth, Nicollet, Le Sueur, Rice, Dodge, Olmsted, Goodhue, and Brown counties"
+          },
+          "source": "Bayer DEKALB corn hybrid product information and University of Minnesota Extension agronomy guidance for corn maturity, planting windows, GDDs, and populations in southern Minnesota",
+          "source_url": [
+            "https://www.dekalb.com/en-us/products/corn.html",
+            "https://extension.umn.edu/corn"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2700-2750 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 240.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Chosen because its P1=240 is in the middle of the CERES-Maize medium range and its 2700–2750 GDD bin aligns with a 110–115 day maturity."
+        }
+      },
+      "Pioneer P0075AM": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "100 CRM (approx.)",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "2500-2600 GDD",
+            "agro_ecological_zone": "US Corn Belt—Southern Minnesota",
+            "adaptation_notes": "Well-suited to Southern Minnesota environments typical of the central Corn Belt where 95–105 CRM hybrids are commonly used. A ~100 CRM hybrid fits main-season planting, balances yield potential with drydown, and typically reaches physiological maturity before frequent fall frosts. Use on medium to well-drained loam or silt loam soils with good fertility. Manage residue and rotation to limit Goss’s wilt and foliar disease pressure common in the region; Bt trait package (AcreMax) supports performance in continuous corn but rotate and scout to maintain durability. Target early to normal planting once soil temperatures reach ≥10°C (50°F).",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-85000 plants/ha",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Martin, Faribault, Freeborn, Mower, Steele, Waseca, Dodge, Rice, Le Sueur, Nicollet and Brown counties, and adjacent Southern Minnesota counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2700-2750 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 240.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "P1=240 is firmly within the medium maturity range (200–280) and the 2700–2750 GDD class corresponds to an ~110–120‑day mid‑season hybrid, closely matching the target."
+        }
+      },
+      "Pioneer P0216AM": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "102",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "11000-14000",
+            "plant_height_cm": "240-270",
+            "growth_habit": "semi-erect plants with good staygreen and standability; medium-tall stature; semi-flex ear type",
+            "disease_resistance": [
+              "Goss's wilt (moderate tolerance)",
+              "Northern corn leaf blight (moderate tolerance)",
+              "Gray leaf spot (moderate tolerance)",
+              "Common rust (good tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2450-2550 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota (Northern Corn Belt; 100-105 RM zone)",
+            "adaptation_notes": "Well adapted to southern and central Minnesota on medium to high fertility soils; fits the core maturity for the Southern Minnesota Corn Belt with good standability and staygreen for a late September–October harvest. Performs well across variable environments; avoid excessively late planting in northern locations. Best performance at moderate-to-high populations with adequate nitrogen and timely planting in late April to mid-May.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-85000 plants/ha (approximately 30000-34000 plants/acre)",
+            "harvest_time": "late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Martin, Faribault, Blue Earth, Waseca, Freeborn, Mower, Steele, Dodge, Olmsted, Rice, Goodhue, Brown, Nicollet, Le Sueur, Fillmore, Houston, Jackson, Nobles and Rock counties"
+          },
+          "source": "Pioneer/Corteva product literature for P0216AM, and University of Minnesota Extension guidance on southern Minnesota corn planting window and populations; general GDD requirements for 100–105 RM hybrids from Midwest extension sources",
+          "source_url": [
+            "https://www.pioneer.com/us/en/products/corn/brand-corn-hybrids/p0216am.html",
+            "https://extension.umn.edu/corn-planting/corn-planting-date-and-population",
+            "https://crops.extension.iastate.edu/corn/production/management/growth-and-development/growing-degree-days"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: PIO 3475* from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.7,
+            "P5": 800.0,
+            "G2": 797.5,
+            "G3": 8.6,
+            "PHINT": 38.9
+          },
+          "notes": "PIO 3475* was chosen because its P1=200 falls in the CERES-Maize medium maturity range that corresponds to roughly 110–120 days to maturity, and it is a Pioneer hybrid."
+        }
+      },
+      "Pioneer P0339AM": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "103 CRM (approximate)",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "11000-14000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact",
+            "disease_resistance": [
+              "Goss's wilt (moderate tolerance)",
+              "Northern corn leaf blight (good tolerance)",
+              "Gray leaf spot (moderate tolerance)",
+              "Common rust (good tolerance)",
+              "Stalk lodging (good tolerance)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2600 heat units",
+            "agro_ecological_zone": "US Corn Belt – Southern Minnesota (prairie and glaciated plains)",
+            "adaptation_notes": "Best fit for southern Minnesota main-season corn on medium to high productivity soils with good drainage. Performs well under conventional or reduced tillage; target timely planting in cool soils typical of the region and manage residue to promote soil warming. Use a full-season hybrid (~100–105 CRM) strategy for this latitude, with proactive foliar disease scouting where Goss's wilt, NCLB, or GLS pressure is common. Maintain fertility to high-yield recommendations and consider fungicide in high-disease environments.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "79000-89000 plants/ha (32000-36000 plants/acre), up to ~95000 plants/ha on highly productive or irrigated fields",
+            "harvest_time": "Late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Renville, Redwood, Brown, Nicollet, Le Sueur, Blue Earth, Waseca, Freeborn, Steele, Dodge, Mower, Martin, Faribault, Jackson, Nobles, Rock, Olmsted and Goodhue counties"
+          },
+          "source": "unknown",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2700-2750 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 240.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Selected because its P1=240 (mid-range medium) and its 2700–2750 GDD class aligns with a ~110–120 day, medium-maturity maize hybrid."
+        }
+      },
+      "Pioneer P0407AM": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "104 CRM (approx.)",
+            "days_to_maturity": "115-125",
+            "average_yield_kg_ha": "10000-14000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "semi-erect, medium-tall with strong stalks and good root strength",
+            "disease_resistance": [
+              "Northern corn leaf blight (moderate tolerance)",
+              "Gray leaf spot (moderate tolerance)",
+              "Goss's wilt (good tolerance)",
+              "Common rust (moderate tolerance)",
+              "Anthracnose stalk rot (good standability)"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2500-2700 GDD (base 50°F) to physiological maturity",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (Upper Midwest; ~2500-2700 GDD zone)",
+            "adaptation_notes": "Well-suited to Southern Minnesota fields with medium-season heat unit accumulation; performs best on well-drained, medium to high fertility soils; intended for above-ground insect protection (AcreMax) and should avoid continuous high corn rootworm pressure unless paired with soil/rootworm management; good emergence and standability support early planting in cool soils; target moderate to high plant populations in high-yield environments.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-90000 plants/ha (final stand), adjust toward 85000-95000 plants/ha on high-yield irrigated or highly productive fields and toward 70000-80000 on stress-prone dryland",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Nicollet, Le Sueur, Waseca, Steele, Rice, Dodge, Mower, Freeborn, Faribault, Martin, Brown, Watonwan, Olmsted, Goodhue, Fillmore, and Winona counties in Southern Minnesota"
+          },
+          "source": "unknown",
+          "source_url": "unknown",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2700-2750 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 240.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Chosen because its P1=240 falls squarely within the medium maturity range (200–280) and its 2700–2750 GDD class aligns with ~115–125 day medium-maturity maize."
+        }
+      },
+      "Croplan CP4880VT2P": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "10000-14000",
+            "plant_height_cm": "unknown",
+            "growth_habit": "erect",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeast Minnesota; glaciated prairie/loess soils; rain‑fed temperate corn belt)",
+            "adaptation_notes": "Positioned as a medium-maturity hybrid for the Southern Minnesota Corn Belt. Best performance on well-drained, medium to high fertility loam and clay-loam soils under conventional or reduced tillage. VT Double PRO (VT2P) provides above‑ground insect protection (e.g., European corn borer, corn earworm, fall armyworm) and glyphosate tolerance, but does not protect against corn rootworm—avoid continuous-corn fields with moderate to high rootworm pressure unless a soil/applied insecticide or a rootworm trait is used. Fits main-season planting; responds to moderate-to-high plant populations on high-yield environments. Consider a foliar fungicide if gray leaf spot or northern corn leaf blight risk is elevated. Avoid very drought-prone sands in dry years; place on fields with adequate water-holding capacity for best results.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "75000-90000 plants/ha (approximately 5.5-6.5 plants/m in 0.76 m rows)",
+            "harvest_time": "Late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Nicollet, Brown, Martin, Faribault, Freeborn, Waseca, Steele, Mower, Dodge, Olmsted, Goodhue, Rice, Le Sueur and Scott counties"
+          },
+          "source": "CROPLAN/WinField United corn product information, University of Minnesota Extension guidance on planting windows and seeding rates for Minnesota corn, Purdue Agronomy resources on hybrid maturity and GDUs, and Bayer VT Double PRO trait description",
+          "source_url": [
+            "https://www.winfieldunited.com/products/seed/croplan/corn",
+            "https://extension.umn.edu/corn-planting/seeding-rates-corn",
+            "https://extension.umn.edu/corn-planting",
+            "https://www.agry.purdue.edu/ext/corn/news/timeless/HybridMaturity.html",
+            "https://seeds.bayer.com/us/en/corn/traits/vt-double-pro"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2750-2800 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 260.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "This entry is explicitly targeted to 2750–2800 GDD and has a medium-range P1 (260), aligning with a 110–120 day, medium-maturity hybrid."
+        }
+      },
+      "Croplan CP5225VT2P": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota (Corn Belt)",
+            "adaptation_notes": "Suited to the Southern Minnesota Corn Belt where medium-season hybrids are commonly grown; best performance on well-drained loam to clay loam soils with adequate fertility; plant when soils reach about 10°C (50°F) and rising to ensure uniform emergence; typical management includes rotation with soybean, timely nitrogen supply aligned with yield goals, and proactive disease scouting for regional issues such as tar spot and GLS; align planting date and relative maturity to ensure black layer before average fall frost; follow local hybrid-specific recommendations from the seed provider for final seeding rate and trait stewardship.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "75000-90000 plants/ha (approximately 30000-36000 plants/acre) typical for mid-season hybrids in southern Minnesota",
+            "harvest_time": "Late September to October, depending on planting date and hybrid maturity",
+            "season_suitability": "main season",
+            "major_crop_areas": "Widespread across Southern Minnesota including Mower, Freeborn, Steele, Dodge, Olmsted, Waseca, Blue Earth, Faribault, Martin, Nicollet, Brown, Le Sueur, Rice, Goodhue, and adjacent counties"
+          },
+          "source": "University of Minnesota Extension guidance on corn planting windows and populations, and USDA NASS resources for Minnesota corn production context",
+          "source_url": [
+            "https://extension.umn.edu/corn",
+            "https://www.nass.usda.gov/Statistics_by_State/Minnesota/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Because the target maturity is unknown, a neutral mid-season proxy is appropriate; the 'MEDIUM SEASON' cultivar has a P1 of 200, squarely in the medium range indicated for CERES-Maize."
+        }
+      },
+      "Wyffels W5078RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt",
+            "adaptation_notes": "In Southern Minnesota, modern full-season to mid-season corn hybrids are typically selected in the 95–105 RM range for timely black layer and drydown before frost. Plant when soils reach about 10°C (50°F) and are warming, generally late April to mid-May. Target higher populations on productive, well-drained silt loam and loam soils; reduce populations on lighter or drought-prone soils. Manage prevalent regional diseases such as tar spot, gray leaf spot, and Goss’s wilt with hybrid selection and timely fungicide where warranted. Typical main-season hybrids in this zone require approximately 2400–2700 GDD (base 50°F) to reach physiological maturity; actual requirement for W5078RIB is not published. Maintain balanced fertility with nitrogen programs tailored to yield goals and soil tests, and avoid late planting to reduce risk of fall frost and high harvest moisture.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "74000-90000 plants/ha (30000-36000 plants/acre)",
+            "harvest_time": "October to early November",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Nicollet, Brown, Le Sueur, Rice, Steele, Waseca, Dodge, Olmsted, Mower, Freeborn, Faribault, Martin, Jackson, Goodhue, Fillmore and Winona counties"
+          },
+          "source": "University of Minnesota Extension guidance on corn hybrid maturity, planting windows, and seeding rates for Minnesota; USDA NASS overview of Minnesota corn production regions and typical harvest timing.",
+          "source_url": [
+            "https://extension.umn.edu/corn/planting-corn",
+            "https://extension.umn.edu/corn/choosing-corn-hybrids",
+            "https://www.nass.usda.gov/Statistics_by_State/Minnesota/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Maturity is unknown, so the generic medium-season cultivar (P1=200, midrange maturity) is the most neutral proxy for an unspecified hybrid."
+        }
+      },
+      "Wyffels W5256RIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern Minnesota)",
+            "adaptation_notes": "Mid-season hybrid suited to the Southern Minnesota Corn Belt. Performs best on well-drained, medium- to high-productivity prairie soils under a corn–soybean rotation. Target early planting as soils reach ≥10°C (50°F) for optimal emergence; avoid very late planting to ensure black layer before frost. Manage fertility for high yield potential (adequate N, P, K and sulfur on coarse/low-organic-matter soils). Monitor foliar diseases common to the region (gray leaf spot, tar spot, northern corn leaf blight, Goss’s wilt) and consider a VT–R1 fungicide if pressure is moderate to high. Maintain residue management and crop rotation to reduce disease inoculum. Final stands in the 30,000–36,000 plants/acre range on medium to high productivity fields are generally suitable; reduce on lighter or drought-prone soils.",
+            "normal_planting_window": "Late April to mid-May (as field conditions permit and soil temperatures reach ≥10°C/50°F)",
+            "planting_density": "75,000-90,000 plants/ha (approximately 30,000-36,000 plants/acre) in 0.75-0.76 m rows",
+            "harvest_time": "Late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Martin, Faribault, Freeborn, Mower, Steele, Waseca, Blue Earth, Nicollet, Brown, Le Sueur, Rice, Dodge, Olmsted, Goodhue, Fillmore and Winona counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "It is explicitly labeled 'MEDIUM SEASON' and has P1=200, which lies in the medium maturity range specified."
+        }
+      },
+      "LG Seeds LG51C42": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central, southwest and southeast Minnesota till plains)",
+            "adaptation_notes": "In Southern Minnesota, corn hybrids are typically selected in the ~98–105 RM range to fit the local frost-free period and late-season drying conditions; confirm the specific RM and trait package for LG51C42 in the seed guide before planting. Best performance is generally achieved on well-drained loam to silt loam soils with good fertility and pH 6.0–7.0. Plant when sustained soil temperature at seeding depth reaches ≥10°C (50°F), and avoid planting into cold, saturated soils to limit emergence stress and seedling disease. Manage regionally important foliar diseases (gray leaf spot, northern corn leaf blight) and bacterial Goss’s wilt through rotation, residue management, and timely fungicide where appropriate (fungicide efficacy varies by disease; Goss’s wilt requires hybrid tolerance and cultural control). Target balanced nutrition (N, P, K, S, Zn) with nitrogen split applications on coarse-textured or high-rainfall fields. Adjust final stand based on yield environment: higher populations on high-fertility, irrigated, or highly productive soils; slightly lower on drought-prone or compacted fields.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "84000-90000 plants/ha",
+            "harvest_time": "October-November in Southern Minnesota",
+            "season_suitability": "main season",
+            "major_crop_areas": "Freeborn, Mower, Steele, Dodge, Olmsted, Waseca, Blue Earth, Faribault, Martin, Jackson, Nobles, Rock, Pipestone and Brown counties in southern Minnesota"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2650-2700 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 212.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "Maturity is unknown, so a neutral medium-season analog was selected; this entry (PC0003) has P1=212 near the center of the medium range, making it a reasonable proxy."
+        }
+      },
+      "LG Seeds LG54C29": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt",
+            "adaptation_notes": "Best suited to the Southern Minnesota Corn Belt on well-drained silt loams and loams with medium to high fertility. Plant once soil temperatures are at or above 10°C (50°F) and rising, with attention to residue management and drainage on heavier glacial till soils. For this region, hybrids in the full-season range for southern Minnesota are typically favored; match relative maturity to local frost-free period and on-farm drying capacity. Manage for common regional foliar diseases such as northern corn leaf blight, gray leaf spot, and Goss's wilt; rotate with soybeans to reduce disease and residue-borne inoculum. In continuous corn, increase attention to residue breakdown, nitrogen timing (including sidedress), and root/stalk strength. Tile drainage improves early vigor and stand establishment. Monitor late-season stalk integrity and schedule timely harvest to limit lodging risk.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "78000-89000 plants/ha in 0.76 m rows (approximately 32000-36000 plants/acre)",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Brown, Dodge, Faribault, Freeborn, Goodhue, Le Sueur, Martin, Mower, Nicollet, Olmsted, Rice, Steele, Waseca, and Winona counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Because LG Seeds LG54C29’s maturity is unspecified, the generic medium-season cultivar with a mid-range P1 (200) offers a balanced proxy for typical maize maturity."
+        }
+      },
+      "Golden Harvest G03T26": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern Minnesota; generally ~2400-2600 base 50°F GDD region)",
+            "adaptation_notes": "In southern Minnesota, corn hybrids in the ~95-105 RM class are typically used for full-season planting. For well-drained loam or silt loam soils with adequate fertility and tile drainage, target planting when soil temperatures at planting depth are consistently at or above 10°C (50°F) and rising to reduce imbibitional chilling risk. Maintain residue and crop rotation to manage common regional diseases (e.g., Goss's wilt, northern corn leaf blight, gray leaf spot, tar spot) and use a fungicide if warranted by disease pressure and hybrid susceptibility. Split-apply nitrogen and ensure adequate sulfur on coarse-textured or low-organic matter soils. Southern Minnesota experiences a relatively long frost-free period; normal management aims for black layer before hard frost with hybrids matched to local GDD accumulation.",
+            "normal_planting_window": "Late April to mid-May (optimal: late April to early May in southern Minnesota, depending on soil fitness)",
+            "planting_density": "79000-89000 plants/ha (about 32000-36000 plants/acre) in 0.76 m rows on medium- to high-productivity soils; use the lower end on lower-yielding environments",
+            "harvest_time": "Late September to October (depending on planting date and hybrid maturity)",
+            "season_suitability": "main season",
+            "major_crop_areas": "South-central and southeastern Minnesota including counties such as Freeborn, Mower, Steele, Dodge, Olmsted, Waseca, Blue Earth, Nicollet, Le Sueur, Rice, Goodhue, Faribault, Martin, Jackson, Brown, Redwood and Renville counties"
+          },
+          "source": "University of Minnesota Extension guidance on corn planting dates and populations for southern Minnesota, USDA Plant Hardiness/GDD context, and USDA NASS CropScape distribution mapping for major corn areas.",
+          "source_url": [
+            "https://extension.umn.edu/corn/planting-date-and-population",
+            "https://extension.umn.edu/corn",
+            "https://planthardiness.ars.usda.gov/",
+            "https://nassgeodata.gmu.edu/CropScape/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Because the target maturity is unknown, the generic MEDIUM SEASON cultivar (P1=200, mid-range medium maturity) provides the most balanced proxy within the CERES-Maize classification."
+        }
+      },
+      "Golden Harvest G04S19": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota (Corn Belt)",
+            "adaptation_notes": "Suitable corn production in Southern Minnesota favors well-drained loam to clay loam soils (often tile-drained), pH 6.0-7.5, planting when soils reach about 10°C (50°F), and selecting corn hybrids in roughly the 95-103 relative maturity range to fit the local frost-free period. Manage for prevalent regional diseases (e.g., tar spot, northern corn leaf blight, Goss’s wilt) and common pests; maintain adequate fertility (especially nitrogen) with attention to soil organic matter and drainage. Avoid poorly drained fields and frost pockets; timely planting and harvest help mitigate yield and standability risks from early fall frost and late-season storms.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75,000-90,000 plants/ha",
+            "harvest_time": "October-November",
+            "season_suitability": "main season",
+            "major_crop_areas": "Martin, Faribault, Blue Earth, Waseca, Freeborn, Mower, Dodge, Steele, Olmsted, Nicollet, Brown, Redwood and Renville counties"
+          },
+          "source": "General agronomic recommendations for corn in Southern Minnesota from University of Minnesota Extension and USDA/NASS; cultivar-specific data for Golden Harvest G04S19 not publicly available",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Target maturity is unspecified; a medium-season analog with P1=200.0 provides a reasonable baseline consistent with CERES-Maize where P1≈200 indicates medium maturity."
+        }
+      },
+      "Channel 197-66STXRIB": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "97 RM",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "10000-13000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "erect",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2450-2500 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern Minnesota)",
+            "adaptation_notes": "Best fit for Southern Minnesota’s main corn belt on well- to moderately well-drained loam or silt loam soils with medium to high fertility. SmartStax RIB trait package is suited for continuous corn or fields with elevated corn borer and rootworm pressure. Plant when soils reach ≥50°F and are fit to reduce early-season stress. Use moderate to moderately high plant populations on productive fields; reduce population slightly on lighter or drought-prone soils. Manage residue and rotate to reduce foliar disease and Goss’s wilt risk where present.",
+            "normal_planting_window": "late April-mid May",
+            "planting_density": "75000-90000 plants/ha",
+            "harvest_time": "late September-October",
+            "season_suitability": "both (main season and short season)",
+            "major_crop_areas": "Martin, Faribault, Freeborn, Mower, Steele, Waseca, Blue Earth, Nicollet, Le Sueur, Rice, Goodhue, Dodge, Olmsted, Winona, Fillmore, Brown, Redwood and Renville counties"
+          },
+          "source": "University of Minnesota Extension guidance on planting dates, maturity/GDD and plant population for Minnesota corn, and Bayer SmartStax RIB trait overview",
+          "source_url": [
+            "https://extension.umn.edu/corn/planting-date-and-maturity-decisions-corn",
+            "https://extension.umn.edu/corn/determining-optimum-plant-population-corn",
+            "https://www.dekalb.com/en-us/traits/smartstax-rib-complete.html"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: CP170 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 120.0,
+            "P2": 0.0,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.0,
+            "PHINT": 38.9
+          },
+          "notes": "P1=120.0 indicates a very early maturity that aligns with the target 110–120 day maturity window, making CP170 the closest match in earliness among listed cultivars."
+        }
+      },
+      "Stine 9734": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern Minnesota)",
+            "adaptation_notes": "In southern Minnesota, full-season corn hybrids typically fall in the ~95–102 RM range to maximize yield while reaching maturity before first frost. For best results, plant when soils at 5 cm reach ≥10°C (50°F) and are fit, target medium to well-drained loam or silt loam soils with good fertility, and adjust population by soil productivity and hybrid ear type. Common disease pressures in this region include tar spot, gray leaf spot, northern corn leaf blight, Goss's wilt, and stalk rots—use crop rotation, residue management, and consider a VT–R1 fungicide where risk is high. Manage corn rootworm where continuous corn or high pressure is present. Typical final populations for medium RM hybrids are 79,000–89,000 plants/ha (32,000–36,000 plants/acre) in 0.76 m rows, adjusted lower on lighter soils and higher on highly productive sites. Anticipate harvest from late September through October as grain dries to acceptable moisture. Fertility should follow regional guidelines, commonly 140–200 kg N/ha depending on yield goal, soil organic matter, previous crop, and manure credits.",
+            "normal_planting_window": "Late April to mid-May when soil temperature reaches ≥10°C (50°F) and field conditions are suitable",
+            "planting_density": "79,000-89,000 plants/ha (approximately 32,000-36,000 plants/acre) for medium RM hybrids in southern Minnesota",
+            "harvest_time": "Late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Blue Earth, Faribault, Martin, Freeborn, Mower, Waseca, Steele, Dodge, Olmsted, Fillmore, Jackson, Nobles, Rock, Pipestone and Cottonwood counties"
+          },
+          "source": "Stine Seed corn product listings for hybrid identification, University of Minnesota Extension guidance on corn planting windows and seeding rates for southern Minnesota, and USDA NASS Minnesota county estimates for major corn-producing areas",
+          "source_url": "https://www.stineseed.com/products/corn, https://extension.umn.edu/crops/corn, https://www.nass.usda.gov/Statistics_by_State/Minnesota/Publications/County_Estimates/index.php",
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: MEDIUM SEASON from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 700.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Because Stine 9734’s maturity is unknown, a representative medium-season cultivar (P1≈200) is the most balanced proxy for typical mid-maturity maize behavior in CERES-Maize."
+        }
+      },
+      "Minnesota 13": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "85-90",
+            "days_to_maturity": "90-100",
+            "average_yield_kg_ha": "3000-5000",
+            "plant_height_cm": "200-250",
+            "growth_habit": "Erect, open-pollinated yellow dent; medium ear height; moderate lodging risk under high fertility or high plant populations",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2300-2500 GDD (base 50°F)",
+            "agro_ecological_zone": "Southern Minnesota Corn Belt (south-central and southeastern Minnesota counties)",
+            "adaptation_notes": "Historic early-maturing open-pollinated dent corn selected for the northern Corn Belt; best suited to cool, shorter growing seasons with well-drained loam or silt loam soils. Performs best at lower plant populations than modern hybrids to limit lodging and ensure ear fill. Appropriate for grain or early silage; not recommended for high disease-pressure environments compared with modern resistant hybrids. Avoid excessive nitrogen and very high densities to reduce stalk lodging.",
+            "normal_planting_window": "Late April to mid-May (southern Minnesota)",
+            "planting_density": "40,000-55,000 plants/ha (about 3.0-4.1 plants/m in 0.75-0.76 m rows)",
+            "harvest_time": "Late September to October (or 90-100 days after planting)",
+            "season_suitability": "short season",
+            "major_crop_areas": "Blue Earth, Brown, Martin, Faribault, Freeborn, Mower, Steele, Waseca, Nicollet, Le Sueur, Rice, Dodge, Olmsted, Fillmore, Winona and Houston counties"
+          },
+          "source": "Historical descriptions of Minnesota 13 from Minnesota Agricultural Experiment Station/USDA publications and general UMN/Upper Midwest corn agronomy for planting windows and heat units",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: DEKALBXL45 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 150.0,
+            "P2": 0.4,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.15,
+            "PHINT": 38.9
+          },
+          "notes": "Selected because its early P1 (150) and low P5 (685) align with an early, ~90–100 day maize maturity profile."
+        }
+      }
+    },
+    "Central Minnesota": {
+      "Pioneer P9188": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "91 CRM",
+            "days_to_maturity": "95-105",
+            "average_yield_kg_ha": "10000-13500",
+            "plant_height_cm": "230-260",
+            "growth_habit": "erect to semi-erect",
+            "disease_resistance": [
+              "Moderate tolerance to Goss's wilt",
+              "Moderate resistance to Northern corn leaf blight",
+              "Moderate resistance to Gray leaf spot",
+              "Good resistance to common rust",
+              "Moderate resistance to anthracnose stalk rot"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "approximately 2250-2350 GDD (base 50°F)",
+            "agro_ecological_zone": "Northern Corn Belt, Central Minnesota glacial till plains",
+            "adaptation_notes": "Well-suited to the shorter growing season and cooler springs of Central Minnesota; strong early vigor and emergence for cold soils; broadly adapted across medium to high productivity silt loam and loam soils; responds to moderate-to-high plant populations on better soils; consider fungicide if gray leaf spot or NCLB pressure is high; select fields with good drainage to support early planting.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "78000-90000 plants/ha in 0.76 m rows",
+            "harvest_time": "late September to October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Sherburne, Wright, Morrison, Meeker, Kandiyohi, Pope and Swift counties"
+          },
+          "source": "Pioneer U.S. corn hybrid information (P9188 family) and University of Minnesota Extension guidance on corn maturity, planting windows and plant populations for Central Minnesota",
+          "source_url": [
+            "https://www.pioneer.com/us/en/products/corn-seed.html",
+            "https://extension.umn.edu/corn/planting-date-decisions-corn",
+            "https://extension.umn.edu/corn/corn-plant-population-and-seeding-rate"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2500-2600 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 160.0,
+            "P2": 0.75,
+            "P5": 780.0,
+            "G2": 750.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "This entry represents an early maturity group (2500–2600 GDD) with P1=160 squarely in the early range, aligning with the target 95–105-day early hybrid."
+        }
+      },
+      "Pioneer P9608": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "96 CRM (approximate)",
+            "days_to_maturity": "95-105",
+            "average_yield_kg_ha": "9500-13000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "semi-erect, semi-compact",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2400-2500 GDD (base 50°F)",
+            "agro_ecological_zone": "Central Minnesota (Upper Midwest, 90-100 RM zone)",
+            "adaptation_notes": "Best suited for Central Minnesota’s corn-soybean rotation in the 90-100 RM maturity band. Performs well on medium-textured, well-drained loams with adequate fertility. Target timely planting in late April to mid-May to capture available heat units; avoid very late planting to ensure black layer before first frost. Manage nitrogen according to soil tests; ensure early-season weed control to protect limited heat-unit environment. Use moderate plant populations; monitor for regional foliar diseases (e.g., NCLB, GLS, common rust) and stalk strength late season; select fields with lower risk of Goss’s wilt if disease history is present. Appropriate for main-season use in Central Minnesota and as a fuller-season option for more northern fringe areas with favorable GDD.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-85000 plants/ha (approximately 30000-34000 plants/ac)",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Morrison, Wright, Sherburne, Meeker, Kandiyohi, Pope and Todd counties"
+          },
+          "source": "unknown",
+          "source_url": [
+            "unknown"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: PIO 3541 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 770.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "PIO 3541 was chosen because its P1=200 sits at the low end of the medium maturity range, aligning with a 95–105 day, medium-class hybrid."
+        }
+      },
+      "Pioneer P9917": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "relative_maturity": "unknown",
+            "days_to_maturity": "unknown",
+            "average_yield_kg_ha": "unknown",
+            "plant_height_cm": "unknown",
+            "growth_habit": "unknown",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "unknown",
+              "heat": "unknown"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Central Minnesota (cooler, shorter-to-medium season portion of the U.S. Corn Belt)",
+            "adaptation_notes": "Central Minnesota typically favors short- to mid-season hybrids; target relative maturity around 95–100 CRM for dependable black layer before frost. Plant when soils are at or above 10°C (50°F) and fit to avoid compaction. Use crop rotation and residue management to reduce foliar disease pressure common to the region. Match final stands to yield potential and stress environment, and aim for timely harvest in late September–October to minimize dry-down costs and frost risk.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "80000-90000 plants/ha (approximately 32000-36000 plants/acre)",
+            "harvest_time": "Late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Morrison, Todd, Wright, Meeker, Kandiyohi, Sherburne and Pope counties"
+          },
+          "source": "University of Minnesota Extension guidance on corn hybrid maturity, planting dates and plant populations for Central Minnesota, and USDA-NASS references for major corn-growing counties.",
+          "source_url": [
+            "https://extension.umn.edu/corn/corn-hybrid-selection",
+            "https://extension.umn.edu/corn/corn-planting-date-and-populations",
+            "https://extension.umn.edu/corn/using-growing-degree-days-predict-corn-development",
+            "https://quickstats.nass.usda.gov/"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: PIO 3541 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 200.0,
+            "P2": 0.3,
+            "P5": 800.0,
+            "G2": 770.0,
+            "G3": 8.5,
+            "PHINT": 38.9
+          },
+          "notes": "Because maturity is unknown, a medium-season Pioneer hybrid (P1=200) was chosen as a reasonable proxy for typical mid-season maize."
+        }
+      },
+      "Pioneer P0157": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "medium",
+            "relative_maturity": "101 CRM",
+            "days_to_maturity": "110-120",
+            "average_yield_kg_ha": "11000-14000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "medium-tall, semi-erect canopy",
+            "disease_resistance": [
+              "Goss's wilt: moderate tolerance",
+              "Northern corn leaf blight: moderate",
+              "Gray leaf spot: moderate",
+              "Common rust: good",
+              "Stalk lodging: good tolerance",
+              "Root lodging: good tolerance"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "unknown",
+            "agro_ecological_zone": "Northern Corn Belt; Central Minnesota (temperate, 2400-2600 GDD region)",
+            "adaptation_notes": "Performs well across Central Minnesota on medium-textured, well-drained loam to silt loam soils with moderate-to-high fertility. Suited to the Northern Corn Belt where 100-102 CRM hybrids are commonly grown. Manage for Goss's wilt with balanced fertility and rotation; place on fields with moderate residue and good drainage. Responds to timely planting in late April–mid May and benefits from moderate to moderately high plant populations.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "78000-90000 plants/ha (approximately 6.0-7.0 plants/m in 0.76 m rows)",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Morrison, Sherburne, Wright, Meeker, Kandiyohi, Todd, and Pope counties"
+          },
+          "source": "Pioneer (Corteva) hybrid product information for P0157 and University of Minnesota Extension guidance on corn maturity, planting dates, and plant populations for Central Minnesota",
+          "source_url": [
+            "https://www.pioneer.com/us/en/products/corn.html",
+            "https://extension.umn.edu/corn-planting/choosing-corn-planting-dates-and-relative-maturity",
+            "https://extension.umn.edu/corn-planting/plant-population-and-seeding-rate-corn"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: 2750-2800 GDD from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 260.0,
+            "P2": 0.75,
+            "P5": 850.0,
+            "G2": 800.0,
+            "G3": 8.5,
+            "PHINT": 49.0
+          },
+          "notes": "P1=260 falls squarely in the medium maturity range and the 2750–2800 GDD class aligns with a ~110–120 day maize, making it a close analog for Pioneer P0157."
+        }
+      },
+      "DEKALB DKC41-99": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "91 RM (approximate)",
+            "days_to_maturity": "95-105",
+            "average_yield_kg_ha": "10000-14000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2200-2300 GDD",
+            "agro_ecological_zone": "Central Minnesota (Upper Midwest cool temperate humid continental; 2100-2400 CHU band)",
+            "adaptation_notes": "Best suited to Central Minnesota’s short, cool growing season where early to early-medium hybrids are recommended. Performs well on well-drained loam or silt loam soils with good fertility; avoid poorly drained, cold soils early in spring. Target timely planting within the regional window to capture limited GDDs and reduce frost risk. Manage nitrogen with split applications (pre-plant/side-dress) and maintain balanced K to support stalk integrity. Scout for common regional foliar diseases (northern corn leaf blight, gray leaf spot, common rust) and Goss’s wilt; use crop rotation and residue management to reduce disease inoculum. Favor populations near the higher end on better soils and adequate moisture; back off slightly on lighter or drought-prone fields. Choose fields with good fall standability to facilitate harvest in late September–October.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "74000-89000 plants/ha (approximately 30000-36000 plants/acre)",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Sherburne, Wright, Meeker, Kandiyohi, Morrison, Todd, Pope, Douglas and Otter Tail counties"
+          },
+          "source": "unknown",
+          "source_url": [],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: B14*C103 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 180.0,
+            "P2": 0.5,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.15,
+            "PHINT": 38.9
+          },
+          "notes": "Chosen because its P1=180 is in the early (150–200) range and close to the upper end consistent with ~95–105 day maturity, with a moderate P5 supporting early maturity."
+        }
+      },
+      "DEKALB DKC44-15": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "94 RM",
+            "days_to_maturity": "95-102",
+            "average_yield_kg_ha": "11000-14000",
+            "plant_height_cm": "230-260",
+            "growth_habit": "Semi-erect, semi-compact canopy; medium-tall stature with strong stalks and roots; good stay-green and drydown",
+            "disease_resistance": [
+              "Northern corn leaf blight",
+              "Gray leaf spot",
+              "Goss's wilt",
+              "Common rust",
+              "Anthracnose stalk rot"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2350-2400 GDD (base 50°F)",
+            "agro_ecological_zone": "Central Minnesota (Upper Midwest cool temperate corn belt, ~2300-2500 GDD zone)",
+            "adaptation_notes": "Best suited for Central Minnesota’s cool-temperate, short-to-mid GDD environments. Performs well on well-drained loam to silt loam soils; avoid poorly drained fields without adequate drainage. Good early vigor for cool soils, dependable standability for fall harvest, and moderate tolerance to foliar diseases common in the Upper Midwest (NCLB, GLS). In fields with a history of Goss’s wilt or high foliar disease pressure, consider crop rotation, residue management, and timely fungicide use if warranted. Target nitrogen rates and timely side-dress according to yield goals; hybrid is responsive to fertility and consistent across moderate to high populations. Match planting window to ensure accumulation of ~2350–2400 GDD before first killing frost.",
+            "normal_planting_window": "Late April to mid-May",
+            "planting_density": "75000-90000 plants/ha (approximately 30000-36000 plants/acre)",
+            "harvest_time": "Late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Kandiyohi, Meeker, Wright, Benton, Sherburne, Morrison, Todd, Pope and Douglas counties"
+          },
+          "source": "Bayer DEKALB product information for DKC44-15 and University of Minnesota Extension guidance on corn RM/GDD, planting windows, and Central Minnesota adaptation",
+          "source_url": [
+            "https://www.cropscience.bayer.us",
+            "https://extension.umn.edu/corn"
+          ],
+          "confidence": "medium"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: DEKALBXL45 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 150.0,
+            "P2": 0.4,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.15,
+            "PHINT": 38.9
+          },
+          "notes": "DEKALBXL45 has P1=150, squarely in the early range and consistent with ~95–102 day maturity, making it a close analog for DKC44-15."
+        }
+      },
+      "DEKALB DKC46-20": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "early",
+            "relative_maturity": "approximately 96 RM (CRM)",
+            "days_to_maturity": "115-125",
+            "average_yield_kg_ha": "10000-14000",
+            "plant_height_cm": "220-260",
+            "growth_habit": "erect, semi-compact canopy with strong stay-green and good standability",
+            "disease_resistance": [
+              "unknown"
+            ],
+            "stress_tolerance": {
+              "drought": "moderate",
+              "heat": "moderate"
+            },
+            "growing_degree_days": "2400-2450 GDD (base 50°F) to physiological maturity",
+            "agro_ecological_zone": "Central Minnesota (Upper Midwest Corn Belt; ~2300-2500 GDD zone)",
+            "adaptation_notes": "Best suited to Central Minnesota farms with 2300-2500 GDD to black layer; performs well on well-drained loam to silt loam soils under conventional or reduced tillage; position as a full-season choice for Central MN and a main-season/early option for slightly cooler pockets; target moderate plant populations for balanced ear size and standability; monitor foliar disease risk (NCLB/GLS/common rust) and consider a VT-R1 fungicide if pressure is high; avoid severe drought-prone sands without irrigation.",
+            "normal_planting_window": "late April to mid-May",
+            "planting_density": "75000-85000 plants/ha (approximately 30,000-34,000 plants/acre)",
+            "harvest_time": "late September-October",
+            "season_suitability": "main season",
+            "major_crop_areas": "Stearns, Benton, Morrison, Wright, Sherburne, Kandiyohi, Meeker, Pope, Douglas, and Todd counties"
+          },
+          "source": "Regional University of Minnesota extension guidance for hybrid maturity/planting in Central Minnesota and typical specifications for ~96 RM DEKALB hybrids; cultivar-specific public data limited.",
+          "source_url": [
+            "https://extension.umn.edu/corn/choosing-corn-hybrids",
+            "https://extension.umn.edu/corn/planting-date-and-population",
+            "https://crops.extension.iastate.edu/cropnews/2010/05/growing-degree-days-and-corn-development"
+          ],
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": true,
+          "source": "analog: DEKALBXL45 from MZCER048.CUL",
+          "source_url": null,
+          "coefficients": {
+            "P1": 150.0,
+            "P2": 0.4,
+            "P5": 685.0,
+            "G2": 907.9,
+            "G3": 10.15,
+            "PHINT": 38.9
+          },
+          "notes": "DEKALBXL45 has P1=150, squarely in the early maturity range consistent with a 115–125 day hybrid, and it is a DEKALB cultivar, making it a brand-consistent proxy."
+        }
+      },
+      "DEKALB DKC47-47": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Connection error."
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {}
+        }
+      },
+      "Channel 194-49": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Connection error."
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {}
+        }
+      },
+      "Channel 197-66": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Connection error."
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {}
+        }
+      },
+      "NK9653": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Connection error."
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {}
+        }
+      },
+      "Minnesota 13": {
+        "characteristics": {
+          "data": {
+            "maturity_class": "unknown",
+            "error": "Connection error."
+          },
+          "source": "Error during extraction",
+          "source_url": null,
+          "confidence": "low"
+        },
+        "coefficients": {
+          "found": false,
+          "source": "not_found",
+          "source_url": null,
+          "coefficients": {}
+        }
+      }
+    },
+    "Northern Minnesota": {}
+  }
+}

@@ -68,18 +68,20 @@ class FieldAgent:
         
         # Try to generate files - catch errors but extract what we can
         try:
-            # Try soil generation separately first (cached on lat/lon)
-            from INTEGRATION.field_data_cache import get_or_generate_soil, get_or_generate_weather
-
+            # Try soil generation separately first
+            from INTEGRATION.integration_helper import generate_soil_file, generate_weather_file
+            
             try:
-                id_soil, sol_file = get_or_generate_soil(xcrd, ycrd)
+                id_soil, sol_file = generate_soil_file(xcrd, ycrd)
                 print(f"\n✅ Captured soil: ID_SOIL={id_soil}, file={sol_file}")
             except Exception as soil_err:
                 print(f"\n⚠️  Soil generation failed: {soil_err}")
-
-            # Try weather generation separately (cached on lat/lon/date range)
+            
+            # Try weather generation separately
+            from INTEGRATION.integration_helper import generate_soil_file, generate_weather_file
+            
             try:
-                insi_code, wth_file = get_or_generate_weather(xcrd, ycrd, start_date, end_date)
+                insi_code, wth_file = generate_weather_file(xcrd, ycrd, start_date, end_date)
                 print(f"✅ Captured weather: INSI={insi_code}, file={wth_file}")
             except Exception as weather_err:
                 print(f"⚠️  Weather generation failed: {weather_err}")

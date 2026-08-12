@@ -1,13 +1,27 @@
 {
-    "kenya":
-        [
-        "Coastal Lowland",
-        "Inner Lowland",
-        "Lower Highland",
-        "Lower Midland",
-        "Upper Midland",
-        "Upper Highland",
-        "Tropical Alpine",
-        "Nairobi"
-    ]
+  "kenya": [
+    "Coastal Lowland",
+    "Inner Lowland",
+    "Lower Highland",
+    "Lower Midland",
+    "Upper Midland",
+    "Upper Highland",
+    "Tropical Alpine",
+    "Nairobi"
+  ],
+  "united states": [
+    "Southern Minnesota (Corn Belt)",
+    "Central Minnesota",
+    "Northern Minnesota"
+  ],
+  "senegal": [
+    "Senegal River Delta",
+    "Senegal River Valley",
+    "Niayes",
+    "Groundnut Basin",
+    "Sylvo-Pastoral (Ferlo)",
+    "Eastern Senegal",
+    "Upper Casamance",
+    "Lower Casamance"
+  ]
 }

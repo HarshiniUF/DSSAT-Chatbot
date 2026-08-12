@@ -17,4 +17,4 @@ venv/
 generated_*.SNX
 *_s[0-9][0-9].SNX
 
-INTEGRATION/
+/INTEGRATION/

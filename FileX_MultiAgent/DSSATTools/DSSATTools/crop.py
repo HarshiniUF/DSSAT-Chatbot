@@ -46,9 +46,8 @@ SPE_FILES = {
 }
 
 DSSAT_MODULE_PATH = os.path.dirname(module_path)
-GENOTYPE_PATH = os.path.join(
-    DSSAT_MODULE_PATH, 'dssat-csm-os', 'Data', 'Genotype'
-)
+PROJECT_ROOT = os.path.abspath(os.path.join(DSSAT_MODULE_PATH, '..', '..'))
+GENOTYPE_PATH = os.path.join(PROJECT_ROOT, 'Genotype')
 
 class Maize(Crop):
     code = "MZ"

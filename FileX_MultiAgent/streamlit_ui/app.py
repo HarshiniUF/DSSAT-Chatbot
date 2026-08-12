@@ -14,10 +14,7 @@ if _project_root not in sys.path:
     sys.path.insert(0, _project_root)
 
 from dotenv import load_dotenv
-# Single project-root .env lives two levels up (dssat_project/.env), not
-# inside FileX_MultiAgent -- _project_root above is for sys.path only.
-_dssat_project_root = os.path.dirname(_project_root)
-load_dotenv(os.path.join(_dssat_project_root, ".env"))
+load_dotenv(os.path.join(_project_root, ".env"))
 
 import json
 import time
@@ -1167,7 +1164,8 @@ def main() -> None:
             first_line = filex.strip().splitlines()[0]
             if first_line.startswith("*EXP.DETAILS:"):
                 exp_name = first_line.split(":", 1)[1].strip()
-                output_filename = f"{exp_name}.SNX"
+                file_code = exp_name[:-2] if exp_name.endswith("SN") else exp_name
+                output_filename = f"{file_code}.SNX"
 
             st.info(f"Generated FileX experiment file: **{output_filename}**")
 

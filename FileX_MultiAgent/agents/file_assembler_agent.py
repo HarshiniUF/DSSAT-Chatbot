@@ -13,10 +13,18 @@ class FileAssemblerAgent:
     
     @staticmethod
     def process(state: DSSATState) -> DSSATState:
+        if state.get("cultivar") is None:
+            msg = (
+                "FileAssemblerAgent: Cannot create FileX — no cultivar was resolved "
+                "(see earlier FieldAgent error for the cause)."
+            )
+            state.setdefault("errors", []).append(msg)
+            state["complete_filex"] = ""
+            return state
+
         # Use DSSATTools create_filex function to generate the complete FileX
         try:
             print("----------ginalll------",state['cultivar'])
-            treatment_sequence = state.get("config", {}).get("treatment_sequence", 1)
             complete_filex = create_filex(
                 field=state["field"],
                 cultivar=state["cultivar"],
@@ -25,7 +33,6 @@ class FileAssemblerAgent:
                 initial_conditions=state.get("initial_conditions"),
                 fertilizer=state.get("fertilizer"),
                 irrigation=state.get("irrigation"),
-                treatment_sequence=treatment_sequence,
             )
             print(complete_filex,"---------- complete filex")
             state["complete_filex"] = complete_filex

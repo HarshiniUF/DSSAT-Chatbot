@@ -1,0 +1,240 @@
+{
+  "crop_code": "PT",
+  "crop_name": "Potato",
+  "model_file": "PTSUB048.CUL",
+  "bounds": {
+    "min": {
+      "g2": 900.0,
+      "g3": 21.0,
+      "pd": 0.5,
+      "p2": 0.3,
+      "tc": 15.0
+    },
+    "max": {
+      "g2": 2100.0,
+      "g3": 26.0,
+      "pd": 1.0,
+      "p2": 0.9,
+      "tc": 22.0
+    }
+  },
+  "cultivars": {
+    "IB0001": {
+      "var-name": "MAJESTIC",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 22.5,
+        "pd": 0.8,
+        "p2": 0.6,
+        "tc": 17.0
+      }
+    },
+    "IB0002": {
+      "var-name": "SEBAGO",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1100.0,
+        "g3": 22.5,
+        "pd": 0.9,
+        "p2": 0.0,
+        "tc": 19.0
+      }
+    },
+    "IB0003": {
+      "var-name": "Russet Burbank",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1100.0,
+        "g3": 26.0,
+        "pd": 0.9,
+        "p2": 0.2,
+        "tc": 17.0
+      }
+    },
+    "IB0004": {
+      "var-name": "KATHADIN",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.5,
+        "p2": 0.7,
+        "tc": 20.0
+      }
+    },
+    "IB0005": {
+      "var-name": "ATLANTIC",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1000.0,
+        "g3": 30.0,
+        "pd": 0.8,
+        "p2": 0.1,
+        "tc": 21.0
+      }
+    },
+    "CI0001": {
+      "var-name": "CLON7316",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1100.0,
+        "g3": 25.0,
+        "pd": 0.2,
+        "p2": 0.8,
+        "tc": 21.0
+      }
+    },
+    "CI0002": {
+      "var-name": "CLON7716",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1100.0,
+        "g3": 25.0,
+        "pd": 0.2,
+        "p2": 0.8,
+        "tc": 21.0
+      }
+    },
+    "AR0003": {
+      "var-name": "ACHIRANA",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1100.0,
+        "g3": 26.0,
+        "pd": 0.9,
+        "p2": 0.2,
+        "tc": 21.0
+      }
+    },
+    "DM0004": {
+      "var-name": "KAPTAH",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1500.0,
+        "g3": 24.0,
+        "pd": 0.6,
+        "p2": 0.4,
+        "tc": 18.0
+      }
+    },
+    "IB0006": {
+      "var-name": "MARIS PIPER",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.8,
+        "p2": 0.4,
+        "tc": 17.0
+      }
+    },
+    "IB0007": {
+      "var-name": "KING EDWARD",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 22.5,
+        "pd": 1.0,
+        "p2": 0.6,
+        "tc": 17.0
+      }
+    },
+    "IB0008": {
+      "var-name": "DESIREE",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.9,
+        "p2": 0.6,
+        "tc": 16.0
+      }
+    },
+    "IB0009": {
+      "var-name": "LT-1",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.9,
+        "p2": 0.8,
+        "tc": 17.0
+      }
+    },
+    "IB0010": {
+      "var-name": "C14-343",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.9,
+        "p2": 0.4,
+        "tc": 21.0
+      }
+    },
+    "IB0011": {
+      "var-name": "NORCHIP",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 1.0,
+        "p2": 0.4,
+        "tc": 17.0
+      }
+    },
+    "IB0012": {
+      "var-name": "SHEPODY",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 25.0,
+        "pd": 0.7,
+        "p2": 0.6,
+        "tc": 19.0
+      }
+    },
+    "IB0018": {
+      "var-name": "Hilite Russet",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 1000.0,
+        "g3": 27.0,
+        "pd": 0.2,
+        "p2": 0.1,
+        "tc": 20.0
+      }
+    },
+    "UF0001": {
+      "var-name": "RED LASODA",
+      "expno": ".",
+      "eco#": "IB0001",
+      "coefficients": {
+        "g2": 2000.0,
+        "g3": 22.0,
+        "pd": 0.7,
+        "p2": 0.4,
+        "tc": 19.0
+      }
+    }
+  },
+  "skipped": {}
+}
