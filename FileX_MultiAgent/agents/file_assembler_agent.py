@@ -33,6 +33,7 @@ class FileAssemblerAgent:
                 initial_conditions=state.get("initial_conditions"),
                 fertilizer=state.get("fertilizer"),
                 irrigation=state.get("irrigation"),
+                treatment_sequence=state.get("treatment_sequence", 1),
             )
             print(complete_filex,"---------- complete filex")
             state["complete_filex"] = complete_filex

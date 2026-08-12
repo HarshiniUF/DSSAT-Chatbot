@@ -5,39 +5,49 @@
     "CNAME": "H614"
   },
   "planting_details": {
-    "PDATE": "2010-03-25",
+    "PDATE": "2010-03-20",
     "PPOP": 5.33,
     "PLME": "S",
     "PLDS": "R",
     "PLRS": 75,
     "PLDP": 5.0,
     "PLRD": -99,
-    "assumptions_or_notes": "Rainfed long-rains season chosen; H614 is a long-season hybrid suitable for the Kenyan highlands around Kitale. Planting window typically mid-March to early April; mid-point date used. Density reflects ~75 cm x 25 cm spacing (~53,000 plants/ha). Row direction unknown; -99 used. Values align with common Kenyan extension recommendations for high-potential maize areas."
+    "assumptions_or_notes": "Rainfed long-rains season; smallholder practice with 75 cm rows and ~25 cm within-row spacing (\u224853,000 plants/ha). H614 is a high-altitude hybrid commonly grown in Trans-Nzoia. Planting depth 5 cm chosen for adequate soil moisture and seed size. Row direction unknown, set to -99."
   },
   "fertilizer_details": {
     "events": [
       {
-        "FDATE": "2010-03-25",
+        "FDATE": "2010-03-20",
         "FMCD": "FE006",
         "FACD": "AP004",
         "FDEP": 5.0,
         "FAMN": 22.5,
         "FAMP": 25.1,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Basal DAP (18-46-0) at planting, banded just below/alongside the seed (~5 cm). Product rate ~125 kg/ha (common local practice: one 50-kg bag per acre \u2248 125 kg/ha). Nutrients: N = 125 \u00d7 0.18 = 22.5 kg/ha; P2O5 = 125 \u00d7 0.46 = 57.5 kg/ha; elemental P = 57.5 \u00d7 0.4364 \u2248 25.1 kg/ha. No K. Placement reflects hand/spot banding typical of smallholder systems in Trans Nzoia."
+        "Assumptions_or_Notes": "Basal placement at planting using diammonium phosphate (DAP, 18-46-0). Representative local practice is spot/band placement 3\u20135 cm from the seed at ~5 cm depth to avoid seed burn. Rate logic: approx. 125 kg/ha DAP supplies ~22.5 kg N/ha and ~25.1 kg P/ha (conversion: P2O5 to P factor 0.4364; 0.46\u00d70.4364=0.2007; 125\u00d70.2007\u224825.1). No K applied, consistent with common practice in this zone. N amount here contributes to the exact 90 kg N/ha scenario requirement."
       },
       {
-        "FDATE": "2010-04-22",
+        "FDATE": "2010-04-20",
         "FMCD": "FE011",
         "FACD": "AP001",
         "FDEP": 0.0,
-        "FAMN": 32.5,
+        "FAMN": 33.8,
         "FAMP": 0.0,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Topdress CAN (~26% N) broadcast on the soil surface at ~4 weeks after planting (early vegetative stage). Product rate \u2248125 kg/ha to deliver 125 \u00d7 0.26 = 32.5 kg N/ha. No P or K supplied. This timing and method (surface broadcast) align with common farmer practice in the area. Total N across events equals exactly 55.0 kg/ha."
+        "Assumptions_or_Notes": "Early topdress at ~knee-high stage using calcium ammonium nitrate (CAN, ~26% N). Broadcast by hand and timed to coincide with rainfall; not incorporated (surface). Representative event for Kitale smallholder practice. Rate logic: \u2248130 kg/ha CAN provides ~33.8 kg N/ha. N amount chosen to help reach the exact 90 kg N/ha total while maintaining typical timing and source."
+      },
+      {
+        "FDATE": "2010-05-10",
+        "FMCD": "FE011",
+        "FACD": "AP001",
+        "FDEP": 0.0,
+        "FAMN": 33.7,
+        "FAMP": 0.0,
+        "FAMK": 0.0,
+        "Assumptions_or_Notes": "Second topdress with CAN, broadcast before rain, aligning with common split-N practice to reduce loss risk and sustain growth through rapid vegetative development. Rate logic: \u2248129.6 kg/ha CAN supplies ~33.7 kg N/ha. This split plus the basal DAP yields exactly 90.0 kg N/ha in total. No P or K added at topdress, consistent with local practice."
       }
     ],
-    "total_n": 55.0
+    "total_n": 90.0
   },
   "irrigation_details": {
     "strategy": "rainfed",
@@ -70,8 +80,8 @@
   },
   "automatic_management": {
     "PLANTING": {
-      "PFRST": "2010-03-25",
-      "PLAST": "2010-03-25"
+      "PFRST": "2010-03-20",
+      "PLAST": "2010-03-20"
     }
   }
 }

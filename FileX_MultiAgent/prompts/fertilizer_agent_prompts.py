@@ -9,6 +9,7 @@ def base_prompt_fertilizer_agent(
     fertilizer_judge_feedback,
     fertilizer_fmcd_codes,
     fertilizer_facd_codes,
+    target_n_rate_kg_ha=None,
 ):
     """
     Generate a prompt for inferring a representative farmer-practice inorganic
@@ -26,6 +27,29 @@ def base_prompt_fertilizer_agent(
         indent=2,
         default=str,
     )
+
+    target_rate_block = ""
+    if target_n_rate_kg_ha is not None:
+        target_rate_block = f"""
+---
+
+## REQUIRED TOTAL NITROGEN RATE (OVERRIDES REPRESENTATIVE-PRACTICE RATE)
+
+A specific scenario has been requested for this run. The sum of FAMN across all
+fertilizer events MUST equal EXACTLY {target_n_rate_kg_ha} kg N/ha -- not
+approximately, not rounded to a "nicer" product-rate number. This value is
+being compared against other treatments with different exact targets in the
+same experiment, so even a small rounding difference (e.g. rounding 87.5 to 88)
+would corrupt that comparison. If the product/rate combination you would
+otherwise choose does not add up exactly, adjust the rate (or split the amount
+across events) so the FAMN values sum to precisely {target_n_rate_kg_ha}, down
+to at least one decimal place.
+
+This target takes priority over the "representative farmer practice" rate
+inference in the rest of this prompt. Still use representative-practice
+judgment for product selection, number of events, timing, and application
+method/depth — only the TOTAL nitrogen amount is fixed by this requirement.
+"""
 
     prompt = f"""
 You are an agronomist and DSSAT crop-model expert.
@@ -79,7 +103,7 @@ FMCD FERTILIZER MATERIAL CODES:
 
 FACD APPLICATION METHOD CODES:
 {fertilizer_facd_codes}
-
+{target_rate_block}
 ---
 
 ## PRIMARY INFERENCE PRINCIPLE

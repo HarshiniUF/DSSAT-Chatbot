@@ -14,6 +14,7 @@ from DSSATTools.DSSATTools.filex import (
 class DSSATState(TypedDict, total=False):
     # Input configuration from JSON
     config: Dict[str, Any]
+    treatment_sequence: int
 
     # DSSATTools FileX objects
     cultivar: Optional[Cultivar]

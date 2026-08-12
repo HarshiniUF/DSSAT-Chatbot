@@ -132,12 +132,18 @@ def build_initial_state(
     if not place_name or not str(place_name).strip():
         raise ValueError("Location.place is required in config (e.g., 'Trans Nzoia').")
 
-    lat, lon, country = geo_coordinates_search(
-        str(place_name).strip(),
-        max_rows=1,
-        username=geonames_username,
-    )
-    location_text = f"{place_name}, {country}"
+    pinned_lat = location_cfg.get("Latitude") or location_cfg.get("latitude")
+    pinned_lon = location_cfg.get("Longitude") or location_cfg.get("longitude")
+    if pinned_lat is not None and pinned_lon is not None:
+        lat, lon = float(pinned_lat), float(pinned_lon)
+        country = location_cfg.get("Country") or location_cfg.get("country") or ""
+    else:
+        lat, lon, country = geo_coordinates_search(
+            str(place_name).strip(),
+            max_rows=1,
+            username=geonames_username,
+        )
+    location_text = f"{place_name}, {country}" if country else str(place_name)
 
     # Update config with resolved coords
     config["Location"]["place"] = str(place_name).strip()
@@ -147,6 +153,14 @@ def build_initial_state(
     # Crop code from config (UI may override this before calling)
     crop_code = (config.get("cultivar", {}) or {}).get("CR") or "MZ"
     crop_code = str(crop_code).strip() or "MZ"
+
+    # PlantingAgent needs this for its LLM prompt; Streamlit sets it directly,
+    # the CLI/config-file path derives it from Year.start_year instead.
+    if not config.get("crop_growing_season"):
+        start_year = (config.get("Year", {}) or {}).get("start_year")
+        if not start_year:
+            raise ValueError("Config must set Year.start_year or crop_growing_season.")
+        config["crop_growing_season"] = str(start_year)
 
     # --- Cache manager ---
     cache_manager = SimpleCacheManager(cache_file="cache.json", use_cache=use_cache)
@@ -166,6 +180,7 @@ def build_initial_state(
 
     state: Dict[str, Any] = {
         "config": config,
+        "treatment_sequence": int(config.get("treatment_sequence", 1)),
 
         "cultivar": None,
         "planting": None,

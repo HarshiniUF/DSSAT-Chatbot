@@ -1789,17 +1789,18 @@ def read_filex(filexpath):
         )
     return treatments
         
-def create_filex(field:Field, cultivar:Cultivar, planting:Planting, 
+def create_filex(field:Field, cultivar:Cultivar, planting:Planting,
                 simulation_controls:SimulationControls, harvest:Harvest=None,
-                initial_conditions:InitialConditions=None, 
-                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None, 
-                irrigation:Irrigation=None, residue:Residue=None, 
-                chemical:Chemical=None, tillage:Tillage=None):
+                initial_conditions:InitialConditions=None,
+                fertilizer:Fertilizer=None, soil_analysis:SoilAnalysis=None,
+                irrigation:Irrigation=None, residue:Residue=None,
+                chemical:Chemical=None, tillage:Tillage=None, treatment_sequence:int=1):
     """
     Returns the FileX as a string
     """
     experiment_name = field["id_field"][:4] +\
-        simulation_controls["general"]["sdate"].strftime('%y01') + "SN"
+        simulation_controls["general"]["sdate"].strftime('%y') +\
+        f"{treatment_sequence:02d}"
     out_str = f"*EXP.DETAILS: {experiment_name}\n\n"
     treatment = Treatment(**{
         "r": 1, "o": 0, "c": 0, "tname": "DSSATTools", "cu": 1, "fl": 1, 
