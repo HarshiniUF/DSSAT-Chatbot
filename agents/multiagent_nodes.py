@@ -26,6 +26,9 @@ from experiment_config import (
     CROP_CODES, DEFAULT_LATITUDE, DEFAULT_LONGITUDE, DEFAULT_LOCATION_NAME,
     DEFAULT_CROP_NAME, DEFAULT_SEASON_YEAR,
 )
+from agents.filex_treatment_combiner import (
+    build_combined_filex, scale_fertilizer_treatment, target_section_from_focus_variable,
+)
 
 _FILEX_DIR = Path(__file__).resolve().parent.parent / "FileX_MultiAgent"
 # One shared project venv now installs both pipelines' dependencies (see
@@ -124,14 +127,22 @@ def _launch_filex_cli(config_path: str, extra_args: List[str], timeout: int) -> 
     return subprocess.run(cmd, cwd=str(_FILEX_DIR), capture_output=True, text=True, timeout=timeout)
 
 
-def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_name: str) -> Dict[str, Any]:
+def _run_filex_multiagent(
+    config: Dict[str, Any], treatment_id: str, fallback_name: str, write_file: bool = True
+) -> Dict[str, Any]:
     """Invoke FileX_MultiAgent as a subprocess. The output filename is the DSSAT
     experiment code from the file's own *EXP.DETAILS line (e.g. "KETR1001SN.SNX"
     for treatment 1, "KETR1002SN.SNX" for treatment 2) -- config["treatment_sequence"]
     (set by the caller from this treatment's id) is embedded as that code's 2-digit
     sequence number by FileX_MultiAgent's create_filex(), so each treatment's code,
     and therefore its filename, is unique without needing an extra suffix.
-    Returns {"ok": bool, "path": str|None, "summary": str}."""
+
+    write_file=False skips writing this treatment's own file to disk and only
+    returns its generated text via "content" -- used when a caller (e.g. the
+    combined-treatments node) only wants the raw section data to merge into a
+    single multi-treatment file rather than a standalone one.
+
+    Returns {"ok": bool, "path": str|None, "content": str|None, "summary": str}."""
     with tempfile.TemporaryDirectory() as tmp:
         config_path = os.path.join(tmp, "runtime_config.json")
         tmp_output_path = os.path.join(tmp, "runtime_output.SNX")
@@ -174,10 +185,17 @@ def _run_filex_multiagent(config: Dict[str, Any], treatment_id: str, fallback_na
         # the file.
         output_name = fallback_name
 
-    with open(output_name, "w") as dst:
-        dst.write(content)
+    if write_file:
+        with open(output_name, "w") as dst:
+            dst.write(content)
 
-    return {"ok": True, "path": output_name, "summary": f"Generated {output_name}", "guidelines": guidelines}
+    return {
+        "ok": True,
+        "path": output_name,
+        "content": content,
+        "summary": f"Generated {output_name}",
+        "guidelines": guidelines,
+    }
 
 
 def _run_filex_baseline_discovery(config: Dict[str, Any]) -> Dict[str, Any]:
@@ -251,8 +269,14 @@ def _save_experiment_guidelines(guidelines: Dict[str, Any]) -> None:
         json.dump(guidelines, f, indent=2)
 
 
-def multiagent_xfile_node(state: Dict) -> Dict:
+def _legacy_multiagent_xfile_node_per_treatment_files(state: Dict) -> Dict:
     """
+    Superseded by multiagent_xfile_node below, which merges 2 treatments into
+    one DSSAT-native multi-treatment file instead of one file per treatment.
+    Kept as-is (unused except as multiagent_xfile_node's fallback for designs
+    that don't have exactly 2 treatments) rather than deleted, since it's the
+    simpler/more general path if treatment counts ever vary again.
+
     LangGraph node that generates a FileX (.SNX) per designed treatment by
     delegating to the FileX_MultiAgent pipeline.
 
@@ -301,5 +325,99 @@ def multiagent_xfile_node(state: Dict) -> Dict:
     return {
         **state,
         "generated_files": generated_files,
+        "generation_summary": summary_text,
+    }
+
+
+def multiagent_xfile_node(state: Dict) -> Dict:
+    """
+    LangGraph node that generates ONE combined FileX (.SNX) for a two-treatment
+    question, instead of one file per treatment.
+
+    Treatment 1 (s01) is generated fresh via the FileX_MultiAgent pipeline,
+    exactly as before, and its field/cultivar/planting/irrigation values are
+    captured into experiment_guidelines.json exactly as before. Treatment 2
+    (s02) is generated with those guidelines locked in, so only the section
+    the question is actually about differs. filex_treatment_combiner then
+    splices treatment 2's data rows for that one section (plus a second
+    *TREATMENTS row) into treatment 1's file, producing a single DSSAT-native
+    multi-treatment X-file rather than two separate files.
+
+    Falls back to _legacy_multiagent_xfile_node_per_treatment_files for any
+    design that doesn't have exactly 2 treatments.
+    """
+    intent = state.get("intent_brief", {}) or state.get("intent", {})
+    experiment = state.get("proposed_experiment", {})
+    treatments: List[Dict[str, Any]] = experiment.get("treatments", [])
+
+    if len(treatments) != 2:
+        return _legacy_multiagent_xfile_node_per_treatment_files(state)
+
+    target_section = target_section_from_focus_variable(intent.get("focus_variable", ""))
+
+    t1, t2 = treatments
+    t1_id = t1.get("id", "s01")
+    config1 = _build_filex_config(
+        intent,
+        target_n_rate_kg_ha=t1.get("modifications", {}).get("basal_rate"),
+        guidelines=None,
+        treatment_sequence=_sequence_from_treatment_id(t1_id, fallback=1),
+    )
+    result1 = _run_filex_multiagent(config1, t1_id, fallback_name="generated_treatment1.SNX", write_file=False)
+    if not result1["ok"]:
+        return {
+            **state,
+            "generated_files": [],
+            "generation_summary": f"{t1_id} FAILED: {result1['summary']}",
+        }
+
+    guidelines = result1.get("guidelines")
+    if guidelines:
+        _save_experiment_guidelines(guidelines)
+
+    t2_id = t2.get("id", "s02")
+    rate2 = t2.get("modifications", {}).get("basal_rate")
+
+    if target_section == "fertilizer" and rate2 is not None:
+        # Reuse treatment 1's own fertilizer schedule (same FDATE/FMCD/FACD/
+        # FDEP/FERNAME, same number of events) and only rescale FAMN to hit
+        # rate2 -- no second FileX_MultiAgent subprocess call, no touching
+        # fertilizer_agent.py, and it guarantees the two treatments differ in
+        # exactly the one thing the question is about.
+        combined_text = scale_fertilizer_treatment(result1["content"], rate2)
+    else:
+        config2 = _build_filex_config(
+            intent,
+            target_n_rate_kg_ha=rate2,
+            guidelines=guidelines,
+            treatment_sequence=_sequence_from_treatment_id(t2_id, fallback=2),
+        )
+        result2 = _run_filex_multiagent(config2, t2_id, fallback_name="generated_treatment2.SNX", write_file=False)
+        if not result2["ok"]:
+            return {
+                **state,
+                "generated_files": [],
+                "generation_summary": f"{t2_id} FAILED: {result2['summary']}",
+            }
+        combined_text = build_combined_filex(result1["content"], result2["content"], target_section)
+
+    first_line = combined_text.strip().splitlines()[0] if combined_text.strip() else ""
+    output_name = f"{first_line.split(':', 1)[1].strip()}.SNX" if first_line.startswith("*EXP.DETAILS:") else result1["path"]
+
+    with open(output_name, "w") as dst:
+        dst.write(combined_text)
+
+    def _rate_note(t: Dict[str, Any]) -> str:
+        rate = t.get("modifications", {}).get("basal_rate")
+        return f" target {rate} kg N/ha" if rate is not None else ""
+
+    summary_text = (
+        f"Generated combined FileX file:\n"
+        f"- {output_name} ({target_section} varies: {t1_id}{_rate_note(t1)}, {t2_id}{_rate_note(t2)})"
+    )
+
+    return {
+        **state,
+        "generated_files": [output_name],
         "generation_summary": summary_text,
     }

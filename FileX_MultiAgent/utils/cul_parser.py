@@ -336,6 +336,47 @@ Rules:
 
 
 # ============================================================================
+# PUBLIC: .CUL-only fallback (no AEZ zone match available)
+# ============================================================================
+
+def get_fallback_cultivar_from_cul(
+    crop_code: str,
+    genotype_dir: Optional[Path] = None,
+    model: str = "gpt-5",
+) -> Tuple[str, dict]:
+    """
+    Find a real, already-calibrated cultivar for crop_code directly from its
+    .CUL file(s) — no AEZ zone or cultivar list required.
+
+    Used by the live FileX-generation path (FieldAgent, via
+    get_cultivar_list_by_location) when a location's AEZ zone has no cached
+    cultivar data: rather than spending an LLM call to invent new synthetic
+    cultivar data, pick the crop's medium-season generic entry straight out
+    of the .CUL file (same mechanism as parse_and_match_cultivar's own
+    fallback — deterministic coefficients_db first, LLM-based raw .CUL
+    parsing only if no db exists for this crop).
+
+    Returns (cultivar_name, details_dict) — same shape as
+    parse_and_match_cultivar's return value (details_dict has at minimum
+    VAR#, ECO#, and coefficient values).
+    """
+    if genotype_dir is None:
+        genotype_dir = _DEFAULT_GENOTYPE_DIR
+
+    crop_code = (crop_code or "").strip().upper()
+    if not crop_code:
+        raise ValueError("crop_code must be a non-empty string (e.g. 'MZ', 'WH').")
+
+    cul_file_contents = get_all_cul_file_contents(genotype_dir, crop_code)
+    if not cul_file_contents:
+        raise FileNotFoundError(
+            f"No .CUL files found for crop code '{crop_code}' in {genotype_dir}."
+        )
+
+    return _lookup_medium_season_generic(cul_file_contents, crop_code, model=model)
+
+
+# ============================================================================
 # PUBLIC: Main entry point
 # ============================================================================
 

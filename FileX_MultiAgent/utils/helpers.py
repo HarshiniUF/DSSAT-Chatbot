@@ -402,6 +402,56 @@ def _load_aez_database(
 
 
 
+def _save_zone_to_aez_database(
+    country: str,
+    crop_code: str,
+    zone_name: str,
+    zone_cultivars: dict,
+    db_path: Path = AEZ_DB_PATH,
+) -> None:
+    """
+    Persist an on-demand-generated zone's cultivar data into the same
+    zones-schema file/format that `_load_aez_database` reads from, so that
+    the next lookup for this (country, crop_code, zone_name) is served from
+    disk instead of regenerating via the LLM.
+
+    Writes to db_path/<country_dir>/<crop_name>/<file>.json with the same
+    top-level shape as the curated AEZ files (crop, country, generated_at,
+    total_zones, processed, zones), merging into any existing file rather
+    than overwriting other zones.
+    """
+    country_dir_name = country.lower().replace(" ", "_")
+    crop_name = _CROP_CODE_TO_NAME.get(crop_code.upper(), crop_code.lower())
+    crop_dir = db_path / country_dir_name / crop_name
+    crop_dir.mkdir(parents=True, exist_ok=True)
+
+    json_files = list(crop_dir.glob("*.json"))
+
+    if len(json_files) == 1:
+        json_file = json_files[0]
+        try:
+            with open(json_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            data = {}
+    else:
+        # No existing file (or an ambiguous multi-file dir we won't touch
+        # further) — create/overwrite the canonical single file for this
+        # country/crop.
+        json_file = crop_dir / f"{country}_{crop_code.upper()}_cultivars_list.json"
+        data = {}
+
+    data.setdefault("zones", {})[zone_name] = zone_cultivars
+    data["crop"] = crop_code.upper()
+    data["country"] = country
+    data["generated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    data["processed"] = len(data["zones"])
+    data["total_zones"] = max(data.get("total_zones", 0), data["processed"])
+
+    with open(json_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
 def _generate_zone_list_for_country(country: str, llm) -> list:
     """
     Ask the LLM to propose a list of agro-ecological zone (AEZ) names for a
@@ -531,6 +581,40 @@ Location: "{location_name}"
     return None
 
 
+def _cul_fallback_cultivar_entry(crop_code: str, model: str, reason: str) -> Optional[dict]:
+    """
+    Build a zones-schema cultivar entry (`{cultivar_name: {characteristics,
+    coefficients}}`) from the crop's .CUL file, for use as a fallback in
+    get_cultivar_list_by_location() when no cached AEZ data is available for
+    the live FileX-generation path. Returns None if the .CUL lookup itself
+    fails (e.g. no .CUL files for this crop_code).
+    """
+    from utils.cul_parser import get_fallback_cultivar_from_cul  # local import: avoids circular import (cul_parser imports helpers)
+
+    try:
+        cul_name, cul_details = get_fallback_cultivar_from_cul(crop_code, model=model)
+    except Exception as e:
+        print(f"[get_cultivar_list_by_location] .CUL fallback failed: {e}")
+        return None
+
+    coeff_values = {
+        k: v for k, v in cul_details.items()
+        if k not in ("found", "cultivar_name", "VAR#", "ECO#", "EXPNO")
+    }
+    return {
+        cul_name: {
+            "characteristics": {},
+            "coefficients": {
+                "found": True,
+                "source": f"Local .CUL fallback ({reason})",
+                "source_url": None,
+                "coefficients": coeff_values,
+                "notes": f"VAR#={cul_details.get('VAR#')}, ECO#={cul_details.get('ECO#')}",
+            },
+        }
+    }
+
+
 def get_cultivar_list_by_location(
     location_name: str,
     country:str,
@@ -563,7 +647,24 @@ def get_cultivar_list_by_location(
     # 1. Infer zone from location using LLM
     zone_name = get_zone_by_location(location_name,country,model=model)
     if zone_name is None:
-        return ("", {})
+        # LLM could not map this location to any AEZ zone at all — a
+        # stronger "no match" than "zone matched but not cached yet" below.
+        # Live FileX-generation fallback only (see _cul_fallback_cultivar_entry
+        # docstring): pick a real, already-calibrated cultivar straight from
+        # the crop's .CUL file rather than leaving the run without a
+        # cultivar. Not cached in the AEZ database — there's no zone name to
+        # key it under.
+        print(
+            f"[get_cultivar_list_by_location] No AEZ zone match for location "
+            f"'{location_name}' ({country}/{crop_code}) — falling back to crop's .CUL file..."
+        )
+        zone_cultivars = _cul_fallback_cultivar_entry(
+            crop_code, model, f"no AEZ zone match for location '{location_name}'"
+        )
+        if not zone_cultivars:
+            return ("", {})
+
+        return ("No AEZ Zone Match (.CUL fallback)", zone_cultivars)
 
     print(f"zone name fetched.....{zone_name}")
     # 2. Load AEZ database JSON
@@ -573,33 +674,29 @@ def get_cultivar_list_by_location(
     zones_dict = data.get("zones", {})
     if zone_name not in zones_dict:
         # No cultivar data cached yet for this zone (new country, or a zone
-        # not yet processed). Generate it on demand via the LLM — the same
-        # path CultivarAgent/generate_dataset.py use — and persist it to the
-        # AEZ database so future lookups for this zone are instant.
+        # not yet processed). This is the LIVE FileX-generation path (run via
+        # FieldAgent), NOT generate_dataset.py — so instead of spending an
+        # LLM call to invent new synthetic cultivar data, fall back to a
+        # real, already-calibrated cultivar straight from the crop's .CUL
+        # file. (generate_dataset.py is unaffected by this — it builds the
+        # AEZ database itself via LLM generation and never calls this
+        # function.)
         print(
             f"[get_cultivar_list_by_location] No cached cultivars for zone '{zone_name}' "
-            f"({country}/{crop_code}) — generating via LLM..."
+            f"({country}/{crop_code}) — falling back to crop's .CUL file..."
         )
-        from agents.cultivar_agent import CultivarAgent
-
-        crop_name = _CROP_CODE_TO_NAME.get(crop_code.upper(), crop_code)
-        agent_state = {
-            "country": country,
-            "crop_code": crop_code,
-            "crop_name_text": crop_name,
-            "zone_name": zone_name,
-            "generator_model": model,
-        }
-        try:
-            result_state = CultivarAgent.process(agent_state, verbose=False)
-        except Exception as e:
-            print(f"[get_cultivar_list_by_location] On-demand cultivar generation failed: {e}")
-            return ("", {})
-
-        zone_cultivars = result_state.get("cultivar_helper_output", {})
+        zone_cultivars = _cul_fallback_cultivar_entry(
+            crop_code, model, f"no cached AEZ data for zone '{zone_name}'"
+        )
         if not zone_cultivars:
-            print(f"[get_cultivar_list_by_location] LLM returned no cultivars for zone '{zone_name}'.")
             return ("", {})
+
+        _save_zone_to_aez_database(country, crop_code, zone_name, zone_cultivars)
+        print(
+            f"[get_cultivar_list_by_location] Saved .CUL fallback cultivar "
+            f"'{next(iter(zone_cultivars))}' for zone '{zone_name}' ({country}/{crop_code}) "
+            f"to AEZ database for future lookups."
+        )
 
         return (zone_name, zone_cultivars)
 

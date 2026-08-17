@@ -3,6 +3,7 @@
 *TREATMENTS                        -------------FACTOR LEVELS------------
 @N R O C TNAME.................... CU FL SA IC MP MI MF MR MC MT ME MH SM
  1 1 0 0 DSSATTools                 1  1  0  1  1  1  1  0  0  0  0  0  1
+ 2 1 0 0 DSSATTools                 1  1  0  1  1  1  2  0  0  0  0  0  1
 
 *CULTIVARS
 @C CR INGENO CNAME           
@@ -27,7 +28,7 @@
 
 *PLANTING DETAILS
 @P PDATE EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL                        PLNAME
- 1 10079   -99   5.3   5.3     S     R    75   -99   5.0   -99   -99   -99   -99   -99                           -99
+ 1 10079   -99   4.8   4.8     S     R    75     0   5.0   -99   -99   -99   -99   -99                           -99
 
 *IRRIGATION AND WATER MANAGEMENT
 @I  EFIR  IDEP  ITHR  IEPT  IOFF  IAME  IAMT IRNAME          
@@ -38,8 +39,9 @@
 *FERTILIZERS (INORGANIC)
 @F FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD FERNAME          
  1 10079 FE006 AP004     5  22.5  25.1   0.0   -99   -99   -99 Fertilizer_1    
- 1 10110 FE011 AP001     0  33.8   0.0   0.0   -99   -99   -99 Fertilizer_2    
- 1 10130 FE011 AP001     0  33.7   0.0   0.0   -99   -99   -99 Fertilizer_3    
+ 1 10107 FE011 AP003     0  67.5   0.0   0.0   -99   -99   -99 Fertilizer_2    
+ 2 10079 FE006 AP004     5  35.0  25.1   0.0   -99   -99   -99 Fertilizer_1    
+ 2 10107 FE011 AP003     0 105.0   0.0   0.0   -99   -99   -99 Fertilizer_2    
 
 *SIMULATION CONTROLS
 @N GENERAL     NYERS NREPS START SDATE RSEED SNAME.................... SMODEL
