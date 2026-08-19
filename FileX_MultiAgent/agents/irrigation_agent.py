@@ -297,7 +297,7 @@ class IrrigationAgent:
 
                 final_irrigation_obj = irrigation_obj
                 state["irrigation"] = irrigation_obj
-                state["irrig"] = "R"
+                state["irrig"] = "A"
 
                 state.setdefault("messages", []).append(
                     f"{agent_name}: Created Irrigation object with {len(events)} event(s); strategy='{strategy}'"
@@ -349,7 +349,7 @@ class IrrigationAgent:
         if final_irrigation_obj is None:
             # If strategy ended up rainfed, this is OK. Only mark error if judge never passed and not rainfed.
             # We rely on state["irrig"] to indicate final.
-            if state.get("irrig") != "R":
+            if state.get("irrig") != "A":
                 state.setdefault("errors", []).append(
                     f"{agent_name}: Final irrigation object is None after {attempts} attempt(s)"
                 )

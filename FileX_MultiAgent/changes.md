@@ -4,6 +4,58 @@ Every change made in this folder (code or data) is recorded here, most recent fi
 
 ---
 
+## 2026-08-19
+
+### Irrigation section: fix `MI` and `IRRIG` values
+
+Context: `*TREATMENTS` factor levels (`MI`, `SM`) and `*SIMULATION CONTROLS` →
+`MANAGEMENT` (`IRRIG`) weren't matching the intended two-scenario irrigation
+model (rainfed vs. automatic irrigation).
+
+Intended spec (confirmed with user before implementing):
+- `*TREATMENTS`: `MI = 0` and `SM = 1` for **both** rainfed and
+  automatic-irrigation scenarios, because neither scenario uses the
+  scheduled-irrigation-dates table that `MI` points to.
+- `*SIMULATION CONTROLS` → `MANAGEMENT` → `IRRIG`: `N` for rainfed, `A` for
+  automatic irrigation (DSSAT auto-schedules irrigation from the
+  `AUTOMATIC MANAGEMENT` → `IRRIGATION` thresholds, not from reported dates).
+
+Bug found: a generated file (`SESE2401.SNX`) showed `IRRIG=N` (correct,
+rainfed) but `MI=1` (should be `0`). Root cause: `create_filex()` in
+`DSSATTools/DSSATTools/filex.py` set `mi` to `1` whenever *any* `Irrigation`
+object was passed — and a placeholder `Irrigation` object (empty event
+table) is always constructed even for the rainfed case, so `MI` was
+incorrectly `1` in both scenarios. Separately, the pipeline had no
+`IRRIG=A` path at all — the non-rainfed branch set `IRRIG=R`
+("reported/scheduled dates" using LLM-generated irrigation event
+dates/amounts), not `IRRIG=A`.
+
+Changes made:
+1. `DSSATTools/DSSATTools/filex.py:1810` — `create_filex()`: `mi` is now
+   hardcoded to `0` always (was `1 if irrigation else 0`), matching `sm`
+   which is already always `1`.
+2. `agents/irrigation_agent.py:300` — non-rainfed success path now sets
+   `state["irrig"] = "A"` (was `"R"`), so `*SIMULATION CONTROLS` writes
+   `IRRIG=A` for the irrigated/automatic scenario. Updated the post-loop
+   failure-check comparison at line 352 (`state.get("irrig") != "R"`) to
+   `!= "A"` to match.
+3. `agents/simulation_control_agent.py` — no change needed; it already
+   passes `state["irrig"]` straight through to `SCManagement.irrig`.
+4. `cache.json` — updated one stale pre-fix entry (key
+   `Input_config_test1_RI_26.05274_87.26569`, rice/irrigated) from
+   `"irrig": "R"` to `"irrig": "A"` so a partial/cached rerun hitting that
+   key doesn't resurrect the old flag.
+
+Verified: previously built a `Treatment` object directly with `mi=0` and
+confirmed the written `*TREATMENTS` row showed `MI=0` (see prior
+verification in `../changes.md` at the project root). Confirmed no other
+code in this folder references the old `"R"` irrigation flag (the only
+other `"R"` hits are an unrelated `plant` default and the `irrig` field's
+valid-codes list `["A","D","F","N","P","R","W"]` in
+`DSSATTools/DSSATTools/base/partypes.py` — not part of this bug).
+
+---
+
 ## 2026-08-17
 
 ### Code — `utils/helpers.py`

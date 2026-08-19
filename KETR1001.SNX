@@ -2,8 +2,8 @@
 
 *TREATMENTS                        -------------FACTOR LEVELS------------
 @N R O C TNAME.................... CU FL SA IC MP MI MF MR MC MT ME MH SM
- 1 1 0 0 DSSATTools                 1  1  0  1  1  1  1  0  0  0  0  0  1
- 2 1 0 0 DSSATTools                 1  1  0  1  1  1  2  0  0  0  0  0  1
+ 1 1 0 0 DSSATTools                 1  1  0  1  1  0  1  0  0  0  0  0  1
+ 2 1 0 0 DSSATTools                 1  1  0  1  1  0  2  0  0  0  0  0  1
 
 *CULTIVARS
 @C CR INGENO CNAME           
@@ -17,7 +17,7 @@
 
 *INITIAL CONDITIONS
 @C   PCR ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID ICNAME                   
- 1    MZ 10079   100   -99     1     1   -99  1000  0.50   -99   100     5 Initial                  
+ 1    MZ 10084   100   -99     1     1   -99  1000  0.50   -99   100     5 Initial                  
 @C  ICBL  SH2O  SNH4  SNO3 
  1     5 0.250   1.0   5.0
  1    15 0.250   1.0   5.0
@@ -28,7 +28,7 @@
 
 *PLANTING DETAILS
 @P PDATE EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL                        PLNAME
- 1 10079   -99   4.8   4.8     S     R    75     0   5.0   -99   -99   -99   -99   -99                           -99
+ 1 10084   -99   4.4   4.4     S     R    75     0   5.0   -99   -99   -99   -99   -99                           -99
 
 *IRRIGATION AND WATER MANAGEMENT
 @I  EFIR  IDEP  ITHR  IEPT  IOFF  IAME  IAMT IRNAME          
@@ -38,10 +38,10 @@
 
 *FERTILIZERS (INORGANIC)
 @F FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD FERNAME          
- 1 10079 FE006 AP004     5  22.5  25.1   0.0   -99   -99   -99 Fertilizer_1    
- 1 10107 FE011 AP003     0  67.5   0.0   0.0   -99   -99   -99 Fertilizer_2    
- 2 10079 FE006 AP004     5  35.0  25.1   0.0   -99   -99   -99 Fertilizer_1    
- 2 10107 FE011 AP003     0 105.0   0.0   0.0   -99   -99   -99 Fertilizer_2    
+ 1 10084 FE006 AP004     5  22.5  25.1   0.0   -99   -99   -99 Fertilizer_1    
+ 1 10112 FE011 AP001     0  67.5   0.0   0.0   -99   -99   -99 Fertilizer_2    
+ 2 10084 FE006 AP004     5  35.0  25.1   0.0   -99   -99   -99 Fertilizer_1    
+ 2 10112 FE011 AP001     0 105.0   0.0   0.0   -99   -99   -99 Fertilizer_2    
 
 *SIMULATION CONTROLS
 @N GENERAL     NYERS NREPS START SDATE RSEED SNAME.................... SMODEL
@@ -57,7 +57,7 @@
 
 @  AUTOMATIC MANAGEMENT
 @N PLANTING    PFRST PLAST PH2OL PH2OU PH2OD PSTMX PSTMN
- 1 PL          10079 10079    40   100    30    40    10
+ 1 PL          10084 10084    40   100    30    40    10
 @N IRRIGATION  IMDEP ITHRL ITHRU IROFF IMETH IRAMT IREFF
  1 IR             30    70   100 GS000 IR001    10  1.00
 @N NITROGEN    NMDEP NMTHR NAMNT NCODE NAOFF
@@ -65,4 +65,4 @@
 @N RESIDUES    RIPCN RTIME RIDEP
  1 RE            100     1    20
 @N HARVEST     HFRST HLAST HPCNP HPCNR
- 1 HA              0 10079   100     0   -99   -99   -99   -99   -99   -99
+ 1 HA              0 10084   100     0   -99   -99   -99   -99   -99   -99
