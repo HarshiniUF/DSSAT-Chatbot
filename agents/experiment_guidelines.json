@@ -5,36 +5,36 @@
     "CNAME": "H614"
   },
   "planting_details": {
-    "PDATE": "2010-03-25",
-    "PPOP": 4.44,
+    "PDATE": "2010-03-20",
+    "PPOP": 5.3,
     "PLME": "S",
     "PLDS": "R",
     "PLRS": 75,
     "PLDP": 5.0,
     "PLRD": 0,
-    "assumptions_or_notes": "Assumes rainfed smallholder system in Kitale with main long-rains season planting (late March\u2013early April); H614 is a late-maturing hybrid suited to high rainfall/high altitude. Population derived from 0.75 m row spacing and ~0.30 m within-row spacing (1 plant/hill after thinning). Planting depth set for medium-sized seed in moist soils. Row orientation unknown; 0\u00b0 used as a standard default. Local practice and recommendations from Kenyan highland maize agronomy inform values."
+    "assumptions_or_notes": "Assumed rainfed smallholder conditions in Trans-Nzoia highlands with a single main long-rains maize season. H614 is a highland hybrid; typical extension guidance uses ~75 cm row spacing and ~25 cm in-row spacing, giving ~5.3 plants/m\u00b2 final stand. PDATE chosen as median of the common planting window after onset of long rains. Row direction set to 0 (N\u2013S) by default; actual fields may follow contours. Values represent typical practice rather than research-station optima."
   },
   "fertilizer_details": {
     "events": [
       {
-        "FDATE": "2010-03-25",
+        "FDATE": "2010-03-20",
         "FMCD": "FE006",
         "FACD": "AP004",
         "FDEP": 5.0,
-        "FAMN": 22.5,
-        "FAMP": 25.1,
+        "FAMN": 13.5,
+        "FAMP": 15.1,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Diammonium phosphate (DAP, 18-46-0) band-placed near seed at planting, ~5 cm depth. Representative local practice in Kitale uses DAP as basal P with some starter N. Product rate assumed 125 kg/ha \u2192 N = 125\u00d70.18 = 22.5 kg/ha; P2O5 = 125\u00d70.46 = 57.5 kg/ha; elemental P = 57.5\u00d70.4364 \u2248 25.1 kg/ha. No K added. Placement approximates band/spot in furrow common for smallholder/medium farms."
+        "Assumptions_or_Notes": "Basal DAP (diammonium phosphate) 18-46-0 placed as a band/spot near the seed at planting, ~5 cm to the side and below the seed row; typical of smallholders in Trans Nzoia. Implied product rate: 75 kg/ha, giving 13.5 kg N/ha and 15.1 kg P/ha (P calculated as P2O5\u00d70.4364; 0.46\u00d70.4364=0.200744; 75\u00d70.200744\u224815.1). No K commonly applied at planting in this system."
       },
       {
-        "FDATE": "2010-04-22",
-        "FMCD": "FE011",
+        "FDATE": "2010-04-19",
+        "FMCD": "FE005",
         "FACD": "AP001",
         "FDEP": 0.0,
-        "FAMN": 67.5,
+        "FAMN": 76.5,
         "FAMP": 0.0,
         "FAMK": 0.0,
-        "Assumptions_or_Notes": "Calcium ammonium nitrate (CAN, ~26% N) topdressed by hand broadcast at ~V6 (first weeding), a common practice in Trans-Nzoia. N set to 67.5 kg/ha so that seasonal N totals exactly 90 kg/ha. Implied product \u2248 67.5/0.26 \u2248 260 kg/ha. Often broadcast between rows; sometimes lightly incorporated by weeding. No P or K applied in this topdress."
+        "Assumptions_or_Notes": "Topdress urea 46-0-0 broadcast around plants during first weeding (~30 DAP), left on the surface to be washed in by rainfall; a common practice (some farmers alternatively use CAN). Implied product rate: 166.3 kg/ha (76.5/0.46), supplying 76.5 kg N/ha; no P or K supplied. Total N across events is exactly 90.0 kg N/ha (13.5 basal + 76.5 topdress)."
       }
     ],
     "total_n": 90.0
@@ -70,8 +70,8 @@
   },
   "automatic_management": {
     "PLANTING": {
-      "PFRST": "2010-03-25",
-      "PLAST": "2010-03-25"
+      "PFRST": "2010-03-20",
+      "PLAST": "2010-03-20"
     }
   }
 }

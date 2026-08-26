@@ -53,9 +53,25 @@ def _sequence_from_treatment_id(treatment_id: str, fallback: int) -> int:
     return int(digits) if digits else fallback
 
 
-def _resolve_location() -> Dict[str, Any]:
-    """Every generated experiment uses this one fixed location, regardless of
-    what region (if any) the user's question mentions."""
+def _resolve_location(intent: Dict[str, Any]) -> Dict[str, Any]:
+    """Use the location the user's question actually specified, falling back
+    to the fixed workflow_inputs.json default only when the question didn't
+    mention one at all.
+
+    - lat/lon explicitly given -> use them directly (pinned, no geocoding).
+    - only a place name given -> pass just "place"; FileX_MultiAgent's own
+      main.py (build_initial_state) already calls geo_coordinates_search()
+      to geocode it whenever Latitude/Longitude aren't pinned in the config,
+      so no geocoding call is needed here.
+    - neither given -> the fixed DEFAULT_LATITUDE/LONGITUDE/LOCATION_NAME."""
+    lat = intent.get("latitude")
+    lon = intent.get("longitude")
+    place = intent.get("region")
+
+    if lat is not None and lon is not None:
+        return {"Latitude": float(lat), "Longitude": float(lon), "place": place or DEFAULT_LOCATION_NAME}
+    if place:
+        return {"place": place}
     return {
         "Latitude": DEFAULT_LATITUDE,
         "Longitude": DEFAULT_LONGITUDE,
@@ -71,20 +87,22 @@ def _build_filex_config(
 ) -> Dict[str, Any]:
     """Translate the chatbot's classified intent (+ a specific treatment's
     nitrogen rate) into the config schema FileX_MultiAgent's pipeline expects.
-    Crop and season year are pinned from workflow_inputs.json (DEFAULT_CROP_NAME /
-    DEFAULT_SEASON_YEAR) -- same as location -- regardless of what intent
-    extracted from the question; intent["crop"] is still used for narrative only.
+    Crop, season year, and location use whatever the user's question actually
+    specified (intent["crop"] / intent["season_year"] / intent["region"] /
+    intent["latitude"] / intent["longitude"]), falling back to
+    workflow_inputs.json's DEFAULT_* values only for whichever of those the
+    question didn't mention.
 
     If `guidelines` is given (the snapshot captured from this run's treatment 1
     / s01), the field/cultivar/planting/irrigation sections are locked to those
     exact values -- FileX_MultiAgent's FieldAgent/PlantingAgent/IrrigationAgent
     each skip their LLM step when these are present, so only fertilizer varies
     across treatments."""
-    crop_code = _crop_code_from_name(DEFAULT_CROP_NAME)
-    year = DEFAULT_SEASON_YEAR
+    crop_code = _crop_code_from_name(intent.get("crop") or DEFAULT_CROP_NAME)
+    year = int(intent.get("season_year") or DEFAULT_SEASON_YEAR)
 
     config: Dict[str, Any] = {
-        "Location": _resolve_location(),
+        "Location": _resolve_location(intent),
         "Year": {"start_year": year},
         "crop_growing_season": str(year),
         "weather": {
@@ -295,7 +313,7 @@ def _legacy_multiagent_xfile_node_per_treatment_files(state: Dict) -> Dict:
         # classified crop/region.
         treatments = [{"id": "s01", "modifications": {}}]
 
-    crop_code = _crop_code_from_name(DEFAULT_CROP_NAME)
+    crop_code = _crop_code_from_name(intent.get("crop") or DEFAULT_CROP_NAME)
     run_date = date.today().isoformat()
 
     generated_files = []

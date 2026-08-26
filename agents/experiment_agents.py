@@ -95,7 +95,11 @@ Your task:
 2. For EACH strategy, extract ALL fertilizer applications with:
    - Timing (growth stage or days/weeks after planting)
    - Amount (kg of nitrogen)
-   
+3. Also extract, ONLY if explicitly named in the question (otherwise null --
+   do NOT guess or default): crop, region, latitude, longitude, season_year.
+   A real (non-null) value means the user asked about that specific
+   crop/location/year and it should override the project's default.
+
 GROWTH STAGE MAPPINGS (use these for conversion):
 - "at planting" / "basal" / "during planting" → 0 days after planting
 - "4 weeks" / "one month" → 28 days after planting  
@@ -110,8 +114,11 @@ EXAMPLES:
 Question: "100kg at knee-high OR 50kg at 4 weeks and 50kg at 8 weeks"
 Response:
 {{
-  "crop": "Maize",
-  "region": "Unknown",
+  "crop": null,
+  "region": null,
+  "latitude": null,
+  "longitude": null,
+  "season_year": null,
   "strategy_a": {{
     "description": "100kg at knee-high",
     "applications": [
@@ -133,8 +140,11 @@ Response:
 Question: "Single application of 120kg vs split into 60kg at V6 and 60kg at V10"
 Response:
 {{
-  "crop": "Maize",
-  "region": "Unknown",
+  "crop": null,
+  "region": null,
+  "latitude": null,
+  "longitude": null,
+  "season_year": null,
   "strategy_a": {{
     "description": "Single application of 120kg",
     "applications": [
@@ -186,8 +196,11 @@ Question: "{question}"
         
         if len(amounts) >= 2:
             intent = {
-                "crop": "Maize",
-                "region": "Unknown",
+                "crop": None,
+                "region": None,
+                "latitude": None,
+                "longitude": None,
+                "season_year": None,
                 "strategy_a": {
                     "description": f"{amounts[0]}kg single application",
                     "applications": [{
@@ -219,8 +232,11 @@ Question: "{question}"
         else:
             # Ultimate fallback
             intent = {
-                "crop": "Maize",
-                "region": "Unknown",
+                "crop": None,
+                "region": None,
+                "latitude": None,
+                "longitude": None,
+                "season_year": None,
                 "strategy_a": {
                     "description": "100kg single application",
                     "applications": [{
@@ -264,8 +280,10 @@ Question: "{question}"
                 "fertilizer_strategy": "comparison_b"
             }
         ],
-        "crop": intent.get("crop", "Maize"),
-        "region": intent.get("region", "Unknown"),
+        # "or" (not .get(key, default)) -- intent[key] is explicitly None,
+        # not missing, when the question didn't name a crop/region.
+        "crop": intent.get("crop") or "Maize",
+        "region": intent.get("region") or "Unknown",
         "question_type": "fertilizer_comparison"
     }
     
@@ -347,11 +365,24 @@ CLASSIFY THIS QUESTION and extract:
         * "Compare 60, 90, 120 kg N/ha" → rate
         * "What if I add 50 kg N" → rate
    
-2. crop: What crop? Default to "Maize" if not specified
-   
-3. region: What region? Default to "Trans Nzoia" if not specified
+2. crop: What crop is explicitly named in the question? If no crop is named,
+   return null -- do NOT guess or default to "Maize". A real value here means
+   the user asked about that specific crop and it should override any
+   project-level default.
 
-4. baseline_nitrogen_rate: What is the BASELINE nitrogen rate the farmer is currently using or asking about?
+3. region: What region/location is explicitly named in the question? If no
+   region is named, return null -- do NOT guess or default. A real value
+   here means the user asked about that specific place and it should
+   override any project-level default.
+
+4. latitude / longitude: If explicit numeric coordinates are given in the
+   question (rare), extract them as numbers. Otherwise null.
+
+5. season_year: If a specific year or season is named in the question (e.g.
+   "for the 2023 season", "in 2024"), extract it as a 4-digit integer.
+   Otherwise null.
+
+6. baseline_nitrogen_rate: What is the BASELINE nitrogen rate the farmer is currently using or asking about?
    - Look for specific numbers in the question (e.g., "50 kg N", "standard practice", "current rate")
    - If no explicit rate mentioned, infer from context:
      * For Sub-Saharan Africa: commonly 0-90 kg N/ha
@@ -360,7 +391,7 @@ CLASSIFY THIS QUESTION and extract:
    - RETURN AS NUMBER (kg/ha), not a string
    - This will be TREATMENT 1 baseline
 
-5. proposed_increment: If user asks about "adding"/"increasing" OR "reducing"/"decreasing"/
+7. proposed_increment: If user asks about "adding"/"increasing" OR "reducing"/"decreasing"/
    "cutting" by some amount, extract it as a SIGNED number (kg/ha):
    - Increase/add → POSITIVE number. Example: "what if I add 50 kg N" → increment = 50
    - Reduce/decrease/cut/lower → NEGATIVE number. Example: "what if I reduce N by 10 kg"
@@ -372,10 +403,23 @@ EXAMPLES:
 
 User: "what if i increase nitrogen by 50 kg per hectare, how much additional yield we will get?"
 → focus_variable: "fertilizer_rate"
-→ crop: "Maize"
-→ region: "Trans Nzoia"
+→ crop: null  (not named in the question)
+→ region: null  (not named in the question)
+→ latitude: null
+→ longitude: null
+→ season_year: null
 → baseline_nitrogen_rate: 90  (assumed standard practice since not stated)
 → proposed_increment: 50
+
+User: "For rice near Kaolack, Senegal in the 2022 season, what if I increase nitrogen by 30 kg?"
+→ focus_variable: "fertilizer_rate"
+→ crop: "Rice"  (explicitly named -- overrides any project default)
+→ region: "Kaolack, Senegal"  (explicitly named -- overrides any project default)
+→ latitude: null
+→ longitude: null
+→ season_year: 2022  (explicitly named -- overrides any project default)
+→ baseline_nitrogen_rate: 90  (assumed standard practice since not stated)
+→ proposed_increment: 30
 
 User: "how much yield if i reduce 10 kg N?"
 → focus_variable: "fertilizer_rate"
@@ -414,8 +458,11 @@ User: "Increase N by 50% at topdress"
 Respond ONLY with valid JSON (no markdown, no explanation):
 {{
     "focus_variable": "...",
-    "crop": "...",
-    "region": "...",
+    "crop": <string or null>,
+    "region": <string or null>,
+    "latitude": <number or null>,
+    "longitude": <number or null>,
+    "season_year": <integer or null>,
     "baseline_nitrogen_rate": <number>,
     "proposed_increment": <number or null>,
     "question_type": "..."
@@ -426,11 +473,16 @@ Respond ONLY with valid JSON (no markdown, no explanation):
         result = llm.invoke(classify_prompt.format_messages(question=question))
         intent = json.loads(result.content.strip())
     except json.JSONDecodeError:
-        # Fallback to safe defaults
+        # Fallback to safe defaults -- crop/region/lat/lon/season_year stay
+        # null (not guessed) so a parse failure is never mistaken downstream
+        # for a real user-specified override of the project defaults.
         intent = {
             "focus_variable": "fertilizer_rate",
-            "crop": "Maize",
-            "region": "Trans Nzoia",
+            "crop": None,
+            "region": None,
+            "latitude": None,
+            "longitude": None,
+            "season_year": None,
             "baseline_nitrogen_rate": 90,  # Safe default
             "proposed_increment": None,
             "question_type": "comparison"
@@ -500,8 +552,10 @@ Respond ONLY with valid JSON (no markdown, no explanation):
         "question_type": intent.get("question_type", "comparison"),
         "intent_brief": intent,
         "extracted_entities": {
-            "crop": intent.get("crop", "Maize"),
-            "region": intent.get("region", "Trans Nzoia"),
+            # "or" (not .get(key, default)) because intent[key] is explicitly
+            # None -- not missing -- when the question didn't mention it.
+            "crop": intent.get("crop") or "Maize",
+            "region": intent.get("region") or "Trans Nzoia",
             "focus_variable": intent.get("focus_variable", "fertilizer_rate"),
             "baseline_nitrogen_rate": intent.get("baseline_nitrogen_rate", 90),
             "proposed_increment": intent.get("proposed_increment")
@@ -526,8 +580,8 @@ def a1_designer(state: Dict) -> Dict:
     intent = state.get("intent_brief", {})
     baseline_rate = intent.get("baseline_nitrogen_rate", 90)
     focus_var = intent.get("focus_variable", "fertilizer_rate")
-    crop = intent.get("crop", "Maize")
-    region = intent.get("region", "Trans Nzoia")
+    crop = intent.get("crop") or "Maize"
+    region = intent.get("region") or "Trans Nzoia"
     proposed_increment = intent.get("proposed_increment")
     iteration_count = state.get("iteration_count", 0) + 1
     

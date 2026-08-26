@@ -4,6 +4,51 @@ Every change made in this folder (code or data) is recorded here, most recent fi
 
 ---
 
+## 2026-08-26
+
+### Note: change actually made in `../agents/filex_treatment_combiner.py` (project root, outside this folder)
+
+Context: user asked to differentiate the `*TREATMENTS` `TNAME` column between
+the two rows of a combined FileX (currently both say `DSSATTools`, e.g. in
+`KETR1001.SNX`). Investigated where that value comes from:
+
+- `DSSATTools/DSSATTools/filex.py:1806` (inside this folder) hardcodes
+  `"tname": "DSSATTools"` for the single treatment row `create_filex()`
+  produces — this is unchanged, since it's just the generic single-treatment
+  builder and not the source of the two-row duplication.
+- The actual two-row `*TREATMENTS` table (rows `1` and `2` differing by
+  `MF`/`MP`/`MI`) is produced by `dssat_project/agents/filex_treatment_combiner.py`
+  (project root, **not** inside `FileX_MultiAgent/`), which merges a base
+  single-treatment FileX with a variant one. Its `_add_treatment_row()`
+  previously copied row 1's `TNAME` verbatim for row 2, so both ended up
+  `"DSSATTools"`.
+
+Changed `_add_treatment_row()` in that file so row 1's `TNAME` is set to
+`DSSATBaseline` and the appended row 2's `TNAME` is set to `DSSATTreatments`.
+Also added a `left_justify` option to `_replace_row_field()` (used for
+`TNAME`, since DSSATTools left-justifies name/description fields per
+`pars_fmt` `".<25"`, unlike the right-justified numeric columns the function
+already handled) so the replacement stays aligned with DSSAT's fixed-width
+convention. Verified against a sample `*TREATMENTS` block matching the
+user's `KETR1001.SNX` — output columns stay aligned with `DSSATBaseline` /
+`DSSATTreatments` in place of the old duplicate `DSSATTools` values.
+
+Logged here per standing instruction even though the edited file lives
+outside `FileX_MultiAgent/`, since it's the code that shapes this folder's
+generated FileX output.
+
+---
+
+## 2026-08-26 (follow-up)
+
+### `../agents/filex_treatment_combiner.py` — rename `DSSATTreatments` → `DSSATTreatment`
+
+User asked for the singular form. Changed the row-2 `TNAME` value in
+`_add_treatment_row()` from `DSSATTreatments` to `DSSATTreatment` (row 1
+stays `DSSATBaseline`, unchanged).
+
+---
+
 ## 2026-08-19
 
 ### Irrigation section: fix `MI` and `IRRIG` values

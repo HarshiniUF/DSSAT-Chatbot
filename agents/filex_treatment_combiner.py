@@ -118,26 +118,41 @@ def _read_row_field(header_line: str, data_line: str, field_name: str) -> str:
     return data_line[start:end].strip() if start < len(data_line) else ""
 
 
-def _replace_row_field(header_line: str, data_line: str, field_name: str, new_value: str) -> str:
+def _replace_row_field(header_line: str, data_line: str, field_name: str, new_value: str,
+                        *, left_justify: bool = False) -> str:
     """Replace one column's value in a fixed-width DSSAT row, so column
-    alignment (and every other field on the row) is left exactly as-is."""
+    alignment (and every other field on the row) is left exactly as-is.
+
+    DSSATTools right-justifies numeric fields but left-justifies name/
+    description fields (e.g. TNAME uses pars_fmt ".<25") -- pass
+    left_justify=True for those so the replacement matches that convention."""
     field = _find_field(header_line, field_name)
     start, width = field["start"], field["width"]
     end = start + width
     padded = list(data_line.ljust(max(len(data_line), end)))
-    padded[start:end] = list(new_value.rjust(width)[-width:])
+    if left_justify:
+        value_slice = new_value.ljust(width)[:width]
+    else:
+        value_slice = new_value.rjust(width)[-width:]
+    padded[start:end] = list(value_slice)
     return "".join(padded)
 
 
 def _add_treatment_row(base_blocks: List[List[str]], treatment_col: str) -> None:
-    """Append treatment 2's row to *TREATMENTS in-place: a copy of row 1 with
-    @N -> 2 and only the mapped factor-level column (MF/MP/MI) bumped to 2."""
+    """Rename treatment 1 to DSSATBaseline and append treatment 2
+    (DSSATTreatment) to *TREATMENTS in-place: a copy of row 1 with @N -> 2
+    and only the mapped factor-level column (MF/MP/MI) bumped to 2."""
     t_body = base_blocks[_find_block(base_blocks, "*TREATMENTS")]
     t_group = _subtables(t_body)[0]
     header_line = t_body[t_group["header_idx"]]
-    row1_line = t_body[t_group["data_idxs"][0]]
+    row1_idx = t_group["data_idxs"][0]
+    row1_line = _replace_row_field(header_line, t_body[row1_idx], "TNAME", "DSSATBaseline",
+                                    left_justify=True)
+    t_body[row1_idx] = row1_line
     row2_line = _replace_row_field(header_line, row1_line, "N", "2")
     row2_line = _replace_row_field(header_line, row2_line, treatment_col, "2")
+    row2_line = _replace_row_field(header_line, row2_line, "TNAME", "DSSATTreatment",
+                                    left_justify=True)
     insert_at = t_group["data_idxs"][-1] + 1
     t_body[insert_at:insert_at] = [row2_line]
 
